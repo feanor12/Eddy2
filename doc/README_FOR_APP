@@ -27,7 +27,7 @@ Authentication:
 LinkCollection
 	TopLevel:Lectures 
 		SubLevel:Downloads (container for mirrors)
-			SubSubLevel:Links (akt as mirrors)
+			SubSubLevel:Links (act as mirrors)
 
 
 Possible Future Features:
