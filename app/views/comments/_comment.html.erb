@@ -1,0 +1,13 @@
+<div class="comment">
+  <%=content_tag(:div,comment.user.email,:class=>"comment_user")%>
+  <%if permitted_to? :destroy,comment%>
+    <div class="comment_nav">
+      <%=link_to("Delete",post_comment_path(comment.post,comment),:method=>:delete)%>
+    </div>
+  <%end%>
+
+  <div class="clear"></div>
+  <%=content_tag(:div,simple_format(comment.body),:class=>"comment_content")%>
+  <div class="clear"></div>
+</div>
+

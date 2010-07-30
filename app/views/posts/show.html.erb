@@ -1,0 +1,15 @@
+<%title("View Post")%>
+
+<%=render :partial=>@post%>
+
+<h3><%=pluralize @post.comments.length, "Comment"%></h3>
+
+<%=render :partial=>"comments/comment.html", :collection=>@post.comments%>
+
+<%if permitted_to?(:create,@comment)%>
+  <%=form_for [@post,@comment] do |c| %>
+    <%=c.label "Text"%><br/>
+    <%=c.text_area :body%><br/>
+    <%=c.submit %>
+  <%end%>
+<%end%>

@@ -1,0 +1,5 @@
+<%@users.each do |u|%>
+  Email: <%= u.email %> 
+  <%=link_to "Delete",user_path(u) ,  :method=>'delete'%>
+  <br/>
+<%end%>

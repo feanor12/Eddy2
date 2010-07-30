@@ -1,0 +1,14 @@
+<%title(@lecture.name)%>
+<%subnav do%>
+  <%=link_to "New", new_lecture_download_path(@lecture)%>
+<%end%>
+
+
+<%@downloads.each do |d|%>
+  <%=link_to d.name, lecture_download_path(@lecture,d)%>
+  <%=link_to("Download", d.links.find(:first).url) unless d.links.empty?%>
+
+  <%=link_to("Delete", lecture_download_path(@lecture,d),:method=>:delete) if permitted_to?(:destroy,d)%>
+  <br/>
+<%end%>
+<br/>

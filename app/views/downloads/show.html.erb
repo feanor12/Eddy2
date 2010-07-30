@@ -1,0 +1,9 @@
+<%title(@download.name)%>
+
+<h2>Description</h2>
+<%=simple_format(@download.description)%>
+
+<h2>Links</h2>
+<%=render :partial=>@download.links%>
+
+<%=render :partial=>'links/form'%>

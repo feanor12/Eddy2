@@ -1,0 +1,10 @@
+<h2><%=link_to post.title, post%></h2>
+
+<%= raw (post.body) if post.user.admin?%>
+<%= simple_format(post.body) unless post.user.admin?%>
+
+<div class="postnav">
+  <%= link_to('Edit', edit_post_path(post)) if permitted_to?(:update,post)%>
+  <%= link_to('Destroy', post, :confirm => 'Are you sure?', :method => :delete) if permitted_to?(:destroy,post)%>
+</div>
+

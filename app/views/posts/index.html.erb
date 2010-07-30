@@ -1,0 +1,11 @@
+<%title("Posts")%>
+
+<%subnav do%>
+  <%if permitted_to? :create, :posts%>  
+    <%= link_to 'New', new_post_path %>
+  <%end%>
+<%end%>
+
+<%=render :partial=>@posts%>
+
+<%= will_paginate @posts %>

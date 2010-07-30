@@ -1,0 +1,17 @@
+<%title("Lectures")%>
+<%subnav do%>
+  <%if permitted_to? :create, :lectures%>
+    <%=link_to "New", new_lecture_path%>
+  <%end%>
+<%end%>
+
+<%@lectures.each do |l|%>
+  <div>
+    <%=link_to l.name, lecture_path(l)%> 
+    DL:<%=l.downloads.length%>
+    <div style="float:right;">
+      <%=link_to("Delete", lecture_path(l),:method=>:delete) if permitted_to?(:destroy,l)%>
+    </div>
+    <div style="clear:both;"></div>
+  </div>
+<%end%>
