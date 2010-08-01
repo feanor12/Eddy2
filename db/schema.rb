@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100730122352) do
+ActiveRecord::Schema.define(:version => 20100801123536) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(:version => 20100730122352) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "download_id"
+  end
+
+  create_table "mylinks", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", :force => true do |t|

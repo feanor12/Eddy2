@@ -1,0 +1,11 @@
+<%title "Mylinks"%>
+<%subnav do%>
+  <%=link_to "New", new_mylink_path%>
+<%end%>
+<%@mylinks.each do |link|%>
+  <p>
+  <%=link_to(link.name, link.url)%>
+  <%=link_to "Edit", edit_mylink_path(link)%>
+  <%=link_to "Delete", mylink_path(link), :method=>:delete, :confirm=>'Sicher?'%>
+  </p>
+<%end%>

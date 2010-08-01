@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :posts
   has_many :lectures
+  has_many :mylinks
 
   def activate!
     self.active = true

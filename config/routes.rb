@@ -14,6 +14,7 @@ Eddy2::Application.routes.draw do |map|
   resource :user_session
   
   resources :users
+  resources :mylinks
   
   root :to=>"posts#index"
   

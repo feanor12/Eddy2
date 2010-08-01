@@ -1,0 +1,39 @@
+class MylinksController < ApplicationController
+  filter_resource_access
+  def create
+    @mylink = Mylink.new(params[:mylink])
+    @mylink.user = current_user
+    if @mylink.save
+      redirect_to mylinks_path
+    else
+      render :action => 'new'
+    end
+  end
+  
+  def edit
+    @mylink=Mylink.find(params[:id])
+  end
+
+  def update
+    @mylink = Mylink.find(params[:id])
+    if @mylink.update_attributes(params[:mylink])
+      redirect_to mylinks_path
+    else
+      render :action=>:edit
+    end
+  end
+
+  def destroy
+    @mylink = Mylink.find(params[:id])
+    @mylink.destroy
+    redirect_to mylinks_path
+  end
+
+  def index
+    @mylinks=Mylink.all
+  end
+
+  def new
+    @mylink = Mylink.new
+  end
+end
