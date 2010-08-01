@@ -7,6 +7,7 @@ authorization do
     has_permission_on :downloads, :to=>[:manage]
     has_permission_on :mylinks, :to=>[:manage]
   end
+
   role :user do
     has_permission_on :users, :to=>[:update] do
       if_attribute :id => is {user.id}
@@ -20,6 +21,12 @@ authorization do
     has_permission_on :lectures, :to=>[:read,:create]
     has_permission_on :lectures, :to=>[:update,:destroy] do
       if_attribute :user => is { user }
+    end
+
+
+    has_permission_on :mylinks, :to=>[:create] 
+    has_permission_on :mylinks, :to=>[:update,:read,:destroy] do
+      if_attribute :user => is {user}
     end
 
     has_permission_on :downloads, :to=>[:read]

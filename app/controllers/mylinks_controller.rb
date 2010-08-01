@@ -30,7 +30,7 @@ class MylinksController < ApplicationController
   end
 
   def index
-    @mylinks=Mylink.all
+    @mylinks=current_user.mylinks
   end
 
   def new

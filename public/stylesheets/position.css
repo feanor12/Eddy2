@@ -89,3 +89,7 @@ body {
   color: #333;
   background-image:url("../images/back.png");
 }
+
+#home_right {
+  float:right;
+}

@@ -1,0 +1,23 @@
+<div id="home_right">
+<div id="home_mylinks">
+  <h2>Mylinks</h2>
+  <%if @mylinks.nil?%>
+    <p>No Links</p>
+  <%else%>
+    <%@mylinks.each do |link|%>
+      <%=link_to link.name, link.url%><br/>
+    <%end%>
+  <%end%>
+</div>
+
+<div id="home_downloads">
+  <h2>Last Downloads</h2>
+  <%@downloads.each do |dl|%>
+    <%=link_to dl.name,lecture_download_path(dl.lecture,dl)%><br/>
+  <%end%>
+</div>
+</div>
+<div id="home_posts">
+  <h2>Posts</h2>
+  <%=render :partial=>'posts/post', :collection=>@posts%>
+</div>

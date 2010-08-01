@@ -1,6 +1,7 @@
 Eddy2::Application.routes.draw do |map|
   match '/activate/:activation_code' => 'activations#create', :as=>'activate'
-  
+  match '/home/:user_id' => 'home#show', :as=>'home'
+
   resources :lectures do
     resources :downloads do
       resources :links
