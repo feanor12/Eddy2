@@ -1,5 +1,4 @@
 class ActivationsController < ApplicationController
-filter_resource_access
   def create
     @user = User.find_using_perishable_token(params[:activation_code], 1.week) || (raise Exception)
     raise Exception if @user.active?
