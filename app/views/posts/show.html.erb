@@ -2,7 +2,7 @@
 
 <%=render :partial=>@post%>
 
-<h3><%=pluralize @post.comments.length, "Comment"%></h3>
+<h3 id="comment-count"><%=pluralize @post.comments.length, "Comment"%></h3>
 
 <%=render :partial=>"comments/comment.html", :collection=>@post.comments%>
 

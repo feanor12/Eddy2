@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-filter_resource_access
+  filter_resource_access
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(params[:comment])
@@ -15,6 +15,11 @@ filter_resource_access
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to post_path(params[:post_id])
+    @post = Post.find(params[:post_id])
+    respond_to do |format|
+      format.html{ redirect_to post_path(params[:post_id])}
+      format.js{render :action=>'destroy.js.erb'}
+    end
+
   end
 end
