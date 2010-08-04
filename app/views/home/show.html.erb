@@ -1,23 +1,34 @@
 <div id="home_right">
-<div id="home_mylinks">
-  <h2>Mylinks</h2>
-  <%if @mylinks.nil?%>
-    <p>No Links</p>
-  <%else%>
-    <%@mylinks.each do |link|%>
-      <%=link_to link.name, link.url%><br/>
-    <%end%>
-  <%end%>
-</div>
 
-<div id="home_downloads">
-  <h2>Last Downloads</h2>
-  <%@downloads.each do |dl|%>
-    <%=link_to dl.name,lecture_download_path(dl.lecture,dl)%><br/>
-  <%end%>
+  <div id="home_mylinks">
+    <h2> Mylinks <%=link_to("New",new_mylink_path)%></h2>
+    <%if @mylinks.nil?%>
+      <p>No Links</p>
+    <%else%>
+      <%@mylinks.each do |link|%>
+        <div id="mylink<%=link.id%>">
+          <%=link_to link.name, link.url%>
+          <%=link_to("Destroy",mylink_path(link),:method=>:delete,:remote=>true,:confirm=>"Sicher?")%>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+
+  <div id="home_downloads">
+    <h2>Last Downloads</h2>
+    <%@downloads.each do |dl|%>
+      <%next if dl.links.empty?%>
+      <%=link_to dl.name,dl.links.find(:first).url%><br/>
+    <%end%>
+  </div>
+
+  <div id="clear"></div>
 </div>
-</div>
+  <div id="clear"></div>
+
 <div id="home_posts">
-  <h2>Posts</h2>
+  <h2>Posts <%=link_to("New",new_post_path)%></h2>
   <%=render :partial=>'posts/post', :collection=>@posts%>
+  <%=will_paginate(@posts)%>
+  <div id="clear"></div>
 </div>
