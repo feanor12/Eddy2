@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
   acts_as_authentic 
   validates_format_of :email, :with=> /.+@student\.tugraz\.at/
-  attr_accessible :username,:email, :password, :password_confirmation
+  validates_presence_of :login
+
+  attr_accessible :login,:username,:email,:password, :password_confirmation
+
+
   belongs_to :role
   has_many :comments
   has_many :posts

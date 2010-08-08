@@ -1,5 +1,5 @@
 <div class="comment" id="comment<%=comment.id%>">
-  <%=content_tag(:div,comment.user.email,:class=>"comment_user")%>
+  <%=content_tag(:div,comment.user.login,:class=>"comment_user")%>
   <%if permitted_to? :destroy,comment%>
     <div class="comment_nav">
       <%=link_to("Delete",post_comment_path(comment.post,comment),:method=>:delete,:remote=>true)%>

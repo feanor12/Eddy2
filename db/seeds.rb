@@ -10,7 +10,7 @@
     admin_role=Role.create(:name=>'admin')
     user_role=Role.create(:name=>'user')
 #User
-    admin=User.create(:email=>"admin@student.tugraz.at", :password=>'123456',:password_confirmation=>'123456')
+    admin=User.create(:email=>"admin@student.tugraz.at", :password=>'123456',:password_confirmation=>'123456',:login=>"admin")
     admin.role=admin_role
     admin.activate!
 #Lectures
