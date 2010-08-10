@@ -27,7 +27,7 @@ class MylinksController < ApplicationController
     @mylink = Mylink.find(params[:id])
     @mylink.destroy
     respond_to do |format|
-      format.html{redirect_to home_path}
+      format.html{redirect_to home_path(current_user)}
       format.js{render :action=>'destroy.js.erb'}
     end
   end

@@ -1,5 +1,19 @@
-<%@users.each do |u|%>
-  Email: <%= u.email %> 
-  <%=link_to "Delete",user_path(u) ,  :method=>'delete'%>
-  <br/>
+<table border="1px">
+  <tr>
+    <th>Email</th>
+    <th>Login</th>
+    <th>Active</th>
+    <th></th>
+  </tr>
+  <%@users.each do |u|%>
+  </tr>
+  <td><%=u.email%></td>
+  <td><%=u.login%></td>
+  <td><%=u.active?%></td>
+  <td>
+    <%=edit_link(u,edit_user_path(u))%>
+    <%=destroy_link(u,user_path(u))%>
+  </td>
+</tr>
 <%end%>
+</table>

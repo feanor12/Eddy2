@@ -1,13 +1,15 @@
 #main{
-  margin:auto;
-  width:47em;
-  background-color: #fff;
-  padding:1em;
-  -moz-border-radius:1em;
+  padding:0.2em;
+  margin:0;
+  background-color:#333333;
+}
+
+img {
+  border:0;
 }
 
 .comment {
-  -moz-border-radius:1em;
+
   background-color:#FFE47A;
   margin-top:1em;
 }
@@ -18,47 +20,54 @@
 
 .comment_nav{
   background-color:lightgrey;
-  -moz-border-radius:1em;
-  padding:0.2em 0.5em 0.2em 0.5em;
-  float:right;
-}
 
-#subnav {
-  background-color:#FFE47A;
-  -moz-border-radius:1em;
-  padding:0.5em;
+  padding:0.2em 0.5em 0.2em 0.5em;
   float:right;
 }
 
 .comment_user {
   float:left;
   padding:0.2em 0.5em 0.2em 0.5em;
-  -moz-border-radius:1em;
+
   background-color:#ffce00;
   margin-right:1em;
 }
 
+.inner_box {
+  background-color:#fff;
+  padding:0.5em;
+  margin-bottom:1em;
+}
+
 #content {
   padding:1em;
+  background-color:#fff6d2;
+}
+
+#content h2 {
+  margin:0;
+  background-color:#eee;
+  margin-bottom:0.2em;
+  border-bottom:0.1em solid #aaa;
+  padding:0.2em;
 }
 
 #head{
-  -moz-border-radius:1em;
-  background-image:url("../images/head.png");
-  width:47em;
-  height:10em;
+  background-color:#ffff22; 
 }
 
 #nav{
   padding:0.5em;
-  margin-top:1em;
-  background-color:#ffce00;
-  -moz-border-radius:1em;
+  background-color:#333333;
+  border-bottom: 0.2em solid #FFAA00;
+}
+
+#nav a:hover {
+  background-color:#333;
+  color:#fff;
 }
 
 #head h1 {
-  padding-top:2em;
-  padding-right:1em;
   margin:0;
   color:#888888;
   font-size:3em;
@@ -69,6 +78,9 @@
 #nav a{
   display:block;
   float:left;
+  color:#aaa;
+  text-decoration:none;
+  font-weight:bold;
   margin-right:1em;
 }
 
@@ -85,11 +97,57 @@
   clear:both;
 }
 body {
-  background-color: #aaaaff;
+  background-color: #aaa;
   color: #333;
-  background-image:url("../images/back.png");
 }
 
-#home_right {
+.sidebar {
+  float:left;
+  width:15em;
+}
+
+.with_sidebar{
+  margin-left:16em;
+}
+
+#home_posts {
+  margin-right:16em;
+}
+
+.action_tag{
+  display:block;
+  background-color:#444;
+  border-bottom:0.2em solid #aaa;
   float:right;
+  padding:0.5em;
+  font-size:0.5em;
+  color:#aaa;
+  text-decoration:none;
+  margin-left:0.2em;
+}
+
+.action_tag:hover {
+  background-color:#333;
+}
+
+.action_tag:visited {
+  color:#aaa;
+}
+
+.add_tag:hover {
+  border-bottom: 0.2em solid lightgreen;
+  color:lightgreen;
+}
+
+.del_tag:hover {
+  border-bottom: 0.2em solid red;
+  color:red;
+}
+
+.edit_tag:hover {
+  border-bottom: 0.2em solid yellow;
+  color:yellow;
+}
+
+.inner_content {
 }

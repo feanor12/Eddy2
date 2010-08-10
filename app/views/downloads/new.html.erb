@@ -1,8 +1,4 @@
 <%title("New Download")%>
-<h2>1. Daten archivieren(7z,rar,zip,..)</h2>
-<h2>2. Daten auf Filehost(Rapidshare,Mediafire,..) laden</h2>
-<h2>3. Download Pfad ins Feld Url eintragen</h2>
-<h2>4. Name und Beschreibung ausfüllen</h2>
 <%=form_for [@lecture,@download] do |f|%>
   <%=f.label :name%><br/>
   <%=f.text_field :name%><br/>

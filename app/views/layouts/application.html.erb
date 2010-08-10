@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title><%="Eddy2 - " + yield_for(:title,'Untitled')%></title>
+    <title>
+      <%="Eddy2 - " + yield_for(:title,'Untitled')%>
+    </title>
     <%= stylesheet_link_tag :all %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
   </head>
+
   <body>
     <div id="main">
-      <div id="head">
-        <h1><%=yield_for(:title,"Untitled")+" - "%>Eddy 2.0</h1>
-      </div>
-
       <%=render :partial=>'layouts/navbar'%>
-
       <div id="content">
-        <p id="notice"><%= notice %></p>
-        <%= yield %>
+        <%=content_tag(:div,yield(:sidebar),:class=>"sidebar")unless content_for(:sidebar).blank?%>
+        <div class="inner_box inner_content<%=" with_sidebar" unless content_for(:sidebar).blank? %>" >
+          <%= content_tag(:p,notice,:class=>"notice")unless notice.nil? %>
+          <%= yield %>
+        </div>
       </div>
     </div>
   </body>
+
 </html>

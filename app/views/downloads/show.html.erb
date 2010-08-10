@@ -1,9 +1,18 @@
 <%title(@download.name)%>
 
-<h2>Description</h2>
+<h2><%=@download.name%></h2>
+
+<h3>Description</h3>
 <%=simple_format(@download.description)%>
 
-<h2>Links</h2>
-<%=render :partial=>@download.links%>
+<h3>Mirrors</h3>
+<%if @download.links.blank?%>
+  No Links added
+<%else%>
+  <%=render :partial=>@download.links%>
+<%end%>
 
+<h3>Add a Mirror</h3>
+<p>Upload your File to a free Filehost(Mediafire,Rapidshare,..)</p>
+<p>Copy Download URL into to Field below</p>
 <%=render :partial=>'links/form'%>

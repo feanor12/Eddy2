@@ -24,6 +24,10 @@ filter_resource_access
     @downloads=@lecture.downloads
   end
 
+  def edit
+    @lecture=Lecture.find(params[:id])
+  end
+
   def destroy
     @lecture=Lecture.find(params[:id])
     @lecture.destroy
