@@ -5,12 +5,18 @@ class PostsController < ApplicationController
   def index
     @posts = Post.paginate(:page => params[:page], :order => 'created_at DESC')
     respond_with(@posts)
+    unless current_user
+      @user_session = UserSession.new
+    end
   end
 
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
     respond_with(@post,@comment)
+    unless current_user
+      @user_session = UserSession.new
+    end
   end
 
   def new
