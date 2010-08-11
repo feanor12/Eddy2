@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
-  acts_as_authentic 
+  acts_as_authentic do |config|
+    config.login_field = 'email'
+  end 
   validates_format_of :email, :with=> /.+@student\.tugraz\.at/
   validates_presence_of :login
+  validates_uniqueness_of :login, :email
 
   attr_accessible :login,:username,:email,:password, :password_confirmation
 
@@ -34,4 +37,5 @@ class User < ActiveRecord::Base
   def role_symbols
     [self.role.name.to_sym]
   end
+
 end

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:notice]="Error at creating User"
-      redirect_to new_user_path 
+      render :action=>'new' 
     end
   end
 

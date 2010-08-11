@@ -4,7 +4,7 @@ class MylinksController < ApplicationController
     @mylink = Mylink.new(params[:mylink])
     @mylink.user = current_user
     if @mylink.save
-      redirect_to home_path(current_user)
+      redirect_to posts_path
     else
       render :action => 'new'
     end
@@ -17,7 +17,7 @@ class MylinksController < ApplicationController
   def update
     @mylink = Mylink.find(params[:id])
     if @mylink.update_attributes(params[:mylink])
-      redirect_to home_path(current_user)
+      redirect_to posts_path
     else
       render :action=>:edit
     end
@@ -27,7 +27,7 @@ class MylinksController < ApplicationController
     @mylink = Mylink.find(params[:id])
     @mylink.destroy
     respond_to do |format|
-      format.html{redirect_to home_path(current_user)}
+      format.html{redirect_to posts_path}
       format.js{render :action=>'destroy.js.erb'}
     end
   end

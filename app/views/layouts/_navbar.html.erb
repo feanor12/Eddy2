@@ -5,9 +5,8 @@
     <%=link_to("Register",new_user_path) unless current_user%>
     <%=link_to("Login",new_user_session_path) unless current_user%> 
   </div>
-  <%=link_to("Home",home_path(current_user.id)) if current_user%>
+  <%=link_to("News",posts_path) if permitted_to?(:read,:posts)%>
   <%=link_to("Users",users_path) if permitted_to?(:manage,:users)%>
-  <%=link_to("Posts",posts_path) if permitted_to?(:read,:posts)%>
   <%=link_to("Lectures",lectures_path) if permitted_to?(:read,:lectures)%>
   <div class="clear"></div>
 </div>
