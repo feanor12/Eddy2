@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
       flash[:notice] = "Login successful!"
       redirect_to posts_path
     else
-      render :action => :new
+      redirect_to posts_path
     end
   end
   
