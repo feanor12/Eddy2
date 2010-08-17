@@ -12,12 +12,18 @@
   </div>
 
   <div id="home_downloads" class="inner_box">
-    <h2>Latest Stuff</h2>
+    <h2>Latest Links</h2>
     <%@downloads.each do |dl|%>
       <%next if dl.links.empty?%>
       <%=link_to dl.name,dl.links.find(:first).url%><br/>
     <%end%>
   </div>
 
+  <div class="inner_box">
+    <h2>Latest Announcements</h2>
+    <%@announcements.each do |a|%>
+      <%=link_to a.title,lecture_path(a.lecture)%><br/>
+    <%end%>
+  </div>
 
 </div>

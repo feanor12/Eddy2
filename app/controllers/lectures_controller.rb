@@ -22,6 +22,7 @@ filter_resource_access
   def show
     @lecture=Lecture.find(params[:id])
     @downloads=@lecture.downloads
+    @announcements = @lecture.announcements.paginate(:page=>params[:page],:per_page=>5)
   end
 
   def edit

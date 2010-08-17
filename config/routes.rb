@@ -5,6 +5,7 @@ Eddy2::Application.routes.draw do |map|
     resources :downloads do
       resources :links
     end
+    resources :announcements
   end
 
   resources :posts do

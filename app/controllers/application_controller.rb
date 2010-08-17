@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
     if current_user
       @mylinks = current_user.mylinks
       @downloads = Download.find(:all,:order=>'updated_at DESC',:limit=>5)
+      @announcements = Announcement.find(:all,:order=>'updated_at DESC',:limit=>5)
     end
   end
 

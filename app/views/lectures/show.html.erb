@@ -2,10 +2,21 @@
 
 <h2>
   <%=@lecture.name%>
-  <%= new_link("downloads",new_lecture_download_path(@lecture)) %>
 </h2>
+<h3>
+  Announcements
+  <%= new_link("downloads",new_lecture_announcement_path(@lecture)) %>
+</h3>
+<%@announcements.each do |a|%>
+  <b><%=a.title%></b><br/>
+  <%=simple_format(auto_link(a.body))%>
+<%end%>
+<%= will_paginate @announcements %>
 
-<h3>Downloads</h3>
+
+<h3>Downloads
+<%= new_link("downloads",new_lecture_download_path(@lecture)) %>
+</h3>
 <%@downloads.each do |d|%>
   <%=link_to d.name, lecture_download_path(@lecture,d)%>
   <%=link_to("Download", d.links.find(:first).url,:class=>"action_tag") unless d.links.empty?%>
