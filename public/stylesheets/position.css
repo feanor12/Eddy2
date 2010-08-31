@@ -1,11 +1,68 @@
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #ddd; }
+a:visited { color: #666; }
+a:hover { 
+  text-shadow:0 0 1em #fff;
+  color:#fff; 
+}
+
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
 #main{
-  padding:0.2em;
+  padding:0;
   margin:0;
-  background-color:#333333;
 }
 
 img {
   border:0;
+}
+
+#logo{
+  font-size:2em;
+  color:#ff0;
 }
 
 .comment {
@@ -25,6 +82,10 @@ img {
   float:right;
 }
 
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
 .comment_user {
   float:left;
   padding:0.2em 0.5em 0.2em 0.5em;
@@ -34,19 +95,20 @@ img {
 }
 
 .inner_box {
-  background-color:#fff;
+  background-color:#333;
   padding:0.5em;
   margin-bottom:1em;
+  border:0.2em solid #666;
 }
 
 #content {
   padding:1em;
-  background-color:#fff6d2;
+  background-color:#222;
 }
 
 #content h2 {
   margin:0;
-  background-color:#eee;
+  background-color:#666;
   margin-bottom:0.2em;
   border-bottom:0.1em solid #aaa;
   padding:0.2em;
@@ -62,12 +124,14 @@ img {
   border-bottom: 0.2em solid #FFAA00;
 }
 
+
 #nav a:hover {
   background-color:#333;
+  text-shadow: 0 0 1em #fff;
   color:#fff;
 }
 
-#head h1 {
+#head h1 { 
   margin:0;
   color:#888888;
   font-size:3em;
@@ -77,17 +141,18 @@ img {
 
 #nav a{
   display:block;
-  float:left;
+  float:right;
   color:#aaa;
   text-decoration:none;
   font-weight:bold;
+  padding:0.5em;
   margin-right:1em;
 }
 
 #user_nav {
   float:right;
+  border-left: 0.1em solid #aaa;
 }
-
 #user_nav a {
   margin-right:0;
   margin-left:1em;
@@ -97,13 +162,22 @@ img {
   clear:both;
 }
 body {
-  background-color: #aaa;
-  color: #333;
+  background-color: #222;
+  color: #eee;
+  margin:0;
+  font-size:1em;
+  font-size:100%;
 }
 
 .sidebar {
   float:left;
   width:15em;
+}
+
+.sidebar input {
+  width:13.4em;
+  border 0.1em solid #222;
+  font-size:1em;
 }
 
 .with_sidebar{
@@ -114,20 +188,13 @@ body {
   margin-right:16em;
 }
 
+/*BEGIN: Add Edit Destroy Tags*/
 .action_tag{
-  display:block;
-  background-color:#444;
-  border-bottom:0.2em solid #aaa;
   float:right;
-  padding:0.5em;
-  font-size:0.5em;
+  font-size:0.8em;
   color:#aaa;
   text-decoration:none;
   margin-left:0.2em;
-}
-
-.action_tag:hover {
-  background-color:#333;
 }
 
 .action_tag:visited {
@@ -135,19 +202,17 @@ body {
 }
 
 .add_tag:hover {
-  border-bottom: 0.2em solid lightgreen;
-  color:lightgreen;
+  text-shadow: 0 0 1em green;
 }
 
 .del_tag:hover {
-  border-bottom: 0.2em solid red;
-  color:red;
+  text-shadow: 0 0 1em red;
 }
 
 .edit_tag:hover {
-  border-bottom: 0.2em solid yellow;
-  color:yellow;
+  text-shadow: 0 0 1em yellow;
 }
+/*END: Add Edit Destroy Tags*/
 
 .inner_content {
 }

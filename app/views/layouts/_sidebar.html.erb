@@ -1,7 +1,6 @@
 <div class="sidebar">
 
-  <div id="home_mylinks" class="inner_box">
-    <h2> myLinks <%=new_link("mylinks")%></h2>
+  <%boxed "myLinks",:new=>"mylinks" do%>
     <%@mylinks.each do |link|%>
       <div id="mylink<%=link.id%>">
         <%=link_to link.name, link.url%>
@@ -9,21 +8,19 @@
         <%=destroy_link(link,mylink_path(link),:remote=>true)%>
       </div>
     <%end%>
-  </div>
+  <%end%>
 
-  <div id="home_downloads" class="inner_box">
-    <h2>Latest Links</h2>
+  <%boxed "Latest Links" do%>
     <%@downloads.each do |dl|%>
       <%next if dl.links.empty?%>
       <%=link_to dl.name,dl.links.find(:first).url%><br/>
     <%end%>
-  </div>
+  <%end%>
 
-  <div class="inner_box">
-    <h2>Latest Announcements</h2>
+  <%boxed "Latest Announcements" do%>
     <%@announcements.each do |a|%>
       <%=link_to a.title,lecture_path(a.lecture)%><br/>
     <%end%>
-  </div>
+  <%end%>
 
 </div>

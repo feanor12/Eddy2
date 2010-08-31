@@ -1,4 +1,5 @@
 <div id="nav">
+  <span id="logo">☢☣⚡</span>
   <div id="user_nav">
     <%=link_to(current_user.email,edit_user_path(current_user)) if current_user%> 
     <%=link_to("Logout",user_session_path,:method=>:delete) if current_user%>

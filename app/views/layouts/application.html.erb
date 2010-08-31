@@ -12,18 +12,21 @@
 
   <body>
     <div id="main">
+
       <%=render :partial=>'layouts/navbar'%>
+      
       <div id="content">
 
         <%=render(:partial=>"layouts/sidebar") if current_user%> 
         <%=render(:partial=>"layouts/login") unless current_user%> 
-        
+
         <div class="inner_box inner_content with_sidebar" >
           <%= content_tag(:p,notice,:class=>"notice")unless notice.nil? %>
           <%= yield %>
         </div>
+     
         <%=clear%>
-      
+
       </div>
     </div>
   </body>
