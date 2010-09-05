@@ -11,6 +11,7 @@
 <%else%>
   <%=render :partial=>@download.links%>
 <%end%>
+<%=link_to "Metalink",lecture_download_path(@download.lecture,@download,:format=>:xml)%>
 
 <h3>Add a Mirror</h3>
 <p>Upload your File to a free Filehost(Mediafire,Rapidshare,..)</p>

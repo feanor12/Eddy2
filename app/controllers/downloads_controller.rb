@@ -16,6 +16,11 @@ class DownloadsController < ApplicationController
     @lecture = Lecture.find(params[:lecture_id])
     @download = @lecture.downloads.find(params[:id])
     @link = Link.new
+    respond_to do |format| 
+      format.html
+      format.xml{render :content_type=>"application/metalink+xml"}
+    end
+
   end
 
   def destroy
