@@ -1,6 +1,6 @@
 <div class="sidebar">
 
-  <%boxed "myLinks",:new=>"mylinks" do%>
+  <%=boxed "myLinks",:new=>"mylinks" do%>
     <%@mylinks.each do |link|%>
       <div id="mylink<%=link.id%>">
         <%=link_to link.name, link.url%>
@@ -10,14 +10,14 @@
     <%end%>
   <%end%>
 
-  <%boxed "Latest Links" do%>
+  <%=boxed "Latest Links" do%>
     <%@downloads.each do |dl|%>
       <%next if dl.links.empty?%>
       <%=link_to dl.name,dl.links.find(:first).url%><br/>
     <%end%>
   <%end%>
 
-  <%boxed "Latest Announcements" do%>
+  <%=boxed "Latest Announcements" do%>
     <%@announcements.each do |a|%>
       <%=link_to a.title,lecture_path(a.lecture)%><br/>
     <%end%>

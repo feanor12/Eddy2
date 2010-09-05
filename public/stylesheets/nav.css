@@ -1,0 +1,37 @@
+#nav{
+  padding:0;
+  background-color:#333333;
+}
+
+#nav a:hover {
+  background-color:#333;
+  text-shadow: 0 0 1em #fff;
+  color:#fff;
+}
+
+#nav a{
+  display:block;
+  float:right;
+  color:#aaa;
+  text-decoration:none;
+  font-weight:bold;
+  padding:0.5em;
+  margin-right:1em;
+}
+
+#user_nav {
+  background-color:#eee;
+  -moz-border-radius:1em 0em 0em 1em;
+  float:right;
+}
+
+#user_nav a {
+  margin-right:0;
+  margin-left:1em;
+}
+
+#user_nav a:hover {
+  background-color:#eee;
+  text-shadow: 0 0 1em #aaa;
+  color:#000;
+}

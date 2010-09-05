@@ -11,6 +11,16 @@ a:hover {
   color:#fff; 
 }
 
+.item-menu{
+  color:#aaa;
+  margin-top:0.2em;
+}
+.item-actions{
+  float:right;
+}
+.comment-count{
+  float:left;
+}
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -61,8 +71,9 @@ img {
 }
 
 #logo{
-  font-size:2em;
+  background-color:#eee;
   color:#ff0;
+
 }
 
 .comment {
@@ -72,7 +83,6 @@ img {
 }
 
 .comment_content {
-  padding:0.5em;
 }
 
 .comment_nav{
@@ -88,17 +98,15 @@ body, p, ol, ul, td {
 
 .comment_user {
   float:left;
-  padding:0.2em 0.5em 0.2em 0.5em;
-
-  background-color:#ffce00;
-  margin-right:1em;
+  color:#aaa;
 }
 
 .inner_box {
   background-color:#333;
   padding:0.5em;
-  margin-bottom:1em;
-  border:0.2em solid #666;
+  margin-bottom:0.2em;
+  border-top:0.2em dashed #666;
+  margin-top:-0.2em;
 }
 
 #content {
@@ -108,28 +116,17 @@ body, p, ol, ul, td {
 
 #content h2 {
   margin:0;
-  background-color:#666;
   margin-bottom:0.2em;
-  border-bottom:0.1em solid #aaa;
-  padding:0.2em;
 }
 
 #head{
   background-color:#ffff22; 
 }
 
-#nav{
-  padding:0.5em;
-  background-color:#333333;
-  border-bottom: 0.2em solid #FFAA00;
-}
 
 
-#nav a:hover {
-  background-color:#333;
-  text-shadow: 0 0 1em #fff;
-  color:#fff;
-}
+
+
 
 #head h1 { 
   margin:0;
@@ -139,24 +136,9 @@ body, p, ol, ul, td {
 }
 
 
-#nav a{
-  display:block;
-  float:right;
-  color:#aaa;
-  text-decoration:none;
-  font-weight:bold;
-  padding:0.5em;
-  margin-right:1em;
-}
 
-#user_nav {
-  float:right;
-  border-left: 0.1em solid #aaa;
-}
-#user_nav a {
-  margin-right:0;
-  margin-left:1em;
-}
+
+
 
 .clear{
   clear:both;
@@ -167,9 +149,13 @@ body {
   margin:0;
   font-size:1em;
   font-size:100%;
+  font-size:13px;
 }
 
 .sidebar {
+  border-left:0.5em solid #666;
+  overflow:hidden;
+  background-color:#333;
   float:left;
   width:15em;
 }
@@ -181,6 +167,9 @@ body {
 }
 
 .with_sidebar{
+  overflow:hidden;
+  border-right:0.5em solid #666;
+  background-color:#333;
   margin-left:16em;
 }
 

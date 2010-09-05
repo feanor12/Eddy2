@@ -1,6 +1,5 @@
 <%title("Lectures")%>
-
-<h2>Lectures <%=new_link("lectures")%></h2>
+<%boxed "Lectures", :new=>"lectures" do %>
 <%@lectures.each do |l|%>
   <div>
 
@@ -10,4 +9,5 @@
     <%=destroy_link(l,lecture_path(l))%>
 
   </div>
+<%end%>
 <%end%>

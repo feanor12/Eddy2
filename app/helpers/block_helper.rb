@@ -1,6 +1,8 @@
 module BlockHelper
   def block_to_partial(partial_name, options = {}, &block)
-    options.merge!(:body => capture(&block))
+    if block_given?
+      options.merge!(:body => capture(&block))
+    end
     render(:partial => partial_name, :locals => options)
   end
 

@@ -1,6 +1,6 @@
-<%title("Posts")%>
+<%title("News")%>
+<%=boxed "News",:new=>"posts" do%> <%end%>
 
-<h2>News <%=new_link("posts")%></h2>
 <%=render :partial=>@posts%>
 
 <%= will_paginate @posts %>

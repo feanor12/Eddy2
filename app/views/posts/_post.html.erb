@@ -1,13 +1,19 @@
-<div id="post<%=params[:id]%>">
-  <h3>
-    <%=link_to post.title, post%>
-    <%=edit_link(post,edit_post_path(post))%>
-    <%=destroy_link(post,post_path(post))%>
-  </h3>
+<%=boxed post.title do%>
+  <div id="post<%=params[:id]%>">
 
-  <%= raw (post.body) if post.user.admin?%>
-  <%= simple_format(auto_link(post.body)) unless post.user.admin?%>
+    <%= simple_format(auto_link(post.body))%> 
 
+    <div class="item-menu">
+      <b id="comment-count" class="comment-count">
+        <%=pluralize post.comments.length, "Comment"%>
+      </b> 
 
-<h3 id="comment-count"><%=pluralize post.comments.length, "Comment"%></h3>
-</div>
+      <div id="item-actions">
+        <%=link_to("Show", post_path(post),:class=>"action_tag") unless current_page?(:id=>post.id,:action=>"show")%>
+        <%=edit_link(post,edit_post_path(post))%>
+        <%=destroy_link(post,post_path(post))%>
+      </div>
+      <%=clear()%>
+    </div>
+  </div>
+<%end%>
