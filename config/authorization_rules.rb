@@ -6,6 +6,7 @@ authorization do
     has_permission_on :lectures, :to=>[:manage]
     has_permission_on :downloads, :to=>[:manage]
     has_permission_on :mylinks, :to=>[:manage]
+    has_permission_on :announcements, :to=>[:manage]
   end
 
   role :user do

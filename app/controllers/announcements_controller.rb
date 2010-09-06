@@ -1,4 +1,5 @@
 class AnnouncementsController < ApplicationController
+  filter_resource_access
   def new
     @lecture = Lecture.find(params[:lecture_id])
     @announcement=@lecture.announcements.build
@@ -13,6 +14,27 @@ class AnnouncementsController < ApplicationController
     else
       render :action=>"new"
     end
+  end
+
+  def edit
+    @lecture = Lecture.find(params[:lecture_id])
+    @announcement = @lecture.announcements.find(params[:id])
+  end
+
+  def update
+    @lecture = Lecture.find(params[:lecture_id])
+    @announcement = @lecture.announcements.find(params[:id])
+    if @announcement.update_attributes(params[:announcement])
+      redirect_to @lecture
+    else
+      render :action=>"edit"
+    end
+  end
+  
+  def destroy
+    @lecture = Lecture.find(params[:lecture_id])
+    @lecture.announcements.find(params[:id]).destroy()
+    redirect_to @lecture
   end
 
 end

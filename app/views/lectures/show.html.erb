@@ -1,27 +1,29 @@
 <%title(@lecture.name)%>
 
-<h2>
-  <%=@lecture.name%>
-</h2>
-<h3>
-  Announcements
-  <%= new_link("downloads",new_lecture_announcement_path(@lecture)) %>
-</h3>
-<%@announcements.each do |a|%>
-  <b><%=a.title%></b><br/>
-  <%=simple_format(auto_link(a.body))%>
+<%=boxed @lecture.name%>
+<%=boxed "Announcements",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture) do%>
+  <%@announcements.each do |a|%>
+    <b><%=a.title%></b><br/>
+    <%=simple_format(auto_link(a.body))%>
+    <div class="item-menu">
+    <div class="item-actions">
+      <%=edit_link(a,edit_lecture_announcement_path(@lecture,a))%>
+      <%=destroy_link(a,lecture_announcement_path(@lecture,a))%>
+    </div>
+    <%=clear%>
+    </div>
+  <%end%>
+  <%= will_paginate @announcements %>
 <%end%>
-<%= will_paginate @announcements %>
 
 
-<h3>Downloads
-<%= new_link("downloads",new_lecture_download_path(@lecture)) %>
-</h3>
-<%@downloads.each do |d|%>
-  <%=link_to d.name, lecture_download_path(@lecture,d)%>
-  <%=link_to("Download", d.links.find(:first).url,:class=>"action_tag") unless d.links.empty?%>
-
-  <%=destroy_link(d,lecture_download_path(@lecture,d))%>
-  <br/>
+<%=boxed "Downloads", :new_path=>new_lecture_download_path(@lecture),:new=>"downloads" do%>
+  <%@downloads.each do |d|%>
+    <%=link_to d.name, lecture_download_path(@lecture,d)%>
+    <%=link_to("Download", d.links.find(:first).url,:class=>"action_tag") unless d.links.empty?%>
+    <%=destroy_link(d,lecture_download_path(@lecture,d))%>
+    <br/>
+  <%end%>
+  <%=link_to "Download All",lecture_path(@lecture,:format=>:xml)%>
 <%end%>
 <br/>
