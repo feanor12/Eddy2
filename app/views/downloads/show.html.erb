@@ -11,7 +11,7 @@
     <%else%>
       <%=render :partial=>@download.links%>
     <%end%>
-    <%=link_to "Metalink",lecture_download_path(@download.lecture,@download,:format=>:xml)%>
+    <%=link_to "Metalink",lecture_download_path(@download.lecture,@download,:format=>:meta4)%>
   <%end%>
 
   <%=boxed "Add a Mirror" do%>

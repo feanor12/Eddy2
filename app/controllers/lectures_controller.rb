@@ -25,7 +25,7 @@ filter_resource_access
     @announcements = @lecture.announcements.paginate(:page=>params[:page],:per_page=>5)
     respond_to do |format|
       format.html
-      format.xml{render :content_type=>"application/metalink+xml"}
+      format.meta4
     end
   end
 
