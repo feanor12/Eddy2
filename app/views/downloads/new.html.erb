@@ -1,8 +1,4 @@
 <%title("New Download")%>
-<%=form_for [@lecture,@download] do |f|%>
-  <%=f.label :name%><br/>
-  <%=f.text_field :name%><br/>
-  <%=f.label :description%><br/>
-  <%=f.text_area :description%><br/>
-  <%=f.submit%>
+<%=boxed "New Download" do%>
+  <%=render :partial=>"form"%>
 <%end%>

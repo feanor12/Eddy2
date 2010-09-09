@@ -1,19 +1,22 @@
 <%title(@download.name)%>
+<%=boxed @download.name do%>
 
-<h2><%=@download.name%></h2>
+  <%=boxed "Description" do%>
+    <%=simple_format(auto_link(@download.description))%>
+  <%end%>
 
-<h3>Description</h3>
-<%=simple_format(@download.description)%>
+  <%=boxed "Mirrors" do%>
+    <%if @download.links.blank?%>
+      No Links added
+    <%else%>
+      <%=render :partial=>@download.links%>
+    <%end%>
+    <%=link_to "Metalink",lecture_download_path(@download.lecture,@download,:format=>:xml)%>
+  <%end%>
 
-<h3>Mirrors</h3>
-<%if @download.links.blank?%>
-  No Links added
-<%else%>
-  <%=render :partial=>@download.links%>
+  <%=boxed "Add a Mirror" do%>
+    <p>Upload your File to a free Filehost(Mediafire,Rapidshare,..)</p>
+    <p>Copy Download URL into to Field below</p>
+    <%=render :partial=>'links/form'%>
+  <%end%>
 <%end%>
-<%=link_to "Metalink",lecture_download_path(@download.lecture,@download,:format=>:xml)%>
-
-<h3>Add a Mirror</h3>
-<p>Upload your File to a free Filehost(Mediafire,Rapidshare,..)</p>
-<p>Copy Download URL into to Field below</p>
-<%=render :partial=>'links/form'%>
