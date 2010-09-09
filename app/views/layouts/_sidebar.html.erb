@@ -1,26 +1,31 @@
 <div class="sidebar">
 
-  <%=boxed "myLinks",:new=>"mylinks" do%>
-    <%@mylinks.each do |link|%>
-      <div id="mylink<%=link.id%>">
-        <%=link_to link.name, link.url%>
-        <%=edit_link(link,edit_mylink_path(link))%>
-        <%=destroy_link(link,mylink_path(link),:remote=>true)%>
-      </div>
-    <%end%>
-  <%end%>
+  <%=boxed "Login" do%>
+    <%=render :partial=>"user_sessions/form"%>
+  <%end unless current_user %>
 
-  <%=boxed "Latest Links" do%>
-    <%@downloads.each do |dl|%>
-      <%next if dl.links.empty?%>
-      <%=link_to dl.name,dl.links.find(:first).url%><br/>
+  <%if current_user%>
+    <%=boxed "myLinks",:new=>"mylinks" do%>
+      <%@mylinks.each do |link|%>
+        <div id="mylink<%=link.id%>">
+          <%=link_to link.name, link.url%>
+          <%=edit_link(link,edit_mylink_path(link))%>
+          <%=destroy_link(link,mylink_path(link),:remote=>true)%>
+        </div>
+      <%end%>
     <%end%>
-  <%end%>
 
-  <%=boxed "Latest Announcements" do%>
-    <%@announcements.each do |a|%>
-      <%=link_to a.title,lecture_path(a.lecture)%><br/>
-    <%end%>
-  <%end%>
+    <%=boxed "Latest Links" do%>
+      <%@downloads.each do |dl|%>
+        <%next if dl.links.empty?%>
+        <%=link_to dl.name,dl.links.find(:first).url%><br/>
+      <%end%>
+    <%end unless @downloads.empty?%>
 
+    <%=boxed "Latest Announcements" do%>
+      <%@announcements.each do |a|%>
+        <%=link_to a.title,lecture_path(a.lecture)%><br/>
+      <%end%>
+    <%end unless @announcements.empty?%>
+  <%end%>
 </div>

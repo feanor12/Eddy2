@@ -17,8 +17,7 @@
 
       <div id="content">
 
-        <%=render(:partial=>"layouts/sidebar") if current_user%> 
-        <%=render(:partial=>"layouts/login") unless current_user%> 
+        <%=render(:partial=>"layouts/sidebar")%> 
 
         <div class=" with_sidebar" >
           <%=boxed "Status" do%>
