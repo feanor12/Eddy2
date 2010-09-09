@@ -1,12 +1,36 @@
 <div id="nav">
-  <div id="user_nav">
-    <%=link_to(current_user.email,edit_user_path(current_user)) if current_user%> 
-    <%=link_to("Logout",user_session_path,:method=>:delete) if current_user%>
-    <%=link_to("Register",new_user_path) unless current_user%>
-  </div>
-  <%=link_to("News",posts_path) if permitted_to?(:read,:posts)%>
-  <%=link_to("Users",users_path) if permitted_to?(:manage,:users)%>
-  <%=link_to("Lectures",lectures_path) if permitted_to?(:read,:lectures)%>
+  <h5>
+    Eddy2
+  </h5>
+  <ul id="user_menu">
+    <li>
+    <%if current_user%>
+      <%=link_to(current_user.email,edit_user_path(current_user))%> 
+      </li><li>
+      <%=link_to("Logout",user_session_path,:method=>:delete)%>
+    <%else%>
+      <%=link_to("Register",new_user_path)%>
+    <%end%>
+  </ul>
+  <ul id="nav_menu">
+    <%if permitted_to?(:read,:posts)%>
+      <li>
+      <%=link_to("News",posts_path)%>
+      </li>
+    <%end%>
+    <%if permitted_to?(:read,:lectures)%>
+      <li>
+      <%=link_to("Lectures",lectures_path) if permitted_to?(:read,:lectures)%>
+      </li>
+    <%end%>
+  </ul>
+  <%if permitted_to?(:manage,:users)%>
+  <ul id="admin_menu">
+    <li>
+    <%=link_to("Users",users_path) if permitted_to?(:manage,:users)%>
+    </li>
+  </ul>
+<%end%>
   <div class="clear"></div>
 </div>
 

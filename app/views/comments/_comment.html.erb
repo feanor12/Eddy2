@@ -1,7 +1,9 @@
-<div class="comment inner_box" id="comment<%=comment.id%>">
-  <%=content_tag(:div,simple_format(comment.body),:class=>"comment_content")%>
-  <%=content_tag(:div,"by "+comment.user.login,:class=>"comment_user")%>
+<div class="box" id="comment<%=comment.id%>">
+  <div class="box_body">
+  <%=content_tag(:div,simple_format(comment.body))%>
+  <%=content_tag(:div,"by "+comment.user.login)%>
   <%=content_tag(:div,destroy_link(comment,post_comment_path(comment.post,comment),:remote=>true),:class=>"item-menu")%>
   <%=clear%>
+  </div>
 </div>
 

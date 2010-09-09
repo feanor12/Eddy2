@@ -7,7 +7,6 @@ pre {
 a { color: #ddd; }
 a:visited { color: #666; }
 a:hover { 
-  text-shadow:0 0 1em #fff;
   color:#fff; 
 }
 
@@ -111,7 +110,6 @@ body, p, ol, ul, td {
 
 #content {
   padding:1em;
-  background-color:#222;
 }
 
 #content h2 {
@@ -153,11 +151,8 @@ body {
 }
 
 .sidebar {
-  border-left:0.5em solid #666;
   overflow:hidden;
-  background-color:#333;
   float:left;
-  width:15em;
 }
 
 .sidebar input {
@@ -168,9 +163,6 @@ body {
 
 .with_sidebar{
   overflow:hidden;
-  border-right:0.5em solid #666;
-  background-color:#333;
-  margin-left:16em;
 }
 
 #home_posts {
@@ -191,15 +183,12 @@ body {
 }
 
 .add_tag:hover {
-  text-shadow: 0 0 1em green;
 }
 
 .del_tag:hover {
-  text-shadow: 0 0 1em red;
 }
 
 .edit_tag:hover {
-  text-shadow: 0 0 1em yellow;
 }
 /*END: Add Edit Destroy Tags*/
 

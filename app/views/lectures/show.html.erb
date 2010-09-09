@@ -1,9 +1,9 @@
 <%title(@lecture.name)%>
 
-<%=boxed @lecture.name%>
+<%=boxed @lecture.name do%>
 <%=boxed "Announcements",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture) do%>
   <%@announcements.each do |a|%>
-    <b><%=a.title%></b><br/>
+    <h3><%=a.title%></h3>
     <%=simple_format(auto_link(a.body))%>
     <div class="item-menu">
     <div class="item-actions">
@@ -26,4 +26,4 @@
   <%end%>
   <%=link_to "Download All",lecture_path(@lecture,:format=>:xml)%>
 <%end%>
-<br/>
+<%end%>

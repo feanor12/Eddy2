@@ -33,6 +33,15 @@ filter_resource_access
     @lecture=Lecture.find(params[:id])
   end
 
+  def update
+    @lecture=Lecture.find(params[:id])
+    if @lecture.update_attributes(params[:lecture])
+      redirect_to lectures_path
+    else
+      render :action=>"edit"
+    end
+  end
+
   def destroy
     @lecture=Lecture.find(params[:id])
     @lecture.destroy

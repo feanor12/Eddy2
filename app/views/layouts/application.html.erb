@@ -14,20 +14,24 @@
     <div id="main">
 
       <%=render :partial=>'layouts/navbar'%>
-      
+
       <div id="content">
 
         <%=render(:partial=>"layouts/sidebar") if current_user%> 
         <%=render(:partial=>"layouts/login") unless current_user%> 
 
         <div class=" with_sidebar" >
-          <%= content_tag(:p,notice,:class=>"notice")unless notice.nil? %>
+          <%=boxed "Status" do%>
+            <%= content_tag(:p,notice,:class=>"notice")unless notice.nil? %>
+          <%end unless notice.nil?%>
           <%= yield %>
         </div>
-     
+
         <%=clear%>
 
       </div>
+
+      <%=render :partial=>'layouts/footer'%>
     </div>
   </body>
 

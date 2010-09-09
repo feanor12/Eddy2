@@ -1,5 +1,4 @@
 <%title("New posts")%>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', posts_path %>
+<%=boxed "New Post" do%>
+<%= render :partial=>'form' %>
+<%end%>

@@ -1,2 +1,2 @@
 $('comment<%=params[:id]%>').fade();
-$('comment-count').replace("<h3 id='comment-count'><%=pluralize @post.comments.length, "Comment"%></h3>");
+$('comment-count').replace("<b id='comment-count' class='comment-count'><%=pluralize @post.comments.length, "Comment"%></b>");

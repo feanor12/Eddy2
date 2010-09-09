@@ -1,3 +1,4 @@
 <%title("Edit User")%>
-
-<%=render :partial => "form"%>
+<%=boxed "Edit "+@user.login do%>
+  <%=render :partial => "form"%>
+<%end%>

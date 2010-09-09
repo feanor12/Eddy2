@@ -1,3 +1,4 @@
+<%=boxed "List Users" do%>
 <table border="1px">
   <tr>
     <th>Email</th>
@@ -6,7 +7,7 @@
     <th></th>
   </tr>
   <%@users.each do |u|%>
-  </tr>
+  <tr>
   <td><%=u.email%></td>
   <td><%=u.login%></td>
   <td><%=u.active?%></td>
@@ -14,6 +15,7 @@
     <%=edit_link(u,edit_user_path(u))%>
     <%=destroy_link(u,user_path(u))%>
   </td>
-</tr>
-<%end%>
+  </tr>
+  <%end%>
 </table>
+<%end%>

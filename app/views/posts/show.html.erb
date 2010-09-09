@@ -4,6 +4,7 @@
 
 <%=render :partial=>"comments/comment.html", :collection=>@post.comments%>
 
+<%boxed "Add your comment" do%>
 <%if permitted_to?(:create,@comment)%>
   <%=form_for [@post,@comment] do |c| %>
     <%=c.label "Text"%><br/>
@@ -11,3 +12,4 @@
     <%=c.submit %>
   <%end%>
 <%end%>
+<%end if permitted_to?(:create,@comment)%>

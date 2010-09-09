@@ -1,13 +1,15 @@
 <%title("Lectures")%>
 <%boxed "Lectures", :new=>"lectures" do %>
-<%@lectures.each do |l|%>
-  <div>
+  <%=boxed "" do%>
+    <%@lectures.each do |l|%>
+      <div>
 
-    <%=link_to l.name+"("+l.downloads.length.to_s+")", lecture_path(l)%> 
+        <%=link_to l.name+"("+l.downloads.length.to_s+")", lecture_path(l)%> 
 
-    <%=edit_link(l,edit_lecture_path(l))%>
-    <%=destroy_link(l,lecture_path(l))%>
+        <%=edit_link(l,edit_lecture_path(l))%>
+        <%=destroy_link(l,lecture_path(l))%>
 
-  </div>
-<%end%>
+      </div>
+    <%end%>
+  <%end%>
 <%end%>

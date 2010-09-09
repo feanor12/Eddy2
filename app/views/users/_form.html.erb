@@ -1,5 +1,4 @@
-<%@user.errors%>
-<%=form_for :user, @user, :url => {:action => "create"} do |f| %>
+<%=form_for @user do |f| %>
   <%= f.label :login %><br />
   <%= f.text_field :login %><br />
   <br />

@@ -1,7 +1,9 @@
-<%=content_tag(:div,:class=>'box inner_box') do%>
+<%=content_tag(:div,:class=>'box') do%>
   <%unless title.blank?%>
     <%new_path="" unless defined? new_path%>
-    <h2><%=title%> <%=new_link(new,new_path) if defined? new %> </h2>
+    <h1><%=title%> <%=new_link(new,new_path) if defined? new %> </h1>
   <%end%>
+  <div class="box_body">
   <%=body if defined? body.blank?%>
+  </div>
 <%end%>
