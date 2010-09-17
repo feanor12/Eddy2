@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   respond_to :html, :xml 
 
   def index
-    @posts = Post.paginate(:page => params[:page], :order => 'created_at DESC')
+    @posts = Post.paginate(:page => params[:page], :order => 'created_at DESC',:include=>:comments)
     respond_with(@posts)
     unless current_user
       @user_session = UserSession.new
