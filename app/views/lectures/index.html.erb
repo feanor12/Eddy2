@@ -3,7 +3,7 @@
   <ul>
     <%@lectures.each do |l|%>
       <li>
-        <%=link_to l.name+"("+l.downloads.length.to_s+")", lecture_path(l)%> 
+      <%=link_to truncate(l.name,:length=>55)+"("+l.downloads.length.to_s+")", lecture_path(l)%> 
         <%=edit_link(l,edit_lecture_path(l))%>
         <%=destroy_link(l,lecture_path(l))%>
       </li>
