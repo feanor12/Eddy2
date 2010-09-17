@@ -5,5 +5,8 @@
   <%end%>
   <div class="box_body">
   <%=body if defined? body.blank?%>
+</div>
+<div class="footer">
+  <%=will_paginate paginate if defined? paginate%>
   </div>
 <%end%>

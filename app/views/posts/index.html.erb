@@ -1,8 +1,6 @@
 <%title("News")%>
-<%=boxed "News",:new=>"posts" do%>
-
-<%=render :partial=>@posts%>
-
-<%= will_paginate @posts %>
-
+<%=boxed "News",:new=>"posts",:paginate=>@posts do%>
+  <ul>
+    <%=render :partial=>@posts%>
+  </ul>
 <%end%>

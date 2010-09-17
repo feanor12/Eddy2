@@ -1,24 +1,22 @@
 #nav{
   height:6em;
-  font-family:'FFFTusjBold';
+  font-family:'PusabRegular';
   padding:0;
   background-color:#333333;
   border-bottom:0.2em solid #555;
-  -moz-box-shadow:0 0 1em black;
-  -webkit-box-shadow:0 0 1em black;
 }
 
 #nav h5 {
   float:left;
-  font-size:4em;
+  font-size:5em;
   font-weight:normal;
   margin: 0 0 0 0;
-  padding:0.25em;
+  padding-top:0.35em;
 }
 
 #nav ul {
   display:block;
-  margin-top:1.75em;
+  margin-top:2em;
   float:right;
   padding:0.5em 0;
   margin-left:0.5em;
@@ -40,8 +38,8 @@
 }
 
 #nav a{
-  font-family:'FFFTusjBold';
-  font-size:1.5em;
+  font-family:'PusabRegular';
+  font-size:2em;
   display:block;
   float:right;
   color:#aaa;
@@ -50,8 +48,8 @@
 
 #user_menu {
   background-color:#eee;
-  -moz-border-radius:1em 0em 0em 1em;
-  -webkit-border-radius:1em 0em 0em 1em;
+  -moz-border-radius:1em;
+  -webkit-border-radius:1em;
   -moz-box-shadow:-0.1em 0 0.4em #252525;
   float:right;
 }

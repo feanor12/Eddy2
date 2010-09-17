@@ -1,13 +1,28 @@
+.post .content{
+  padding: 0 0.5em 0.5em 0.5em;
+}
+
+.post content p {
+  margin-top:0;
+}
+
+.center{
+  margin:auto;
+  width:880px;
+}
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
-a { color: #ddd; }
-a:visited { color: #666; }
+a {
+  color: #3cf; 
+  text-decoration:none;
+}
 a:hover { 
-  color:#fff; 
+  color:#3cf; 
+  text-decoration:underline;
 }
 
 .item-menu{
@@ -69,43 +84,8 @@ img {
   border:0;
 }
 
-#logo{
-  background-color:#eee;
-  color:#ff0;
-
-}
-
-.comment {
-
-  background-color:#FFE47A;
-  margin-top:1em;
-}
-
-.comment_content {
-}
-
-.comment_nav{
-  background-color:lightgrey;
-
-  padding:0.2em 0.5em 0.2em 0.5em;
-  float:right;
-}
-
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-}
-
-.comment_user {
-  float:left;
-  color:#aaa;
-}
-
-.inner_box {
-  background-color:#333;
-  padding:0.5em;
-  margin-bottom:0.2em;
-  border-top:0.2em dashed #666;
-  margin-top:-0.2em;
 }
 
 #content {
@@ -116,27 +96,6 @@ body, p, ol, ul, td {
   margin:0;
   margin-bottom:0.2em;
 }
-
-#head{
-  background-color:#ffff22; 
-}
-
-
-
-
-
-
-#head h1 { 
-  margin:0;
-  color:#888888;
-  font-size:3em;
-  text-align:right;
-}
-
-
-
-
-
 
 .clear{
   clear:both;
@@ -149,6 +108,7 @@ body {
   font-size:100%;
   font-size:13px;
 }
+
 
 .sidebar {
   overflow:hidden;
@@ -165,10 +125,6 @@ body {
   overflow:hidden;
 }
 
-#home_posts {
-  margin-right:16em;
-}
-
 /*BEGIN: Add Edit Destroy Tags*/
 .action_tag{
   float:right;
@@ -178,19 +134,12 @@ body {
   margin-left:0.2em;
 }
 
-.action_tag:visited {
-  color:#aaa;
+.add_tag, .add_tag :visited {
+  color:#cf3;
 }
 
-.add_tag:hover {
+.del_tag {
 }
 
-.del_tag:hover {
-}
-
-.edit_tag:hover {
-}
-/*END: Add Edit Destroy Tags*/
-
-.inner_content {
+.edit_tag {
 }

@@ -6,15 +6,34 @@
   -moz-box-shadow:0.1em 0.1em 0.4em #101010;
   -webkit-box-shadow:0.1em 0.1em 0.4em #101010;
 }
+
 .box h1{
+  font-family:'PusabRegular';
   -moz-border-radius:0.666em 0.666em 0 0;
   -webkit-border-radius:0.666em 0.666em 0 0;
   font-size:1.5em;
-  background-color:#292929;
-  padding: 0 0.5em;
+  font-weight:normal;
+  padding: 0.5em;
   margin:0;
 }
 
-.box_body{
-  padding:0.5em;
+.box .footer {
+  text-align:center;
+  min-height:1em;
 }
+
+.box ul {
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.box li {
+  padding: 0.2em ;
+}
+
+.box ul li:nth-child(odd) {
+  background-color:#444444;
+  -moz-box-shadow: 0 0 0.4em #101010;
+}
+

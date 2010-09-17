@@ -1,2 +1,2 @@
-$('comment<%=params[:id]%>').fade();
+$('comment<%=params[:id]%>').remove();
 $('comment-count').replace("<b id='comment-count' class='comment-count'><%=pluralize @post.comments.length, "Comment"%></b>");

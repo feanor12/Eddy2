@@ -1,15 +1,21 @@
 <%title("View Post")%>
 
-<%=render :partial=>@post%>
+<%=boxed "Show Post" do%>
+  <ul>
+    <%=render :partial=>@post%>
+  </ul>
+<%end%>
 
-<%=render :partial=>"comments/comment.html", :collection=>@post.comments%>
+<%=boxed "Comments" do%>
+  <ul>
+    <%=render :partial=>"comments/comment.html", :collection=>@post.comments%>
+  </ul>
+<%end%>
 
 <%boxed "Add your comment" do%>
-<%if permitted_to?(:create,@comment)%>
-  <%=form_for [@post,@comment] do |c| %>
-    <%=c.label "Text"%><br/>
-    <%=c.text_area :body,:rows=>3%><br/>
-    <%=c.submit %>
-  <%end%>
-<%end%>
+  <ul>
+    <li>
+    <%=render :partial=>"comments/form"%>
+    </li>
+  </ul>
 <%end if permitted_to?(:create,@comment)%>
