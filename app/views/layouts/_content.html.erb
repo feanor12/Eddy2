@@ -1,0 +1,12 @@
+<div class="center">
+  <%=render(:partial=>"layouts/sidebar")%> 
+  <div class=" with_sidebar" >
+    <%=boxed "Status" do%>
+      <%= content_tag(:p,notice,:class=>"notice")unless notice.nil? %>
+      <%end unless notice.nil?%>
+      <%= yield %>
+    </div>
+    <%=clear%>
+  </div>
+</div>
+
