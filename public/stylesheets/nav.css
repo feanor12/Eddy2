@@ -4,6 +4,7 @@
   padding:0;
   background-color:#333333;
   border-bottom:0.2em solid #555;
+  overflow:hidden;
 }
 
 #nav h5 {

@@ -2,8 +2,7 @@
 
 <%=boxed @lecture.name do%>
   <ul>
-    <li>Number</li>
-    <li></li>
+    <li><%=simple_format(@lecture.description)%></li>
   </ul>
 <%end%>
 
@@ -35,6 +34,8 @@
       <%=destroy_link(d,lecture_download_path(@lecture,d))%>
       </li>
     <%end%>
+    <%unless @downloads.empty%>
     <li><%=link_to "Download All",lecture_path(@lecture,:format=>:meta4)%></li>
+  <%end%>
   </ul>
 <%end%>
