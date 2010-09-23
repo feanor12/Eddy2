@@ -1,9 +1,7 @@
 <li id="comment<%=comment.id%>">
-  <div class="box_body">
   <%=content_tag(:div,simple_format(auto_link(comment.body)))%>
   <%=content_tag(:div,"by "+comment.user.login)%>
   <%=content_tag(:div,destroy_link(comment,post_comment_path(comment.post,comment),:remote=>true),:class=>"item-menu")%>
   <%=clear%>
-  </div>
 </li>
 

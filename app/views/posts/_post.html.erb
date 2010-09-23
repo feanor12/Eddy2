@@ -1,5 +1,7 @@
 <li id="post<%=params[:id]%>" class="post">
-  <h1><%=post.title%></h1>
+<%=content_tag :h1 do%>
+  <%=post.title%>
+<%end if defined? show_title%>
   <div class="content">
   <%= simple_format(auto_link(post.body))%> 
 

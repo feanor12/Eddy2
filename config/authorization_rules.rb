@@ -43,6 +43,8 @@ authorization do
   role :guest do
     has_permission_on :users, :to=>[:new,:create]
     has_permission_on :posts, :to=>[:read]
+    has_permission_on :lectures, :to=>[:read]
+    has_permission_on :announcements, :to=>[:read]
   end
 end
 

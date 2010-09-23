@@ -1,13 +1,5 @@
 <%=boxed "myLinks",:new=>"mylinks" do%>
-  <ul>
-    <%@mylinks.each do |link|%>
-      <li id="mylink<%=link.id%>">
-      <%=link_to link.name, link.url%>
-      <%=edit_link(link,edit_mylink_path(link))%>
-      <%=destroy_link(link,mylink_path(link),:remote=>true)%>
-      </li>
-    <%end%>
-  </ul>
+  <%=render :partial => @mylinks%>
 <%end%>
 
 

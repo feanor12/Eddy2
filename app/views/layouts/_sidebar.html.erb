@@ -1,35 +1,27 @@
 <div class="sidebar">
 
   <%=boxed "Login" do%>
-    <ul>
-      <li>
       <%=render :partial=>"user_sessions/form"%>
-      </li>
-    </ul>
   <%end unless current_user %>
 
   <%if current_user%>
     <%=render :partial=>"mylinks/index"%>
 
     <%=boxed "Latest Links" do%>
-      <ul>
         <%@s_downloads.each do |dl|%>
           <%next if dl.links.empty?%>
           <li>
           <%=link_to dl.name,dl.links.first.url%><br/>
           </li>
         <%end%>
-      </ul>
     <%end unless @s_downloads.empty?%>
 
     <%=boxed "Latest Announcements" do%>
-      <ul>
         <%@s_announcements.each do |a|%>
           <li>
           <%=link_to a.title,lecture_path(a.lecture)%><br/>
           </li>
         <%end%>
-      </ul>
     <%end unless @s_announcements.empty?%>
 
   <%end%>

@@ -12,4 +12,7 @@ Eddy2::Application.routes.draw do
   resource :user_session
   resources :users, :mylinks
   root :to=>"posts#index"
+  #static routes
+  match '/impressum' => 'static#impressum'
+  match '/agb' => 'static#agb'
 end

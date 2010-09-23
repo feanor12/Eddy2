@@ -1,5 +1,7 @@
+<li>
 <%=form_for [@post,@comment] do |c| %>
   <%=c.label "Text"%><br/>
   <%=c.text_area :body,:rows=>3%><br/>
   <%=c.submit %>
 <%end%>
+</li>

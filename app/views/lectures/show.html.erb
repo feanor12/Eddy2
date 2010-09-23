@@ -1,41 +1,22 @@
 <%title(@lecture.name)%>
 
 <%=boxed @lecture.name do%>
-  <ul>
-    <li><%=simple_format(@lecture.description)%></li>
-  </ul>
+  <li>
+    <%=simple_format(@lecture.description)%>
+  </li>
 <%end%>
 
 <%=boxed "Announcements",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture),:paginate=>@announcements do%>
-  <ul>
-  <%@announcements.each do |a|%>
-    <li>
-    <h3><%=a.title%></h3>
-    <%=simple_format(auto_link(a.body))%>
-    <div class="item-menu">
-      <div class="item-actions">
-        <%=edit_link(a,edit_lecture_announcement_path(@lecture,a))%>
-        <%=destroy_link(a,lecture_announcement_path(@lecture,a))%>
-      </div>
-      <%=clear%>
-    </div>
-    </li>
-  <%end%>
-  </ul>
-<%end%>
+  <%= render :partial=>@announcements unless @announcements.empty?%>
+  <%=content_tag :li do%>
+    No Announcements made
+  <%end if @announcements.empty?%>
+<%end if permitted_to?(:read,:announcements)%>
 
 
 <%=boxed "Downloads", :new_path=>new_lecture_download_path(@lecture),:new=>"downloads" do%>
-  <ul>
-    <%@downloads.each do |d|%>
-      <li>
-      <%=link_to d.name, lecture_download_path(@lecture,d)%>
-      <%=link_to("Download", d.links.find(:first).url,:class=>"action_tag") unless d.links.empty?%>
-      <%=destroy_link(d,lecture_download_path(@lecture,d))%>
-      </li>
-    <%end%>
-    <%unless @downloads.empty%>
-    <li><%=link_to "Download All",lecture_path(@lecture,:format=>:meta4)%></li>
-  <%end%>
-  </ul>
-<%end%>
+  <%=render :partial=>'downloads/download',:collection=>@downloads%>
+  <%=content_tag :li do%>
+    <%=link_to "Download All",lecture_path(@lecture,:format=>:meta4)%>
+  <%end unless @downloads.empty?%>
+<%end if permitted_to?(:read,:downloads)%>

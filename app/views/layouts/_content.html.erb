@@ -2,14 +2,14 @@
   <%=render(:partial=>"layouts/sidebar")%> 
   <div class=" with_sidebar" >
     <%=boxed "Status" do%>
-      <ul>
-        <li class="notice">
-      <%=notice %>
-      </li></ul>
-      <%end unless notice.nil?%>
-      <%= yield %>
-    </div>
-    <%=clear%>
+      <li class="notice">
+        <%=notice %>
+      </li>
+    <%end unless notice.nil?%>
+
+    <%= yield %>
+  
   </div>
+  <%=clear%>
 </div>
 
