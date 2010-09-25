@@ -51,6 +51,7 @@
   background-color:#eee;
   -moz-border-radius:1em;
   -webkit-border-radius:1em;
+  border-radius:1em;
   -moz-box-shadow:-0.1em 0 0.4em #252525;
   float:right;
 }
@@ -69,5 +70,7 @@
   overflow:hidden;
   background-color:#ae3535;
   -moz-border-radius:1em;
+  -webkit-border-radius:1em;
+  border-radius:1em;
   -moz-box-shadow:-0.1em 0 0.4em #252525;
 }
