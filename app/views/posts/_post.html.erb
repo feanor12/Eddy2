@@ -3,12 +3,12 @@
   <%=post.title%>
 <%end if defined? show_title%>
   <div class="content">
-  <%= simple_format(auto_link(post.body))%> 
+  <%= simple_format(auto_link(post.body))%>
 
   <div class="item-menu">
     <b id="comment-count" class="comment-count">
       <%=pluralize post.comments.length, "Comment"%>
-    </b> 
+    </b>
 
     <div id="item-actions">
       <%=link_to("Show", post_path(post),:class=>"action_tag") unless current_page?(:id=>post.id,:action=>"show")%>

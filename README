@@ -25,7 +25,6 @@ more separate. Each of these packages can be used independently outside of
 Rails. You can read more about Action Pack in
 link:files/vendor/rails/actionpack/README.html.
 
-
 == Getting Started
 
 1. At the command prompt, create a new Rails application:
@@ -37,12 +36,11 @@ link:files/vendor/rails/actionpack/README.html.
 3. Go to http://localhost:3000/ and you'll see:
        "Welcome aboard: You're riding the Rails!"
 
-4. Follow the guidelines to start developing your application. You can find 
+4. Follow the guidelines to start developing your application. You can find
 the following resources handy:
 
 * The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
 * Ruby on Rails Tutorial Book: http://www.railstutorial.org/
-
 
 == Web Servers
 
@@ -52,7 +50,7 @@ ships with Ruby.
 
 Mongrel is a Ruby-based web server with a C component (which requires
 compilation) that is suitable for development. If you have Ruby Gems installed,
-getting up and running with mongrel is as easy as: 
+getting up and running with mongrel is as easy as:
       <tt>sudo gem install mongrel</tt>.
 
 You can find more info at: http://mongrel.rubyforge.org
@@ -67,7 +65,6 @@ For production use, often a web/proxy server, e.g., {Apache}[http://apache.org],
 {Lighttpd}[http://www.lighttpd.net/], or {IIS}[http://www.iis.net/], is deployed
 as the front end server with the chosen Ruby web server running in the back end
 and receiving the proxied requests via one of several protocols (HTTP, CGI, FCGI).
-
 
 == Debugging Rails
 
@@ -96,15 +93,14 @@ The result will be a message in your log file along the lines of:
 
 More information on how to use the logger is at http://www.ruby-doc.org/core/
 
-Also, Ruby documentation can be found at http://www.ruby-lang.org/. There are 
+Also, Ruby documentation can be found at http://www.ruby-lang.org/. There are
 several books available online as well:
 
 * Programming Ruby: http://www.ruby-doc.org/docs/ProgrammingRuby/ (Pickaxe)
 * Learn to Program: http://pine.fm/LearnToProgram/ (a beginners guide)
 
-These two books will bring you up to speed on the Ruby language and also on 
+These two books will bring you up to speed on the Ruby language and also on
 programming in general.
-
 
 == Debugger
 
@@ -141,7 +137,6 @@ with a IRB prompt in the server window. Here you can do things like:
 
 Finally, when you're ready to resume execution, you can enter "cont".
 
-
 == Console
 
 The console is a Ruby shell, which allows you to interact with your
@@ -165,7 +160,6 @@ To reload your controllers and models after launching the console run
 
 More information about irb can be found at:
 link:http://www.rubycentral.com/pickaxe/irb.html
-
 
 == dbconsole
 
@@ -224,7 +218,7 @@ app/controllers
   ApplicationController which itself descends from ActionController::Base.
 
 app/models
-  Holds models that should be named like post.rb. Models descend from 
+  Holds models that should be named like post.rb. Models descend from
   ActiveRecord::Base by default.
 
 app/views

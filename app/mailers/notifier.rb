@@ -17,5 +17,4 @@ class Notifier < ActionMailer::Base
     @root_url = root_url
   end
 
-
 end

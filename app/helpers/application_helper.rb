@@ -23,7 +23,6 @@ module ApplicationHelper
     end
   end
 
-
   def destroy_link(item,path,options={})
     link_to("Delete",path,options.merge(:method=>:delete,:confirm=>"Sicher?",:class=>"action_tag del_tag")) if permitted_to?(:destroy,item)
   end

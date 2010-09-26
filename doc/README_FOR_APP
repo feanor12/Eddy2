@@ -2,40 +2,39 @@ Use this README file to introduce your application and point to useful places in
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
 
 Features:
-	Blogsystem
-	Authorization (declarative authorization)
-	Authentication (authlogic)
-	LinkCollection
+  Blogsystem
+  Authorization (declarative authorization)
+  Authentication (authlogic)
+  LinkCollection
 
-The Blogsystem 
-	Features:
-		Posts (a Blogentry)
-		Comments (per Post)
+The Blogsystem
+  Features:
+    Posts (a Blogentry)
+    Comments (per Post)
 
 Authorization
-	Infosources:
-		http://github.com/stffn/declarative_authorization
-		http://railscasts.com/episodes/188-declarative-authorization
+  Infosources:
+    http://github.com/stffn/declarative_authorization
+    http://railscasts.com/episodes/188-declarative-authorization
 
 Authentication:
-	Infosource:
-		http://railscasts.com/episodes/160-authlogic
-		http://github.com/binarylogic/authlogic
-		http://github.com/matthooks/authlogic-activation-tutorial
-		http://github.com/rejeep/authlogic-password-reset-tutorial (not implemented)
+  Infosource:
+    http://railscasts.com/episodes/160-authlogic
+    http://github.com/binarylogic/authlogic
+    http://github.com/matthooks/authlogic-activation-tutorial
+    http://github.com/rejeep/authlogic-password-reset-tutorial (not implemented)
 
 LinkCollection
-	TopLevel:Lectures 
-		SubLevel:Downloads (container for mirrors)
-			SubSubLevel:Links (act as mirrors)
-
+  TopLevel:Lectures
+    SubLevel:Downloads (container for mirrors)
+      SubSubLevel:Links (act as mirrors)
 
 Possible Future Features:
-	Forum
-	Announcements per Lecture
-	User Lecture Assosiation
-	User Homescreen(News from Lectures + Todo List + ...)
-	Passwordreset
-	Different Permission Levels(Moderator,...)
-	Better Layout ;)
-	Good Documentation ;)
+  Forum
+  Announcements per Lecture
+  User Lecture Assosiation
+  User Homescreen(News from Lectures + Todo List + ...)
+  Passwordreset
+  Different Permission Levels(Moderator,...)
+  Better Layout ;)
+  Good Documentation ;)

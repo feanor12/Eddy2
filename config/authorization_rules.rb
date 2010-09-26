@@ -24,7 +24,6 @@ authorization do
       if_attribute :user => is { user }
     end
 
-
     has_permission_on :mylinks, :to=>[:create]
     has_permission_on :mylinks, :to=>[:update,:read,:destroy] do
       if_attribute :user => is {user}
@@ -54,5 +53,4 @@ privileges do
   privilege :create, :includes => [:new]
   privilege :update, :includes => [:edit,:update]
 end
-
 

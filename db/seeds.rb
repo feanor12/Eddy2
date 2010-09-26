@@ -29,33 +29,33 @@ m = sem.scan(r_sem)
 
 l_names=[]
 m.each do |s|
-	l=open(base_url+s[0].to_s)
-	lm=l.read.scan(r_l)
-	lm.each do |id|
-		begin
-			ls= open(l_url%id.flatten.first.strip )
-			ltext=ls.read
-			lt=ltext.scan(r_titel)
-			ld=ltext.scan(r_desc)
-		rescue
-			puts "failed %s"%id.flatten.first.strip
-		else
-			t = case lt[2][0]
-				when "Übung" then "UE"
-				when "Vorlesung" then "VO"
-				when "Vorlesung-Übung" then "VU"
+  l=open(base_url+s[0].to_s)
+  lm=l.read.scan(r_l)
+  lm.each do |id|
+    begin
+      ls= open(l_url%id.flatten.first.strip )
+      ltext=ls.read
+      lt=ltext.scan(r_titel)
+      ld=ltext.scan(r_desc)
+    rescue
+      puts "failed %s"%id.flatten.first.strip
+    else
+      t = case lt[2][0]
+        when "Übung" then "UE"
+        when "Vorlesung" then "VO"
+        when "Vorlesung-Übung" then "VU"
         when "Laborübung" then "LU"
         when "Praktikum" then "PR"
-				else ""
-				end
-			l_names+=[[lt[0],ld[0],t]]
-		end
-	end
+        else ""
+        end
+      l_names+=[[lt[0],ld[0],t]]
+    end
+  end
 end
 
 l_names.each do |x,y,z|
-	y[0].gsub!(/<br>/,"\n")
-	y[0].gsub!(/\r/,"")
-	y[0].strip!
-	Lecture.create(:name=>z+" "+x[0],:description=>y[0])
+  y[0].gsub!(/<br>/,"\n")
+  y[0].gsub!(/\r/,"")
+  y[0].strip!
+  Lecture.create(:name=>z+" "+x[0],:description=>y[0])
 end

@@ -4,14 +4,14 @@
     <%new_path="" unless defined? new_path%>
     <h1>
       <%=title%>
-      <%=new_link(new,new_path) if defined? new %> 
+      <%=new_link(new,new_path) if defined? new %>
     </h1>
   <%end%>
 
   <%=content_tag :ul,:class=>"box_body" do%>
     <%=body%>
   <%end if defined? body.blank?%>
-  
+
   <div class="footer">
     <%=will_paginate paginate if defined? paginate%>
   </div>

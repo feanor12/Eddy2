@@ -1,7 +1,7 @@
 <li>
   <h3><%=announcement.title%></h3>
   <%=simple_format(auto_link(announcement.body))%>
-  
+
   <div class="item-menu">
   <div class="item-actions">
     <%=edit_link(announcement,edit_lecture_announcement_path(announcement.lecture,announcement))%>

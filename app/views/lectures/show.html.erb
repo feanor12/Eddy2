@@ -13,7 +13,6 @@
   <%end if @announcements.empty?%>
 <%end if permitted_to?(:read,:announcements)%>
 
-
 <%=boxed "Downloads", :new_path=>new_lecture_download_path(@lecture),:new=>"downloads" do%>
   <%=render :partial=>'downloads/download',:collection=>@downloads%>
   <%=content_tag :li do%>
