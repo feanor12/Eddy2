@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   filter_resource_access
-  respond_to :html, :xml 
+  respond_to :html, :xml
 
   def index
     @posts = Post.paginate(:page => params[:page], :order => 'created_at DESC',:include=>:comments)

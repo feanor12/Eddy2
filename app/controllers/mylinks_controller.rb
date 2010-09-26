@@ -9,7 +9,7 @@ class MylinksController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @mylink=Mylink.find(params[:id])
   end

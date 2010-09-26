@@ -2,7 +2,7 @@ class UserSessionsController < ApplicationController
   def new
     @user_session = UserSession.new
   end
-  
+
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
@@ -12,7 +12,7 @@ class UserSessionsController < ApplicationController
       redirect_to posts_path
     end
   end
-  
+
   def destroy
     current_user_session.destroy
     flash[:notice] = "Logout successful!"

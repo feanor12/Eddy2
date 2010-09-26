@@ -1,6 +1,6 @@
 class AddDescriptionToDownload < ActiveRecord::Migration
   def self.up
-    add_column :downloads, :description, :text 
+    add_column :downloads, :description, :text
   end
 
   def self.down

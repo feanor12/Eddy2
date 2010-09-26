@@ -30,7 +30,7 @@ class AnnouncementsController < ApplicationController
       render :action=>"edit"
     end
   end
-  
+
   def destroy
     @lecture = Lecture.find(params[:lecture_id])
     @lecture.announcements.find(params[:id]).destroy()

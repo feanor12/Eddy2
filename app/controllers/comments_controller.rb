@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(params[:comment])
     @comment.user=current_user
     if @comment.save
-      flash[:notice]="You posted a comment" 
+      flash[:notice]="You posted a comment"
       redirect_to post_path(@post)
     else
       redirect_to post_path(@post)

@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   acts_as_authentic do |config|
     config.login_field = 'email'
-  end 
+  end
   validates_format_of :email, :with=> /.+@(student\.tugraz|edu\.uni-graz)\.at/
-  validates_presence_of :login, :email, :role, :password 
+  validates_presence_of :login, :email, :role, :password
   validates_uniqueness_of :login, :email
 
   attr_accessible :login,:email,:password, :password_confirmation

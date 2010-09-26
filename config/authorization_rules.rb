@@ -25,7 +25,7 @@ authorization do
     end
 
 
-    has_permission_on :mylinks, :to=>[:create] 
+    has_permission_on :mylinks, :to=>[:create]
     has_permission_on :mylinks, :to=>[:update,:read,:destroy] do
       if_attribute :user => is {user}
     end
@@ -35,7 +35,7 @@ authorization do
     #  if_attribute :user => is {user}
     #end
 
-    has_permission_on :comments, :to=>[:create,:read] 
+    has_permission_on :comments, :to=>[:create,:read]
     has_permission_on :comments, :to=>[:manage] do
       if_attribute :user => is { user }
     end

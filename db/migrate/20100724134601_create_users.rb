@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_salt
       t.string :persistence_token
       t.string :perishable_token
-      #roles 
+      #roles
       t.integer :role_id
 
       t.timestamps

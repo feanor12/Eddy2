@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def subnav(&block)
-    content_for(:subnav,&block) 
+    content_for(:subnav,&block)
   end
 
   def new_link(controller_name,path="")

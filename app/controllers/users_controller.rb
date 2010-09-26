@@ -13,11 +13,11 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:notice]="Error at creating User"
-      render :action=>'new' 
+      render :action=>'new'
     end
   end
 
-  def index 
+  def index
     @users=User.all
   end
 

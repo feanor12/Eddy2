@@ -12,7 +12,7 @@
 require "open-uri"
 require "openssl"
 
-base_url = "https://online.tugraz.at/tug_online/" 
+base_url = "https://online.tugraz.at/tug_online/"
 sem_physik = "https://online.tugraz.at/tug_online/semesterplaene.uebersicht?corg_nr=202&csr_nr=132&pStpStpNr=524&csj_nr=1031&csprache_nr=1"
 sem_math = "https://online.tugraz.at/tug_online/semesterplaene.uebersicht?corg_nr=202&csr_nr=137&pStpStpNr=522&csj_nr=1031&csprache_nr=1"
 sem_url = sem_physik #load physick lectures
