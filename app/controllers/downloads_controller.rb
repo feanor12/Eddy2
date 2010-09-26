@@ -1,5 +1,5 @@
 class DownloadsController < ApplicationController
-  filter_resource_access 
+  filter_resource_access
   def new
     @lecture = Lecture.find(params[:lecture_id])
     @download=@lecture.downloads.build
