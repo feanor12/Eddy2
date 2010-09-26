@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def permission_denied
+    flash[:notice]="Something was in your way and you went back"
+    redirect_to root_path
+  end
 end

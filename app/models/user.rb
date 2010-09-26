@@ -3,11 +3,10 @@ class User < ActiveRecord::Base
     config.login_field = 'email'
   end 
   validates_format_of :email, :with=> /.+@(student\.tugraz|edu\.uni-graz)\.at/
-  validates_presence_of :login
+  validates_presence_of :login, :email, :role, :password 
   validates_uniqueness_of :login, :email
 
-  attr_accessible :login,:username,:email,:password, :password_confirmation
-
+  attr_accessible :login,:email,:password, :password_confirmation
 
   belongs_to :role
   has_many :comments
