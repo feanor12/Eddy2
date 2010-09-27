@@ -1,5 +1,13 @@
 class DownloadsController < ApplicationController
   filter_resource_access
+  filter_access_to :download
+
+  def download
+    @download = Download.find(params[:download_id])
+    root_path = File::join ::Rails.root.to_s, "public"
+    send_file root_path+@download.document_url, :x_sendfiles=>true, :type=>"application/octet-stream"
+  end
+
   def new
     @lecture = Lecture.find(params[:lecture_id])
     @download=@lecture.downloads.build

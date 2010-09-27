@@ -5,3 +5,4 @@ tmp/**/*
 *.swp
 config/initializers/mailer.rb
 Gemfile.lock
+public/uploads

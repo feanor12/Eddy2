@@ -4,7 +4,7 @@ authorization do
     has_permission_on :comments, :to=>[:manage]
     has_permission_on :users, :to=>[:manage]
     has_permission_on :lectures, :to=>[:manage]
-    has_permission_on :downloads, :to=>[:manage]
+    has_permission_on :downloads, :to=>[:manage,:download]
     has_permission_on :mylinks, :to=>[:manage]
     has_permission_on :announcements, :to=>[:manage]
   end

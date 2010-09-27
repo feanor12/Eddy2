@@ -3,6 +3,7 @@ Eddy2::Application.routes.draw do
   resources :lectures do
     resources :downloads do
       resources :links
+      match 'download' => "downloads#download"
     end
     resources :announcements
   end
