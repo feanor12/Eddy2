@@ -1,0 +1,10 @@
+=boxed "Forgot Password" do
+  %li
+    %p Fill out the form below and instructions to reset your password will be emailed to you:
+    =form_tag password_resets_path do |f|
+      =label_tag :email
+      %br
+      =text_field_tag :email
+      %br
+      =submit_tag "Send instructions!"
+
