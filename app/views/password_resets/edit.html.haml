@@ -1,0 +1,13 @@
+=boxed "Change My Password" do 
+  %li
+    =form_for @user, :url=>password_reset_path, :method=>:put do |f|
+      =f.label :password
+      %br
+      =f.password_field :password
+      %br
+      =f.label :password_confirmation
+      %br
+      =f.password_field :password_confirmation
+      %br
+      =f.submit
+

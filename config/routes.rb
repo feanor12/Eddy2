@@ -11,6 +11,7 @@ Eddy2::Application.routes.draw do
   end
   resource :user_session
   resources :users, :mylinks
+  resources :password_resets
   root :to=>"posts#index"
   #static routes
   match '/impressum' => 'static#impressum'
