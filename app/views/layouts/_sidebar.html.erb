@@ -9,9 +9,8 @@
 
     <%=boxed "Latest Links" do%>
         <%@s_downloads.each do |dl|%>
-          <%next if dl.links.empty?%>
           <li>
-          <%=link_to dl.name,dl.links.first.url%><br/>
+          <%=link_to dl.name,download_download_path(dl.lecture,dl) %><br/>
           </li>
         <%end%>
     <%end unless @s_downloads.empty?%>

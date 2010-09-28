@@ -104,11 +104,8 @@ body {
   background-color: #222;
   color: #eee;
   margin:0;
-  font-size:1em;
-  font-size:100%;
-  font-size:13px;
+  font-size:0.7em;
 }
-
 
 .sidebar {
   overflow:hidden;

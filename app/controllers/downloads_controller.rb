@@ -5,7 +5,7 @@ class DownloadsController < ApplicationController
   def download
     @download = Download.find(params[:download_id])
     root_path = File::join ::Rails.root.to_s, "public"
-    send_file root_path+@download.document_url, :x_sendfiles=>true, :type=>"application/octet-stream"
+    send_file root_path + @download.document_url.to_s, :x_sendfile=>true, :type=>"application/octet-stream"
   end
 
   def new

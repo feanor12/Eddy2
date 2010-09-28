@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
   def load_sidebar
     if current_user
       @mylinks = current_user.mylinks
-      @s_downloads = Download.find(:all,:order=>'updated_at DESC',:limit=>5,:include=>:links)
+      @s_downloads = Download.find(:all,:order=>'updated_at DESC',:limit=>5)
       @s_announcements = Announcement.find(:all,:order=>'updated_at DESC',:limit=>5,:include=>:lecture)
     end
   end
