@@ -32,7 +32,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   def store_location
     session[:return_to] = request.request_uri
   end
