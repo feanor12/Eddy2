@@ -1,5 +1,5 @@
 <%=content_tag :li do%>
   <%=link_to download.name, lecture_download_path(download.lecture,download)%>
-  <%=link_to("Download", download.links.find(:first).url,:class=>"action_tag") unless download.links.empty?%>
+  <%=link_to("Download", download_download_path(download.lecture,download),:class=>"action_tag") unless download.links.empty?%>
   <%=destroy_link(download,lecture_download_path(download.lecture,download))%>
 <%end%>
