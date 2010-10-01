@@ -3,7 +3,7 @@ namespace :cache do
   task :clear do
     css_path = File.join ::Rails.root,"public/stylesheets/all.css"
     js_path = File.join ::Rails.root,"public/javascript/all.js"
-    
+
     begin
     File.delete css_path
     rescue
