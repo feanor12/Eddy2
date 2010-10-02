@@ -8,7 +8,7 @@ class ActivationsController < ApplicationController
       @user.deliver_welcome!
       redirect_to root_url
     else
-      render :action => :new
+      redirect_to root_url
     end
   end
 
