@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     config.login_field = 'email'
   end
   validates_format_of :email, :with=> /.+@(student\.tugraz|edu\.uni-graz)\.at/
-  validates_presence_of :login, :email, :role, :password
+  validates_presence_of :login, :email, :role
   validates_uniqueness_of :login, :email
 
   attr_accessible :login,:email,:password, :password_confirmation
@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
 
   def activate!
     self.active = true
+    save
+  end
+
+  def deactivate!
+    self.active = false
     save
   end
 
