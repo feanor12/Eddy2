@@ -2,7 +2,7 @@ namespace :cache do
   desc "Clear all.js and all.css"
   task :clear do
     css_path = File.join ::Rails.root,"public/stylesheets/all.css"
-    js_path = File.join ::Rails.root,"public/javascript/all.js"
+    js_path = File.join ::Rails.root,"public/javascripts/all.js"
 
     begin
     File.delete css_path
