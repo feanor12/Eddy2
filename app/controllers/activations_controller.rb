@@ -8,6 +8,7 @@ class ActivationsController < ApplicationController
       @user.deliver_welcome!
       redirect_to root_url
     else
+      flash[:notice] = "Something went wrong"
       redirect_to root_url
     end
   end
