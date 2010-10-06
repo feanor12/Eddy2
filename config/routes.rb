@@ -15,6 +15,7 @@ Eddy2::Application.routes.draw do
   resources :password_resets
   root :to=>"posts#index"
   #static routes
-  match '/impressum' => 'static#impressum'
-  match '/agb' => 'static#agb'
+  resources :statics
+  #match '/impressum' => 'static#impressum'
+  #match '/agb' => 'static#agb'
 end

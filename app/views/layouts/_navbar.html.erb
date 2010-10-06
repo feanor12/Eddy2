@@ -30,6 +30,9 @@
         <li>
         <%=link_to("Users",users_path) if permitted_to?(:manage,:users)%>
         </li>
+        <li>
+        <%=link_to("Statics",statics_path) if permitted_to?(:manage,:statics)%>
+        </li>
       </ul>
     <%end%>
     <div class="clear"></div>

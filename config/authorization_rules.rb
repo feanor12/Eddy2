@@ -7,6 +7,7 @@ authorization do
     has_permission_on :downloads, :to=>[:manage,:download]
     has_permission_on :mylinks, :to=>[:manage]
     has_permission_on :announcements, :to=>[:manage]
+    has_permission_on :statics, :to=>[:manage]
   end
 
   role :user do
@@ -44,6 +45,7 @@ authorization do
     has_permission_on :posts, :to=>[:read]
     has_permission_on :lectures, :to=>[:read]
     has_permission_on :announcements, :to=>[:read]
+    has_permission_on :statics, :to=>[:read]
   end
 end
 

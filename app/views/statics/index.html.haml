@@ -1,0 +1,7 @@
+=boxed "Static Sites",:new=>"statics" do
+  -@sites.each do |site|
+    %li
+      =link_to site.title,static_path(site)
+      =edit_link(site,edit_static_path(site))
+      =destroy_link(site,static_path(site))
+

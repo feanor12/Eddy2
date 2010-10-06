@@ -1,0 +1,4 @@
+#footer
+  .center
+    -Static.all.each do |site|
+      =link_to(site.title,static_path(site)) if permitted_to?(:show,site)
