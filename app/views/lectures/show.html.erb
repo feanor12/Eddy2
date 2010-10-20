@@ -2,6 +2,9 @@
 
 <%=boxed @lecture.name do%>
   <li>
+    <b>Semester: </b><%=@lecture.semester%>
+    </li>
+  <li>
     <%=simple_format(@lecture.description)%>
   </li>
 <%end%>
