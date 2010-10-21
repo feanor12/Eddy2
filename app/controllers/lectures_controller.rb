@@ -17,6 +17,7 @@ filter_resource_access
 
   def index
     @lectures=Lecture.find(:all,:include=>[:downloads],:order=>"name ASC")
+    @lectures=@lectures.group_by(&:semester)
   end
 
   def show
