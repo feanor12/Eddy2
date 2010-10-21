@@ -1,12 +1,9 @@
 <%title(@lecture.name)%>
 
 <%=boxed @lecture.name do%>
-  <li>
-    <b>Semester: </b><%=@lecture.semester%>
-    </li>
-  <li>
-    <%=simple_format(@lecture.description)%>
-  </li>
+	<h3>Semester: <%=@lecture.semester%></h3>
+	<h3>Info: </h3>
+    <%=simple_format(auto_link(@lecture.description))%>
 <%end%>
 
 <%=boxed "Announcements",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture),:paginate=>@announcements do%>
