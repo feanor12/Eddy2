@@ -1,18 +1,30 @@
 <%title(@lecture.name)%>
 
 <%=boxed @lecture.name do%>
-	<h3>Semester: <%=@lecture.semester%></h3>
-	<h3>Info: </h3>
-    <%=simple_format(auto_link(@lecture.description))%>
+  <li><h3>Semester: <%=@lecture.semester%></h3></li>
+  <li>
+  <h3>Info: </h3>
+  <%=simple_format(auto_link(@lecture.description))%>
+  </li>
+<%end%>
+
+<%=boxed "Links",:new_path=>new_lecture_link_path(@lecture),:new=>"links" do %>
+  <%@links.each do |l|%>
+    <li>
+    <%=link_to l.name, l.url%>
+    <%=edit_link(l,edit_lecture_link_path(@lecture,l))%>
+    <%=destroy_link(l,lecture_link_path(@lecture,l))%><br/>
+    </li>
+  <%end%>
 <%end%>
 
 <%=boxed "Announcements",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture),:paginate=>@announcements do%>
   <%= render :partial=>@announcements unless @announcements.empty?%>
   <%=content_tag :li do%>
     No Announcements made
-  <%end if @announcements.empty?%>
-<%end if permitted_to?(:read,:announcements)%>
+    <%end if @announcements.empty?%>
+    <%end if permitted_to?(:read,:announcements)%>
 
-<%=boxed "Downloads", :new_path=>new_lecture_download_path(@lecture),:new=>"downloads" do%>
-  <%=render :partial=>'downloads/download',:collection=>@downloads%>
-<%end if permitted_to?(:read,:downloads)%>
+    <%=boxed "Downloads", :new_path=>new_lecture_download_path(@lecture),:new=>"downloads" do%>
+      <%=render :partial=>'downloads/download',:collection=>@downloads%>
+      <%end if permitted_to?(:read,:downloads)%>

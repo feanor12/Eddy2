@@ -12,14 +12,3 @@
     <%=simple_format(auto_link(@download.description))%>
   </li>
 <%end%>
-
-<%=boxed "Mirrors" do%>
-  <%=render :partial=>@download.links%>
-<%end unless @download.links.empty?%>
-
-<%=boxed "Add a Mirror" do%>
-  <li>
-  <p>Upload your File to a Filehost(Wuala,..)</p>
-  <p>Copy Download URL into to Field below</p>
-  <%=render :partial=>'links/form'%>
-<%end%>

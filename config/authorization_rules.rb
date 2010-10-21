@@ -8,6 +8,7 @@ authorization do
     has_permission_on :mylinks, :to=>[:manage]
     has_permission_on :announcements, :to=>[:manage]
     has_permission_on :statics, :to=>[:manage]
+    has_permission_on :links, :to=>[:manage]
   end
 
   role :user do

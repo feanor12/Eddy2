@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101020213432) do
+ActiveRecord::Schema.define(:version => 20101021115042) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -52,7 +52,8 @@ ActiveRecord::Schema.define(:version => 20101020213432) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "download_id"
+    t.string   "name"
+    t.integer  "lecture_id"
   end
 
   create_table "mylinks", :force => true do |t|

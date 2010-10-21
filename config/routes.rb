@@ -1,8 +1,8 @@
 Eddy2::Application.routes.draw do
   match '/activate/:activation_code' , :to=> 'activations#create', :as=>'activate'
   resources :lectures do
+    resources :links
     resources :downloads do
-      resources :links
       match 'download' => "downloads#download"
     end
     resources :announcements
