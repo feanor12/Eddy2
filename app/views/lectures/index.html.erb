@@ -1,6 +1,6 @@
 <%title("Lectures")%>
 <%=boxed "Lectures", :new=>"lectures" do %>
-	<%@lectures.each do |s,lvs|%>
+	<%@lectures.sort.each do |s,lvs|%>
 		<h4><%=s.to_s%>.Semester</h4>
 		<%=render :partial=>lvs%>
 	<%end%>
