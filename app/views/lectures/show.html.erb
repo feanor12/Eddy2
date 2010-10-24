@@ -16,15 +16,12 @@
     <%=destroy_link(l,lecture_link_path(@lecture,l))%><br/>
     </li>
   <%end%>
-<%end%>
+<%end if  permitted_to?(:read,:links)%>
 
 <%=boxed "Announcements",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture),:paginate=>@announcements do%>
   <%= render :partial=>@announcements unless @announcements.empty?%>
-  <%=content_tag :li do%>
-    No Announcements made
-    <%end if @announcements.empty?%>
-    <%end if permitted_to?(:read,:announcements)%>
+<%end if permitted_to?(:read,:announcements)%>
 
-    <%=boxed "Downloads", :new_path=>new_lecture_download_path(@lecture),:new=>"downloads" do%>
-      <%=render :partial=>'downloads/download',:collection=>@downloads%>
-      <%end if permitted_to?(:read,:downloads)%>
+<%=boxed "Downloads", :new_path=>new_lecture_download_path(@lecture),:new=>"downloads" do%>
+  <%=render :partial=>'downloads/download',:collection=>@downloads%>
+<%end if permitted_to?(:read,:downloads)%>

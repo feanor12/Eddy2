@@ -1,6 +1,7 @@
 # coding: utf-8
 #Roles
     admin_role=Role.create(:name=>'admin')
+    mod_role=Role.create(:name=>'mod')
     user_role=Role.create(:name=>'user')
 #User
     admin=User.create(:email=>"admin@student.tugraz.at", :password=>'123456',:password_confirmation=>'123456',:login=>"admin")

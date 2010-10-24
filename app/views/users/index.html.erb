@@ -4,6 +4,8 @@
     <th>Email</th>
     <th>Login</th>
     <th>Active</th>
+    <th>Role</th>
+    <th>toogle mod</th>
     <th></th>
   </tr>
   <%@users.each do |u|%>
@@ -11,6 +13,8 @@
   <td><%=u.email%></td>
   <td><%=u.login%></td>
   <td><%=u.active?%></td>
+  <td><%=u.role.name%></td>
+  <td><%=link_to "toogle", promote_path(u) unless u.role.name=='admin'%></td>
   <td>
     <%=edit_link(u,edit_user_path(u))%>
     <%=destroy_link(u,user_path(u))%>

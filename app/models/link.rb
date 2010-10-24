@@ -3,4 +3,5 @@ class Link < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :lecture
   belongs_to :lecture
+  belongs_to :user
 end

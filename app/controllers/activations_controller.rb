@@ -7,11 +7,10 @@ class ActivationsController < ApplicationController
       flash[:notice] = "Your account has been activated!"
       UserSession.create(@user, false)
       @user.deliver_welcome!
-      redirect_to root_url
     else
       flash[:notice] = "Something went wrong"
-      redirect_to root_url
     end
+    redirect_to root_url
   end
 
   private

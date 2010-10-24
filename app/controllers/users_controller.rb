@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   filter_resource_access
+  filter_access_to :promote
   def new
     @user=User.new
   end
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
     @user.role = Role.find_by_name('user')
     if @user.save_without_session_maintenance
       @user.deliver_activation_instructions!
-      flash[:notice]="Successfully created User"
+      flash[:notice]="Email with activation code was send to you"
       redirect_to root_path
     else
       flash[:notice]="Error at creating User"
@@ -37,6 +38,17 @@ class UsersController < ApplicationController
   def destroy
     @user=User.find(params[:id])
     @user.destroy
+    redirect_to users_path
+  end
+
+  def promote
+    @user=User.find(params[:id])
+    if @user.role.name=='mod'
+      @user.role=Role.find_by_name('user')
+    else
+      @user.role=Role.find_by_name('mod')
+    end
+    @user.save!
     redirect_to users_path
   end
 end

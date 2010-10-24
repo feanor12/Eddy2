@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  filter_resource_access
 
   def new
     @lecture = Lecture.find(params[:lecture_id])
@@ -8,6 +9,7 @@ class LinksController < ApplicationController
   def create
     @lecture = Lecture.find(params[:lecture_id])
     @link=@lecture.links.build(params[:link])
+    @link.user=current_user
     if @link.save
       redirect_to [@link.lecture]
     else

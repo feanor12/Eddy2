@@ -1,11 +1,15 @@
 <div class="center">
   <%=render(:partial=>"layouts/sidebar")%>
   <div class=" with_sidebar" >
+    
+    <%=content_tag(:div,:id=>"status") do%>
     <%=boxed "Status" do%>
-      <li class="notice">
-        <%=notice %>
-      </li>
-    <%end unless notice.nil?%>
+      <%=content_tag(:li,notice)%>
+      <script type="text/javascript">
+        setTimeout("new Effect.Fade('status');", 15000);
+      </script>
+      <%end %>
+    <%end unless flash[:notice].nil?%>
 
     <%= yield %>
 
