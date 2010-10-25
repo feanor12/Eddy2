@@ -38,6 +38,8 @@ authorization do
       if_attribute :id => is {user.id}
     end
 
+    has_permission_on :announcements, :to=>[:read]
+
     has_permission_on :posts, :to=>[:create,:read]
     has_permission_on :posts, :to=>[:update,:destroy] do
       if_attribute :user => is { user }
