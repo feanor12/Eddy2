@@ -4,10 +4,9 @@
     <b>Lecture:</b>
     <%=link_to @lecture.name,lecture_path(@lecture)%>
   </li>
-  <li>
-    <b>Local:</b>
-    <%=link_to "Download",download_download_path(@lecture,@download)%>
-  </li>
+  <%=content_tag :li,:class=>"download" do%>
+    <%=button_to "Download",download_download_path(@lecture,@download)%>
+  <%end if permitted_to?(:download,@download)%>
   <li>
     <%=simple_format(auto_link(@download.description))%>
   </li>

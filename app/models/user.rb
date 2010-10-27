@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :mylinks
   has_many :announcements
   has_many :links
+  has_many :downloads
 
   def activate!
     self.active = true
