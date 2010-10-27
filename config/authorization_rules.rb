@@ -75,7 +75,7 @@ authorization do
   role :guest do
     has_permission_on :announcements, :to=>[:read]
     has_permission_on :comments, :to=>[:read]
-    has_permission_on :downloads, :to=>[:read]
+   # has_permission_on :downloads, :to=>[:read]
     has_permission_on :lectures, :to=>[:read]
     has_permission_on :links,:to=>[:read]
     #has_permission_on :mylinks, :to=>[:read]
