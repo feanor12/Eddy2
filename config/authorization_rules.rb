@@ -58,7 +58,7 @@ authorization do
     end
 
 
-    has_permission_on :downloads, :to=>[:read,:create]
+    has_permission_on :downloads, :to=>[:read,:create,:download]
     #has_permission_on :downloads, :to=>[:update,:destroy] do
     #  if_attribute :user => is {user}
     #end
