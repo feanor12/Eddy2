@@ -6,7 +6,9 @@ Eddy2::Application.routes.draw do
     resources :downloads do
       match 'download' => "downloads#download"
     end
-    resources :announcements
+    resources :announcements do
+      resources :comments
+    end
   end
   resources :posts do
     resources :comments

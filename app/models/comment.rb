@@ -6,7 +6,4 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :body, :user, :commentable
 
-  def set_current_user
-    user=current_user
-  end
 end

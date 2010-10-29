@@ -37,4 +37,8 @@ class AnnouncementsController < ApplicationController
     redirect_to @lecture
   end
 
+  def show
+    @comment = Comment.new
+  end
+
 end

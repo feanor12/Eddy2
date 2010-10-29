@@ -18,7 +18,7 @@
   <%end%>
 <%end if  permitted_to?(:read,:links)%>
 
-<%=boxed "Announcements",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture),:paginate=>@announcements do%>
+<%=boxed "Blackboard",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture),:paginate=>@announcements do%>
   <%= render :partial=>@announcements unless @announcements.empty?%>
 <%end if permitted_to?(:read,:announcements)%>
 

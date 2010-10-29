@@ -1,0 +1,16 @@
+=boxed @announcement.title  do
+  %li
+    =simple_format(auto_link(@announcement.body))
+
+=boxed "Comments" do
+  =render :partial=>'comments/comment',:collection=>@announcement.comments
+
+-if permitted_to?(:create,:comments)
+  =boxed "Add your Comment" do
+    %li
+      =form_for [@announcement.lecture,@announcement,@comment] do |f|
+        =f.label :body,"Text"
+        %br
+        =f.text_area :body, :rows=>3
+        %br
+        =f.submit
