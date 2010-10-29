@@ -1,9 +1,13 @@
 =boxed @announcement.title  do
   %li
+    Lecture:
+    =link_to @announcement.lecture.name,@announcement.lecture
+  %li
     =simple_format(auto_link(@announcement.body))
 
-=boxed "Comments" do
-  =render :partial=>'comments/comment',:collection=>@announcement.comments
+-unless @announcement.comments.empty?
+  =boxed "Comments" do
+    =render :partial=>'comments/comment',:collection=>@announcement.comments
 
 -if permitted_to?(:create,:comments)
   =boxed "Add your Comment" do

@@ -15,10 +15,10 @@
         <%end%>
     <%end unless @s_downloads.empty?%>
 
-    <%=boxed "Latest Announcements" do%>
+    <%=boxed "Latest Questions" do%>
         <%@s_announcements.each do |a|%>
           <li>
-          <%=link_to a.title,lecture_path(a.lecture)%><br/>
+          <%=link_to a.title,lecture_announcement_path(a.lecture,a)%><br/>
           </li>
         <%end%>
     <%end unless @s_announcements.empty?%>
