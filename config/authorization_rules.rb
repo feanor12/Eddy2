@@ -18,7 +18,7 @@ authorization do
 #################################################################
 ## MOD
 #################################################################
-  role :mod do 
+  role :mod do
     has_permission_on :posts, :to=>[:manage]
     has_permission_on :comments, :to=>[:manage]
     has_permission_on :lectures, :to=>[:manage]
@@ -56,7 +56,6 @@ authorization do
     has_permission_on :links, :to=>[:update,:destroy] do
       if_attribute :user => is {user}
     end
-
 
     has_permission_on :downloads, :to=>[:read,:create,:download]
     #has_permission_on :downloads, :to=>[:update,:destroy] do

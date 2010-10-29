@@ -41,8 +41,8 @@ class StaticsController < ApplicationController
 
   def destroy
     @site = Static.find(params[:id])
-    if @site.delete 
-     flash[:notice] = "Static destroyed" 
+    if @site.delete
+     flash[:notice] = "Static destroyed"
     end
     redirect_to statics_path
   end
