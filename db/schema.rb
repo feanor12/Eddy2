@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101029192252) do
+ActiveRecord::Schema.define(:version => 20101030202149) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20101029192252) do
     t.integer  "commentable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "commentable_type", :default => "post"
+    t.string   "commentable_type", :default => "Post"
   end
 
   create_table "downloads", :force => true do |t|
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20101029192252) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "description"
+    t.text     "description"
     t.integer  "semester",    :default => 0
   end
 
@@ -98,6 +98,9 @@ ActiveRecord::Schema.define(:version => 20101029192252) do
     t.datetime "updated_at"
     t.boolean  "active",            :default => false, :null => false
     t.string   "login"
+    t.datetime "last_request_at"
+    t.string   "last_login_ip"
+    t.integer  "login_count"
   end
 
 end

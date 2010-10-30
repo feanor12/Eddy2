@@ -1,6 +1,7 @@
 <%=boxed "List Users" do%>
 <table border="1px">
   <tr>
+    <th>Status</th>
     <th>Email</th>
     <th>Login</th>
     <th>Active</th>
@@ -10,6 +11,7 @@
   </tr>
   <%@users.each do |u|%>
   <tr>
+    <td><%=u.logged_in?%>(<%=u.login_count%>)</td>
   <td><%=u.email%></td>
   <td><%=u.login%></td>
   <td><%=u.active?%></td>
