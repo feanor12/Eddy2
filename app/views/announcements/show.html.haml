@@ -7,7 +7,7 @@
 
 -unless @announcement.comments.empty?
   =boxed "Comments" do
-    =render :partial=>'comments/comment',:collection=>@announcement.comments
+    =render :partial=>'comments/comment',:collection=>@announcement.comments.order("created_at ASC")
 
 -if permitted_to?(:create,:comments)
   =boxed "Add your Comment" do

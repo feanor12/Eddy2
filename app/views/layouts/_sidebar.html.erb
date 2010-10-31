@@ -10,7 +10,7 @@
     <%=boxed "Latest Links" do%>
         <%@s_downloads.each do |dl|%>
           <li>
-          <%=link_to dl.name,download_download_path(dl.lecture,dl) %><br/>
+          <%=link_to dl.name,lecture_download_path(dl.lecture,dl) %><br/>
           </li>
         <%end%>
     <%end unless @s_downloads.empty?%>
