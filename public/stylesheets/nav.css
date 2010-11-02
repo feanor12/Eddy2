@@ -2,9 +2,13 @@
   height:6em;
   font-family:'PusabRegular';
   padding:0;
-  background-color:#333333;
-  border-bottom:0.2em solid #555;
   overflow:hidden;
+  background: -moz-linear-gradient(top,#333,#171717)
+}
+
+.rainbow {
+  background: -moz-linear-gradient(right,darkred,red ,orange 16%,yellow 32%,green 48%,blue 60%,indigo 76%,darkviolet);
+  height:0.2em;
 }
 
 #nav h5 {
