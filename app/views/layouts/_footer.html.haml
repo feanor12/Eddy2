@@ -1,5 +1,11 @@
 #footer
   .center
-    -Static.all.each do |site|
-      =link_to(site.title,static_path(site)) if permitted_to?(:show,site)
-    =link_to("List of Moderators",mods_path)if permitted_to?(:index_mods,:users) 
+
+    #sites  
+      -Static.all.each do |site|
+        =link_to(site.title,static_path(site)) if permitted_to?(:show,site)
+      =link_to("List of Moderators",mods_path)if permitted_to?(:index_mods,:users) 
+
+    #links
+      -StaticLink.all.each do |link|
+        =link_to(link.name,link.url) if permitted_to?(:read,link)

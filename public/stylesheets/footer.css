@@ -8,3 +8,12 @@
 #footer .center {
   padding:0.5em;
 }
+
+#footer a {
+  display:block;
+}
+
+#sites,#links {
+  float:left;
+  padding:1em;
+}

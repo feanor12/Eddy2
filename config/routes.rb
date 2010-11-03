@@ -1,4 +1,6 @@
 Eddy2::Application.routes.draw do
+  resources :static_links,:except=>[:show]
+
   match '/activate/:activation_code' , :to=> 'activations#create', :as=>'activate'
   match '/promote/:id' ,:to=>'users#promote',:as=>'promote'
   match 'mods', :to=>'users#index_mods',:as=>'mods'

@@ -13,6 +13,7 @@ authorization do
     has_permission_on :announcements, :to=>[:manage]
     has_permission_on :statics, :to=>[:manage]
     has_permission_on :links, :to=>[:manage]
+    has_permission_on :static_links, :to=>[:manage]
   end
 
 #################################################################
@@ -35,6 +36,7 @@ authorization do
     has_permission_on :users, :to=>[:update] do
       if_attribute :id => is {user.id}
     end
+    has_permission_on :static_links, :to=>[:read]
   end
 
 #################################################################
@@ -74,6 +76,7 @@ authorization do
     has_permission_on :comments, :to=>[:manage] do
       if_attribute :user => is { user }
     end
+    has_permission_on :static_links, :to=>[:read]
   end
 
 #################################################################
@@ -89,6 +92,7 @@ authorization do
     has_permission_on :posts, :to=>[:read]
     has_permission_on :statics, :to=>[:read]
     has_permission_on :users, :to=>[:new,:create]
+    has_permission_on :static_links, :to=>[:read]
   end
 end
 
