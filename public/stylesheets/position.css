@@ -140,3 +140,14 @@ body {
 
 .edit_tag {
 }
+
+th, td {
+  border-width: 1px;
+	border-spacing: 0px;
+	border-style: solid;
+	border-color: white;
+}
+table {
+  border-collapse:collapse;
+  border-style:hidden;
+}

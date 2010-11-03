@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
   filter_resource_access
-  filter_access_to :promote
+  filter_access_to :promote,:index_mods
+
+  def index_mods
+    role=Role.find_by_name('mod')
+    @users=User.where(['role_id = ?',role.id])
+    unless @users
+      redirect_to root_path
+    end
+  end
+
   def new
     @user=User.new
   end

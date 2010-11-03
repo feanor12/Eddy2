@@ -1,0 +1,13 @@
+=boxed "Your Moderators" do
+  %li
+    %table
+      %tr
+        %th Name
+        %th Status
+      -for u in @users do
+        %tr
+          %td 
+            =u.login
+          %td
+            =u.logged_in? ? 'Online' : 'Offline'
+

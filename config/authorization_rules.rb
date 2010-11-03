@@ -6,7 +6,7 @@ authorization do
   role :admin do
     has_permission_on :posts, :to=>[:manage]
     has_permission_on :comments, :to=>[:manage]
-    has_permission_on :users, :to=>[:manage,:promote]
+    has_permission_on :users, :to=>[:manage,:promote,:index_mods]
     has_permission_on :lectures, :to=>[:manage]
     has_permission_on :downloads, :to=>[:manage,:download]
     has_permission_on :mylinks, :to=>[:manage]
@@ -19,7 +19,10 @@ authorization do
 ## MOD
 #################################################################
   role :mod do
-    has_permission_on :posts, :to=>[:manage]
+    has_permission_on :posts, :to=>[:manage] do
+      if_attribute :user => is { user }
+    end
+
     has_permission_on :comments, :to=>[:manage]
     has_permission_on :lectures, :to=>[:manage]
     has_permission_on :downloads, :to=>[:manage,:download]
@@ -28,22 +31,27 @@ authorization do
     end
     has_permission_on :announcements, :to=>[:manage]
     has_permission_on :links, :to=>[:manage]
+    has_permission_on :users, :to=>[:index_mods]
+    has_permission_on :users, :to=>[:update] do
+      if_attribute :id => is {user.id}
+    end
   end
 
 #################################################################
 ## USER
 #################################################################
   role :user do
+    has_permission_on :users, :to=>[:index_mods]
     has_permission_on :users, :to=>[:update] do
       if_attribute :id => is {user.id}
     end
 
-    has_permission_on :announcements, :to=>[:read]
-
-    has_permission_on :posts, :to=>[:create,:read]
-    has_permission_on :posts, :to=>[:update,:destroy] do
-      if_attribute :user => is { user }
+    has_permission_on :announcements, :to=>[:read,:create]
+    has_permission_on :announcements, :to=>[:update,:destroy] do
+      if_attribute :user => is {user}
     end
+
+    has_permission_on :posts, :to=>[:read]
 
     has_permission_on :lectures, :to=>[:read]
 
