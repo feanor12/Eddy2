@@ -1,11 +1,17 @@
 <%title(@lecture.name)%>
 
 <%=boxed @lecture.name do%>
-  <li><h3>Semester: <%=@lecture.semester%></h3></li>
-  <li>
-  <h3>Info: </h3>
-  <%=simple_format(auto_link(@lecture.description))%>
-  </li>
+  <li><%=@lecture.semester%>. Semester</li>
+
+  <%=content_tag :li do %>
+    <%=link_to("TUGRAZonline",@lecture.tuglink) unless @lecture.tuglink.blank?%>
+    <%="/" unless (@lecture.tuglink.blank? || @lecture.unilink.blank?)%>
+    <%=link_to("UNIGRAZonline",@lecture.unilink) unless @lecture.unilink.blank?%>
+  <%end unless (@lecture.tuglink.blank? && @lecture.unilink.blank? )%>
+
+  <%=content_tag :li do%>
+    <%=simple_format(auto_link(@lecture.description))%>
+  <%end unless @lecture.description.blank?%>
 <%end%>
 
 <%=boxed "Links",:new_path=>new_lecture_link_path(@lecture),:new=>"links" do %>

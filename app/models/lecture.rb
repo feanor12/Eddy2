@@ -5,4 +5,8 @@ class Lecture < ActiveRecord::Base
   belongs_to :user
 
   validates_numericality_of :semester, :integer_only=>true
+  validates_format_of :unilink, :with=> /https:\/\/online\.uni-graz\.at\/.+/,:allow_blank=>true
+  validates_format_of :tuglink, :with=> /https:\/\/online\.tugraz\.at\/.+/,:allow_blank=>true
+
+  attr_accessible :name,:semester,:description,:tuglink,:unilink
 end
