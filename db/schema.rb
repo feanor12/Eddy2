@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101102163904) do
+ActiveRecord::Schema.define(:version => 20101106193913) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20101102163904) do
     t.integer  "user_id"
     t.text     "description"
     t.integer  "semester",    :default => 0
+    t.string   "unilink",     :default => "", :null => false
+    t.string   "tuglink",     :default => "", :null => false
   end
 
   create_table "links", :force => true do |t|
@@ -80,11 +82,20 @@ ActiveRecord::Schema.define(:version => 20101102163904) do
     t.datetime "updated_at"
   end
 
-  create_table "statics", :force => true do |t|
-    t.string   "title",      :null => false
-    t.text     "body",       :null => false
+  create_table "static_links", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "priority",   :default => 0, :null => false
+  end
+
+  create_table "statics", :force => true do |t|
+    t.string   "title",                     :null => false
+    t.text     "body",                      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "priority",   :default => 0, :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -1,5 +1,18 @@
 class StaticsController < ApplicationController
   filter_resource_access
+
+  def up
+    @site=Static.find(params[:id])
+    @site.up
+    redirect_to statics_path
+  end
+
+  def down
+    @site=Static.find(params[:id])
+    @site.down
+    redirect_to statics_path
+  end
+
   def show
     @site = Static.find(params[:id])
     if @site
@@ -23,7 +36,7 @@ class StaticsController < ApplicationController
   end
 
   def index
-    @sites=Static.all
+    @sites=Static.order('priority DESC')
   end
 
   def edit

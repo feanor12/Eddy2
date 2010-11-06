@@ -11,9 +11,9 @@ authorization do
     has_permission_on :downloads, :to=>[:manage,:download]
     has_permission_on :mylinks, :to=>[:manage]
     has_permission_on :announcements, :to=>[:manage]
-    has_permission_on :statics, :to=>[:manage]
+    has_permission_on :statics, :to=>[:manage,:up,:down]
     has_permission_on :links, :to=>[:manage]
-    has_permission_on :static_links, :to=>[:manage]
+    has_permission_on :static_links, :to=>[:manage,:up,:down]
   end
 
 #################################################################
@@ -36,7 +36,8 @@ authorization do
     has_permission_on :users, :to=>[:update] do
       if_attribute :id => is {user.id}
     end
-    has_permission_on :static_links, :to=>[:read]
+    has_permission_on :static_links, :to=>[:show]
+    has_permission_on :statics, :to=>[:show]
   end
 
 #################################################################
@@ -76,7 +77,8 @@ authorization do
     has_permission_on :comments, :to=>[:manage] do
       if_attribute :user => is { user }
     end
-    has_permission_on :static_links, :to=>[:read]
+    has_permission_on :static_links, :to=>[:show]
+    has_permission_on :statics, :to=>[:show]
   end
 
 #################################################################
@@ -90,9 +92,9 @@ authorization do
     has_permission_on :links,:to=>[:read]
     #has_permission_on :mylinks, :to=>[:read]
     has_permission_on :posts, :to=>[:read]
-    has_permission_on :statics, :to=>[:read]
+    has_permission_on :statics, :to=>[:show]
     has_permission_on :users, :to=>[:new,:create]
-    has_permission_on :static_links, :to=>[:read]
+    has_permission_on :static_links, :to=>[:show]
   end
 end
 

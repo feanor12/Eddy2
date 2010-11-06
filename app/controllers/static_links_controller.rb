@@ -1,9 +1,24 @@
 class StaticLinksController < ApplicationController
   filter_resource_access
+
+
+  def up
+    @static_link = StaticLink.find(params[:id])
+    @static_link.up
+    redirect_to static_links_path
+  end
+
+  def down
+    @static_link = StaticLink.find(params[:id])
+    @static_link.down
+    redirect_to static_links_path
+  end
+
+
   # GET /static_links
   # GET /static_links.xml
   def index
-    @static_links = StaticLink.all
+    @static_links = StaticLink.order('priority DESC')
 
     respond_to do |format|
       format.html # index.html.erb
