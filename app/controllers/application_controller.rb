@@ -46,6 +46,8 @@ class ApplicationController < ActionController::Base
       @mylinks = current_user.mylinks
       @s_downloads = Download.find(:all,:order=>'updated_at DESC',:limit=>5)
       @s_announcements = Announcement.find(:all,:order=>'updated_at DESC',:limit=>5,:include=>:lecture)
+      groups=current_user.groups
+      @s_timers = Timer.joins(:group).where(:group_id=>groups)
     end
   end
 

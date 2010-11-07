@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101106193913) do
+ActiveRecord::Schema.define(:version => 20101107141558) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -38,6 +38,20 @@ ActiveRecord::Schema.define(:version => 20101106193913) do
     t.text     "description"
     t.string   "document"
     t.integer  "user_id",     :default => 1
+  end
+
+  create_table "group_applications", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "lecture_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "lectures", :force => true do |t|
@@ -96,6 +110,14 @@ ActiveRecord::Schema.define(:version => 20101106193913) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "priority",   :default => 0, :null => false
+  end
+
+  create_table "timers", :force => true do |t|
+    t.integer  "group_id"
+    t.datetime "deadline"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

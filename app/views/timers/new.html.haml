@@ -1,0 +1,12 @@
+=boxed "New Timer" do
+  =form_for [@lecture,@group,@timer] do |f|
+    =f.label :content
+    %br
+    =f.text_area :content
+    %br
+    =f.label :deadline
+    %br
+    =f.datetime_select :deadline
+    %br
+    =f.submit
+

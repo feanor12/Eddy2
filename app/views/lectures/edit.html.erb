@@ -1,4 +1,9 @@
 <%title("Edit Lecture")%>
 <%=boxed "Edit Lecture" do%>
   <%=render :partial=>'form'%>
+  <%@lecture.groups.each do |g|%>
+    <%=g.name%>
+    <%=link_to "Add Timer",new_lecture_group_timer_path(@lecture,g)%>
+    <br/>
+  <%end%>
 <%end%>

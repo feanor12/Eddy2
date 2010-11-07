@@ -7,6 +7,16 @@
   <%if current_user%>
     <%=render :partial=>"mylinks/index"%>
 
+    <%=boxed "Timer" do%>
+      <%@s_timers.each do |timer|%>
+        <li>
+        <%=distance_of_time_in_words(Time.now,timer.deadline)%>
+        to:
+        <%=timer.content%>
+        </li>
+      <%end%>
+    <%end%>
+
     <%=boxed "Latest Links" do%>
         <%@s_downloads.each do |dl|%>
           <li>

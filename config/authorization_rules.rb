@@ -14,6 +14,8 @@ authorization do
     has_permission_on :statics, :to=>[:manage,:up,:down]
     has_permission_on :links, :to=>[:manage]
     has_permission_on :static_links, :to=>[:manage,:up,:down]
+    has_permission_on :group_applications,:to=>[:manage]
+    has_permission_on :groups,:to=>[:manage]
   end
 
 #################################################################

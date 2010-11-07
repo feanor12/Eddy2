@@ -12,6 +12,18 @@
   <%=content_tag :li do%>
     <%=simple_format(auto_link(@lecture.description))%>
   <%end unless @lecture.description.blank?%>
+  
+  <%=content_tag :li do%>
+    <%="Your Group:"+current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.name%>
+    <%end unless current_user.groups.where(['groups.lecture_id=?',@lecture.id]).empty? %>
+
+  <%=content_tag :li do%>
+    Choose other Group:
+    <%@groups.each do |g|%>
+      <%=link_to(g.name,apply_path(g),:method=>:post)%>
+    <%end%>
+    <%=link_to("New Group",new_lecture_group_path(@lecture))%>
+  <%end%>
 <%end%>
 
 <%=boxed "Links",:new_path=>new_lecture_link_path(@lecture),:new=>"links" do %>

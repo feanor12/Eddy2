@@ -25,6 +25,7 @@ filter_resource_access
     @downloads=@lecture.downloads
     @announcements = @lecture.announcements.paginate(:page=>params[:page],:per_page=>3)
     @links = @lecture.links.all
+    @groups=@lecture.groups.all-current_user.groups.all
     respond_to do |format|
       format.html
       format.meta4

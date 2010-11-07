@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
   has_many :links
   has_many :downloads
 
+  has_many :group_applications,:dependent=>:destroy
+  has_many :groups,:through=>:group_applications
+
   def activate!
     self.active = true
     save
