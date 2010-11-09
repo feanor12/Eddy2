@@ -22,7 +22,6 @@ authorization do
 ## MOD
 #################################################################
   role :mod do
-    has_permission_on :posts, :to=>[:read,:create] do
     has_permission_on :posts, :to=>[:manage] do
       if_attribute :user => is { user }
     end
