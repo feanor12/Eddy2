@@ -28,9 +28,12 @@ authorization do
     has_permission_on :comments, :to=>[:manage]
     has_permission_on :lectures, :to=>[:manage]
     has_permission_on :downloads, :to=>[:manage,:download]
-    has_permission_on :mylinks, :to=>[:manage] do
+
+    has_permission_on :mylinks, :to=>[:create]
+    has_permission_on :mylinks, :to=>[:update,:read,:destroy] do
       if_attribute :user => is {user}
     end
+
     has_permission_on :announcements, :to=>[:manage]
     has_permission_on :links, :to=>[:manage]
     has_permission_on :users, :to=>[:index_mods]
