@@ -7,18 +7,20 @@
   <%if current_user%>
     <%=render :partial=>"mylinks/index"%>
 
-    <%=boxed "Latest Links" do%>
+    <%=boxed "Latest files" do%>
         <%@s_downloads.each do |dl|%>
           <li>
-          <%=link_to dl.name,lecture_download_path(dl.lecture,dl) %><br/>
+          <%=link_to dl.name,lecture_download_path(dl.lecture,dl) %>
+          <%=distance_of_time_in_words(Time.now,dl.updated_at)%>
           </li>
         <%end%>
     <%end unless @s_downloads.empty?%>
 
-    <%=boxed "Latest Questions" do%>
+    <%=boxed "Latest threads" do%>
         <%@s_announcements.each do |a|%>
           <li>
-          <%=link_to a.title,lecture_announcement_path(a.lecture,a)%><br/>
+          <%=link_to a.title,lecture_announcement_path(a.lecture,a)%>
+          <%=distance_of_time_in_words(Time.now,a.updated_at)%>
           </li>
         <%end%>
     <%end unless @s_announcements.empty?%>
