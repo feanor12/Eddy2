@@ -1,6 +1,6 @@
 class ActivationsController < ApplicationController
+  filter_resource_access
   before_filter :load_user_using_perishable_token
-  before_filter :require_no_user
 
   def create
     if @user.activate!

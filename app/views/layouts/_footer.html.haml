@@ -6,7 +6,7 @@
       %h1 Sites
       -Static.order('priority DESC').each do |site|
         =link_to(site.title,static_path(site)) if permitted_to?(:show,site)
-      =link_to("List of Moderators",mods_path)if permitted_to?(:index_mods,:users) 
+      =link_to("List of Moderators",mods_path)if permitted_to?(:index_mods,:users)
 
     #links
       =link_to("manage",static_links_path,:class=>"action_tag") if permitted_to?(:manage,:static_links)

@@ -16,14 +16,15 @@
         <%end%>
     <%end unless @s_downloads.empty?%>
 
-    <%=boxed "Latest threads" do%>
+  <%end%>
+
+  <%=boxed "Latest threads" do%>
         <%@s_announcements.each do |a|%>
           <li>
           <%=link_to a.title,lecture_announcement_path(a.lecture,a)%>
           <%=distance_of_time_in_words(Time.now,a.updated_at)%>
           </li>
         <%end%>
-    <%end unless @s_announcements.empty?%>
+  <%end unless @s_announcements.empty?%>
 
-  <%end%>
 </div>

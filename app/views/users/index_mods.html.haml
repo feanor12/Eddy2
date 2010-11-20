@@ -7,7 +7,7 @@
         %th Status
       -for u in @users do
         %tr
-          %td 
+          %td
             =u.login
           %td
             =u.logged_in? ? 'Online' : 'Offline'

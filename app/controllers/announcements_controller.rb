@@ -1,5 +1,6 @@
 class AnnouncementsController < ApplicationController
   filter_resource_access
+  before_filter :store_location,:only=>[:show]
   def new
     @lecture = Lecture.find(params[:lecture_id])
     @announcement=@lecture.announcements.build
@@ -25,7 +26,7 @@ class AnnouncementsController < ApplicationController
     @lecture = Lecture.find(params[:lecture_id])
     @announcement = @lecture.announcements.find(params[:id])
     if @announcement.update_attributes(params[:announcement])
-      redirect_to @lecture
+      redirect_to [@lecture,@announcement]
     else
       render :action=>"edit"
     end
