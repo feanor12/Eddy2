@@ -22,7 +22,7 @@
         <%@s_announcements.each do |a|%>
           <li>
           <%=link_to a.title,lecture_announcement_path(a.lecture,a)%>
-          <%=distance_of_time_in_words(Time.now,a.updated_at)%>
+          <%=distance_of_time_in_words(Time.now,a.updated_at)+" ago"%>
           </li>
         <%end%>
   <%end unless @s_announcements.empty?%>
