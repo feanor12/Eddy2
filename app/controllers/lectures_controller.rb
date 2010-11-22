@@ -25,7 +25,7 @@ class LecturesController < ApplicationController
   def show
     @lecture=Lecture.find(params[:id])
     @downloads=@lecture.downloads
-    @announcements = @lecture.announcements.paginate(:page=>params[:page],:per_page=>3)
+    @announcements = @lecture.announcements.paginate(:page=>params[:page],:per_page=>3,:order=>"updated_at DESC")
     @links = @lecture.links.all
     respond_to do |format|
       format.html
