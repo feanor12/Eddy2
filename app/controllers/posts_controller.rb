@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   filter_resource_access
+  before_filter :store_location,:only=>[:show,:index]
   respond_to :html, :xml
 
   def index
@@ -17,9 +18,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     respond_with(@post,@comment)
-    unless current_user
-      @user_session = UserSession.new
-    end
   end
 
   def new

@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def title(string)
     content_for :title do
-      truncate(string, :length=>15)
+      string
     end
   end
 

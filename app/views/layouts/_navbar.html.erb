@@ -28,13 +28,7 @@
     <%if permitted_to?(:manage,:users)%>
       <ul id="admin_menu">
         <li>
-        <%=link_to("Links",static_links_path) if permitted_to?(:manage,:static_links)%>
-        </li>
-        <li>
         <%=link_to("Users",users_path) if permitted_to?(:manage,:users)%>
-        </li>
-        <li>
-        <%=link_to("Statics",statics_path) if permitted_to?(:manage,:statics)%>
         </li>
       </ul>
     <%end%>

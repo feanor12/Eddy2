@@ -3,8 +3,9 @@ class CommentsController < ApplicationController
   def create
     @commentable = parent_object
     @comment = @commentable.comments.build(params[:comment])
+    @commentable.updated_at=Time.now
     @comment.user=current_user
-    if @comment.save
+    if @comment.save && @commentable.save
       flash[:notice]="You posted a comment"
     end
     redirect_to parent_url(@commentable)

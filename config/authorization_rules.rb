@@ -16,22 +16,27 @@ authorization do
     has_permission_on :static_links, :to=>[:manage,:up,:down]
     has_permission_on :group_applications,:to=>[:manage]
     has_permission_on :groups,:to=>[:manage]
+    has_permission_on :user_sessions,:to=>[:destroy]
   end
 
 #################################################################
 ## MOD
 #################################################################
   role :mod do
-    has_permission_on :posts, :to=>[:manage] do
+    has_permission_on :posts, :to=>[:read,:create]
+    has_permission_on :posts, :to=>[:update,:destroy] do
       if_attribute :user => is { user }
     end
 
     has_permission_on :comments, :to=>[:manage]
     has_permission_on :lectures, :to=>[:manage]
     has_permission_on :downloads, :to=>[:manage,:download]
-    has_permission_on :mylinks, :to=>[:manage] do
+
+    has_permission_on :mylinks, :to=>[:create]
+    has_permission_on :mylinks, :to=>[:update,:read,:destroy] do
       if_attribute :user => is {user}
     end
+
     has_permission_on :announcements, :to=>[:manage]
     has_permission_on :links, :to=>[:manage]
     has_permission_on :users, :to=>[:index_mods]
@@ -40,6 +45,7 @@ authorization do
     end
     has_permission_on :static_links, :to=>[:show]
     has_permission_on :statics, :to=>[:show]
+    has_permission_on :user_sessions,:to=>[:destroy]
   end
 
 #################################################################
@@ -81,6 +87,7 @@ authorization do
     end
     has_permission_on :static_links, :to=>[:show]
     has_permission_on :statics, :to=>[:show]
+    has_permission_on :user_sessions,:to=>[:destroy]
   end
 
 #################################################################
@@ -97,6 +104,9 @@ authorization do
     has_permission_on :statics, :to=>[:show]
     has_permission_on :users, :to=>[:new,:create]
     has_permission_on :static_links, :to=>[:show]
+    has_permission_on :activations,:to=>[:create]
+    has_permission_on :password_resets,:to=>[:create,:new,:update]
+    has_permission_on :user_sessions,:to=>[:create,:new]
   end
 end
 

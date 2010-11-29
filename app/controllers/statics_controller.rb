@@ -1,5 +1,6 @@
 class StaticsController < ApplicationController
   filter_resource_access
+  before_filter :store_location,:only=>[:show]
 
   def up
     @site=Static.find(params[:id])

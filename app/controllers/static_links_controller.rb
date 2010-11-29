@@ -1,7 +1,6 @@
 class StaticLinksController < ApplicationController
   filter_resource_access
 
-
   def up
     @static_link = StaticLink.find(params[:id])
     @static_link.up
@@ -13,7 +12,6 @@ class StaticLinksController < ApplicationController
     @static_link.down
     redirect_to static_links_path
   end
-
 
   # GET /static_links
   # GET /static_links.xml

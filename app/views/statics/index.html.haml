@@ -1,24 +1,25 @@
 =boxed "Static Sites",:new=>"statics" do
-  %table
-    %tr
-      %th #
-      %th Name
-      %th 
-      %th 
-      %th 
-      %th 
-    -@sites.each do |site|
+  %li
+    %table
       %tr
-        %td
-          =site.priority
-        %td
-          =link_to site.title,static_path(site)
-        %td
-          =edit_link(site,edit_static_path(site))
-        %td
-          =destroy_link(site,static_path(site))
-        %td
-          =link_to("up",:controllers=>'statics',:action=>'up',:id=>site.id)
-        %td
-          =link_to("down",:controllers=>'statics',:action=>'down',:id=>site.id)
+        %th #
+        %th Name
+        %th
+        %th
+        %th
+        %th
+      -@sites.each do |site|
+        %tr
+          %td
+            =site.priority
+          %td
+            =link_to site.title,static_path(site)
+          %td
+            =edit_link(site,edit_static_path(site))
+          %td
+            =destroy_link(site,static_path(site))
+          %td
+            =link_to("up",:controllers=>'statics',:action=>'up',:id=>site.id)
+          %td
+            =link_to("down",:controllers=>'statics',:action=>'down',:id=>site.id)
 

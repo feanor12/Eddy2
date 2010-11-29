@@ -1,6 +1,6 @@
 class StaticLink < ActiveRecord::Base
   validates_format_of :url, :with=> /http:\/\/.+/
-  validates_presence_of :url,:name 
+  validates_presence_of :url,:name
 
   def up(value=1)
     self.priority = self.priority + value

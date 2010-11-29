@@ -8,6 +8,6 @@
   <%=render :partial=>"comments/comment.html", :collection=>@post.comments%>
 <%end if (not @post.comments.empty?) && permitted_to?(:read,@post.comments)%>
 
-<%boxed "Add your comment" do%>
+<%=boxed "Add your comment" do%>
   <%=render :partial=>"comments/form"%>
-<%end if permitted_to?(:create,@comment)%>
+<%end if permitted_to?(:create,:comments)%>

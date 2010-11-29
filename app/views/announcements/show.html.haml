@@ -1,9 +1,9 @@
+-title(@announcement.title)
 =boxed @announcement.title  do
   %li
     Lecture:
     =link_to @announcement.lecture.name,@announcement.lecture
-  %li
-    =simple_format(auto_link(@announcement.body))
+  =render :partial=>@announcement,:locals=>{:no_title=>true}
 
 -unless @announcement.comments.empty?
   =boxed "Comments" do

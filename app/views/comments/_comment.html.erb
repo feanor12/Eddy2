@@ -1,6 +1,5 @@
 <li id="comment<%=comment.id%>">
   <%=content_tag(:div,simple_format(auto_link(comment.body)))%>
-  <%=content_tag(:div,"by "+comment.user.login)%>
 
   <%
     comment_destroy_url=case params[:controller]
@@ -8,8 +7,11 @@
       when 'announcements' then [comment.commentable.lecture,comment.commentable,comment]
     end
   %>
-
-  <%=content_tag(:div,destroy_link(comment,comment_destroy_url,:remote=>true),:class=>"item-menu")%>
+  <div class="item-menu">
+    <b class="comment-count">by <%=comment.user.login%></b>
+    <%=content_tag(:div,destroy_link(comment,comment_destroy_url,:remote=>true),:class=>"item-menu")%>
+    <%=clear%>
+  </div>
   <%=clear%>
 </li>
 

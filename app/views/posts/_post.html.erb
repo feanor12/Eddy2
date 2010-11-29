@@ -3,9 +3,10 @@
   <%=post.title%>
 <%end if defined? show_title%>
   <div class="content">
-  <%= simple_format(auto_link(post.body))%>
+    <%= simple_format(auto_link(post.body))%>
 
   <div class="item-menu">
+    <b class="comment-count">by <%=post.user.name%></b>
     <b id="comment-count" class="comment-count">
       <%=pluralize post.comments.length, "Comment"%>
     </b>

@@ -58,4 +58,7 @@ class User < ActiveRecord::Base
     [self.role.name.to_sym]
   end
 
+  def name
+    login.to_s
+  end
 end

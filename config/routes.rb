@@ -8,10 +8,11 @@ Eddy2::Application.routes.draw do
   
   post 'apply/:group_id',:to=>'group_applications#create',:as=>'apply'
 
+  match '/rss/news_rss.html' ,:to=>redirect("/posts.rss")
+
   match '/activate/:activation_code' , :to=> 'activations#create', :as=>'activate'
   match '/promote/:id' ,:to=>'users#promote',:as=>'promote'
   match 'mods', :to=>'users#index_mods',:as=>'mods'
-
 
   resources :lectures do
     resources :groups do
@@ -31,7 +32,7 @@ Eddy2::Application.routes.draw do
 
   resource :user_session
   resources :users, :mylinks
-  resources :password_resets
+  resource :password_resets
   root :to=>"posts#index"
   #static routes
   resources :statics
