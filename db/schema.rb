@@ -62,7 +62,8 @@ ActiveRecord::Schema.define(:version => 20101120183501) do
     t.text     "description"
     t.integer  "semester",    :default => 0
     t.string   "unilink",     :default => "", :null => false
-    t.string   "tuglink",     :default => "", :null => false
+    t.integer  "tug_corg"
+    t.integer  "tug_clvnr"
   end
 
   create_table "links", :force => true do |t|

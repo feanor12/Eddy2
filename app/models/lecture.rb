@@ -39,9 +39,10 @@ class Lecture < ActiveRecord::Base
 
   def parse
     lists = Array.new
-    urls = [@tug_link.empty? ? nil : @tug_link, @uni_link.empty? ? nil : @uni_link].compact!
+    urls = [tuglink.empty? ? nil : tuglink, unilink.empty? ? nil : unilink].compact!
+    puts urls
     urls.each_index do |uni|
-      lines = IO.popen("wget --no-check-certificate -O- \"#{urls[uni].gsub("lv.detail", "te_ortzeit.liste")}\"").readlines
+      lines = IO.popen("wget --no-check-certificate -O- \"#{urls[uni].gsub("lv.detail", "te_ortzeit.liste")}&corg=#{tug_corg}\"").readlines
       list = Array.new
       headers = Array.new
       groups = Array.new
@@ -84,8 +85,15 @@ class Lecture < ActiveRecord::Base
           lists[uni][groups[group]] = dates
         end
       end
-      @tug_list = lists[0]
-      @uni_list = lists[1]
+      tug_list = lists[0]
+      tug_list.each do |g,t|
+        puts "#{g}[#{t.count}]"
+        group=self.groups.create(:name=>g)
+        t.each do |time|
+          group.timers.create(:deadline=>time,:content=>"auto-generated")
+        end
+      end
+      uni_list = lists[1]
     end
   end
 end
