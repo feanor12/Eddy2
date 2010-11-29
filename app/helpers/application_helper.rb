@@ -16,10 +16,14 @@ module ApplicationHelper
   end
 
   def new_link(controller_name,path="")
-    if path.blank?
-      link_to("Add",{:controller=>controller_name,:action=>'new'},:class=>"action_tag add_tag")if permitted_to?(:create,controller_name.to_sym)
-    else
-      link_to("Add",path,:class=>"action_tag add_tag")if permitted_to?(:create,controller_name.to_sym)
+    title = image_tag("small/add.png")
+    class_="action_tag add_tag"
+    if permitted_to?(:create,controller_name.to_sym)
+      if path.blank?
+        link_to(title,{:controller=>controller_name,:action=>'new'},:class=>class_)
+      else
+        link_to(title,path,:class=>class_)
+      end
     end
   end
 

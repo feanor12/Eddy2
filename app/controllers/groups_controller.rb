@@ -14,4 +14,19 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+    @lecture = Lecture.find(params[:lecture_id])
+    @group = @lecture.groups.find(params[:id])
+  end
+
+  def update
+    @lecture = Lecture.find(params[:lecture_id])
+    @group = @lecture.groups.find(params[:id])
+    if @group.update_attributes(params[:group])
+      redirect_to edit_lecture_path(@lecture)
+    else
+      render :action=> edit
+    end
+  end
+
 end

@@ -1,0 +1,18 @@
+-title("Edir Group")
+
+=boxed "Group" do
+  %li
+    =render :partial=>'form'
+
+=boxed "Timer" do
+  %li
+    %table
+      %tr
+        %th Text
+        %th Date
+      -@group.timers.each do |time|
+        %tr
+          %td
+            =time.content
+          %td
+            =time.deadline
