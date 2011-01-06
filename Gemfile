@@ -11,3 +11,4 @@ gem 'will_paginate', :git=>'git://github.com/mislav/will_paginate.git', :branch 
 gem 'carrierwave'
 
 gem 'haml'
+gem 'compass'

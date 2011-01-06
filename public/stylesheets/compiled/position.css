@@ -1,0 +1,187 @@
+/* line 2, ../../../app/stylesheets/position.sass */
+.post .content {
+  padding: 0 0.5em 0.5em 0.5em;
+}
+/* line 4, ../../../app/stylesheets/position.sass */
+.post .content p {
+  margin-top: 0;
+}
+
+/* line 7, ../../../app/stylesheets/position.sass */
+.center {
+  margin: auto;
+  width: 880px;
+}
+
+/* line 11, ../../../app/stylesheets/position.sass */
+#top {
+  height: 4em;
+  background: #cc33ff;
+}
+
+/* line 15, ../../../app/stylesheets/position.sass */
+pre {
+  background-color: #eeeeee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 20, ../../../app/stylesheets/position.sass */
+a {
+  color: #33ccff;
+  text-decoration: none;
+}
+/* line 23, ../../../app/stylesheets/position.sass */
+a:hover {
+  color: #33ccff;
+  text-decoration: underline;
+}
+
+/* line 27, ../../../app/stylesheets/position.sass */
+.item-menu {
+  color: #aaaaaa;
+  margin-top: 0.2em;
+}
+
+/* line 31, ../../../app/stylesheets/position.sass */
+.item-actions {
+  float: right;
+}
+
+/* line 34, ../../../app/stylesheets/position.sass */
+.comment-count {
+  float: left;
+  margin-right: 1em;
+}
+
+/* line 39, ../../../app/stylesheets/position.sass */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 42, ../../../app/stylesheets/position.sass */
+#notice {
+  color: green;
+}
+
+/* line 45, ../../../app/stylesheets/position.sass */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 50, ../../../app/stylesheets/position.sass */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 57, ../../../app/stylesheets/position.sass */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #cc0000;
+  color: white;
+}
+/* line 66, ../../../app/stylesheets/position.sass */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 70, ../../../app/stylesheets/position.sass */
+#main {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 74, ../../../app/stylesheets/position.sass */
+img {
+  border: 0;
+}
+
+/* line 77, ../../../app/stylesheets/position.sass */
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+/* line 80, ../../../app/stylesheets/position.sass */
+#content {
+  padding: 1em;
+}
+/* line 82, ../../../app/stylesheets/position.sass */
+#content h2 {
+  margin: 0;
+  margin-bottom: 0.2em;
+}
+
+/* line 86, ../../../app/stylesheets/position.sass */
+.clear {
+  clear: both;
+}
+
+/* line 89, ../../../app/stylesheets/position.sass */
+body {
+  background-color: #222222;
+  color: #eeeeee;
+  margin: 0;
+  font-size: 0.7em;
+}
+
+/* line 95, ../../../app/stylesheets/position.sass */
+.sidebar {
+  overflow: hidden;
+  float: right;
+}
+/* line 98, ../../../app/stylesheets/position.sass */
+.sidebar input {
+  width: 13.4em;
+  border: 0.1em solid #222222;
+  font-size: 1em;
+}
+
+/* line 103, ../../../app/stylesheets/position.sass */
+.with_sidebar {
+  overflow: hidden;
+}
+
+/*BEGIN: Add Edit Destroy Tags */
+/* line 108, ../../../app/stylesheets/position.sass */
+.action_tag {
+  float: right;
+  font-size: 0.8em;
+  color: #aaaaaa;
+  text-decoration: none;
+  margin-left: 0.2em;
+}
+
+/* line 115, ../../../app/stylesheets/position.sass */
+.add_tag {
+  color: #ccff33;
+}
+/* line 117, ../../../app/stylesheets/position.sass */
+.add_tag :visited {
+  color: #ccff33;
+}
+
+/* line 122, ../../../app/stylesheets/position.sass */
+th, td {
+  border-width: 1px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: white;
+}
+
+/* line 128, ../../../app/stylesheets/position.sass */
+table {
+  border-collapse: collapse;
+  border-style: hidden;
+}

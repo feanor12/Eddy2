@@ -5,16 +5,14 @@
       <%="Eddy2 - " + yield_for(:title,'Untitled')%>
     </title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
-    <%= stylesheet_link_tag :all,:cache=>true%>
+    <%= stylesheet_link_tag 'compiled/position',    'compiled/nav',    'compiled/footer', 'compiled/fonts' ,   'compiled/box',    'compiled/fonts',    :cache=>true%>
     <%= javascript_include_tag :all,:cache=>true%>
     <%= auto_discovery_link_tag(:rss,{:controller=>:posts,:action=>:index,:format=>:rss})%>
     <%= csrf_meta_tag %>
   </head>
   <body>
     <%=render :partial=>'layouts/navbar'%>
-    <div class="rainbow"></div>
     <%=render :partial=>'layouts/content'%>
-    <div class="rainbow"></div>
     <%=render :partial=>'layouts/footer'%>
   </body>
 </html>

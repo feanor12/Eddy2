@@ -5,6 +5,8 @@
 
 =boxed "Edit Groups",:new=>"groups",:new_path=>new_lecture_group_path(@lecture) do
   %li
+    =button_to("Let me try", lecture_parse_path(@lecture))
+  %li
     %table
       %tr
         %th Name
@@ -19,3 +21,4 @@
           %td
             =link_to "Add Timer",new_lecture_group_timer_path(@lecture,g)
             =edit_link(g,edit_lecture_group_path(@lecture,g))
+            =destroy_link(g,lecture_group_path(@lecture,g))

@@ -14,14 +14,15 @@
     %li
       =simple_format(auto_link(@lecture.description))
 
-  -unless current_user.groups.where(['groups.lecture_id=?',@lecture.id]).empty?
-    %li
-      ="Your Group:"+current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.name
+  -if current_user
+    -unless current_user.groups.where(['groups.lecture_id=?',@lecture.id]).empty?
+      %li
+        ="Your Group:"+current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.name
 
-  %li
-    Change Group:
-    -@groups.each do |g|
-      =link_to(g.name,apply_path(g),:method=>:post)
+    %li
+      Change Group:
+      -@groups.each do |g|
+        =link_to(g.name,apply_path(g),:method=>:post)
 
 -if  permitted_to?(:read,:links)
   =boxed "Links",:new_path=>new_lecture_link_path(@lecture),:new=>"links" do
@@ -38,3 +39,7 @@
 -if permitted_to?(:read,:downloads)
   =boxed "Downloads", :new_path=>new_lecture_download_path(@lecture),:new=>"downloads" do
     =render :partial=>'downloads/download',:collection=>@downloads
+-elsif not @downloads.empty?
+  =boxed "Downloads (need login)" do
+    =render :partial=>'downloads/download',:collection=>@downloads,:locals=>{:save=>true}
+

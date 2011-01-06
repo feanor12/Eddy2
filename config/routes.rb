@@ -14,7 +14,9 @@ Eddy2::Application.routes.draw do
   match '/promote/:id' ,:to=>'users#promote',:as=>'promote'
   match 'mods', :to=>'users#index_mods',:as=>'mods'
 
+
   resources :lectures do
+    match 'parse' => "lectures#parse", :as =>'parse'
     resources :groups do
       resources :timers
     end

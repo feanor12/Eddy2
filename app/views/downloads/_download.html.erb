@@ -1,5 +1,0 @@
-<%=content_tag :li do%>
-  <%=link_to download.name, lecture_download_path(download.lecture,download)%>
-  <%=link_to("Download", download_download_path(download.lecture,download),:class=>"action_tag")if permitted_to?(:download,download)%>
-  <%=destroy_link(download,lecture_download_path(download.lecture,download))%>
-<%end%>

@@ -29,4 +29,11 @@ class GroupsController < ApplicationController
     end
   end
 
+  def destroy
+    @lecture=Lecture.find(params[:lecture_id])
+    @group=@lecture.groups.find(params[:id])
+    @group.destroy
+    redirect_to edit_lecture_path(@lecture)
+  end
+
 end

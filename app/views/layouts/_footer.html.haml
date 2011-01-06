@@ -13,3 +13,4 @@
       %h1 Links
       -StaticLink.order('priority DESC').each do |link|
         =link_to(link.name,link.url) if permitted_to?(:show,link)
+

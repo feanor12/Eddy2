@@ -1,0 +1,26 @@
+/* line 1, ../../../app/stylesheets/footer.sass */
+#footer {
+  height: 20em;
+  background-color: #333333;
+  background: -moz-linear-gradient(top, #171717, #333333 3em, #222222);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#171717), to(#222222), color-stop(0.175, #333333));
+}
+/* line 6, ../../../app/stylesheets/footer.sass */
+#footer .center {
+  padding: 0.5em;
+}
+/* line 8, ../../../app/stylesheets/footer.sass */
+#footer a {
+  display: block;
+}
+
+/* line 11, ../../../app/stylesheets/footer.sass */
+#sites, #links {
+  float: left;
+  padding: 1em;
+}
+
+/* line 15, ../../../app/stylesheets/footer.sass */
+#footer h1 {
+  font-size: 1em;
+}

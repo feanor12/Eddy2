@@ -1,9 +1,16 @@
 class LecturesController < ApplicationController
   filter_resource_access
+   filter_access_to :parse
   before_filter :store_location,:only=>[:show,:index]
 
   def new
     @lecture=Lecture.new
+  end
+
+  def parse
+    @lecture = Lecture.find(params[:lecture_id])
+    @lecture.parse
+    redirect_to edit_lecture_path(@lecture)
   end
 
   def create
@@ -27,7 +34,9 @@ class LecturesController < ApplicationController
     @downloads=@lecture.downloads
     @announcements = @lecture.announcements.paginate(:page=>params[:page],:per_page=>3,:order=>"updated_at DESC")
     @links = @lecture.links.all
-    @groups=@lecture.groups.all-current_user.groups.all
+    if current_user
+      @groups = @lecture.groups.all-current_user.groups.all
+    end
     respond_to do |format|
       format.html
       format.meta4
