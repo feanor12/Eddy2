@@ -16,4 +16,18 @@ class TimersController < ApplicationController
       redirect_to @lecture
     end
   end
+
+  def edit
+    @lecture = Lecture.find(params[:lecture_id])
+    @group = Group.find(params[:group_id])
+    @timer=@group.timers.find(params[:id])
+  end
+
+  def update
+    @lecture = Lecture.find(params[:lecture_id])
+    @group = Group.find(params[:group_id])
+    @timer=@group.timers.find(params[:id])
+    @timer.update_attributes(params[:timer])
+    redirect_to edit_lecture_group_path(@lecture,@group)
+  end
 end

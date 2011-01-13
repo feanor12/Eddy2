@@ -9,7 +9,7 @@ class LecturesController < ApplicationController
 
   def parse
     @lecture = Lecture.find(params[:lecture_id])
-    @lecture.parse(@lecture.tuglink) if @lecture.tuglink
+    @lecture.parse!
     redirect_to edit_lecture_path(@lecture)
   end
 

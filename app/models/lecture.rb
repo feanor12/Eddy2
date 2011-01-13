@@ -15,30 +15,31 @@ class Lecture < ActiveRecord::Base
   validates_numericality_of :semester, :integer_only => true
   validates_format_of :tuglink, :with => /#{TUG_LINK}.+/, :allow_blank => true
   validates_format_of :unilink, :with => /#{UNI_LINK}.+/, :allow_blank => true
-  attr_accessible :name, :semester, :description, :tug_clvnr, :tug_corg, :tug_list, :tug_pattern, :uni_clvnr, :uni_corg, :uni_list, :uni_pattern
+  attr_accessible :name, :semester, :description, :tuglink, :unilink
 
   def tuglink
-    @tug_clvnr.nil? ? "" : "#{TUG_LINK}lv.detail?clvnr=#{tug_clvnr}&corg=#{tug_corg}"
+    tug_clvnr.nil? ? "" : "#{TUG_LINK}lv.detail?clvnr=#{tug_clvnr}&corg=#{tug_corg}"
   end
 
   def tuglink=(url)
     clvnr = url.match(CLVNR)
     corg = url.match(CORG)
-    @tug_clvnr = clvnr.nil? ? nil : clvnr[1]
-    @tug_corg = corg.nil? ? nil : corg[1]
-    @tug_clvnr.nil?
+    self.tug_clvnr = clvnr.nil? ? nil : clvnr[1]
+    self.tug_corg = corg.nil? ? nil : corg[1]
+    save
   end
 
   def unilink
-    @uni_clvnr.nil? ? "" : "#{UNI_LINK}lv.detail?clvnr=#{uni_clvnr}&corg=#{uni_corg}"
+    uni_clvnr.nil? ? "" : "#{UNI_LINK}lv.detail?clvnr=#{uni_clvnr}&corg=#{uni_corg}"
   end
 
   def unilink=(url)
     clvnr = url.match(CLVNR)
     corg = url.match(CORG)
-    @uni_clvnr = clvnr.nil? ? nil : clvnr[1]
-    @uni_corg = corg.nil? ? nil : corg[1]
-    @uni_clvnr.nil?
+    self.uni_clvnr = clvnr.nil? ? nil : clvnr[1]
+    self.uni_corg = corg.nil? ? nil : corg[1]
+    puts uni_corg
+    save
   end
 
   HEADER = /\<TH.+class\s*=\s*\"tblHdr.*\".*\>(.+)\<\/TH\>/i
@@ -105,7 +106,7 @@ class Lecture < ActiveRecord::Base
     parse.each do |group, times|
       puts "#{group} [#{times.size}]"
       g = self.groups.create(:name => group)
-      times.each {|time| g.timers.create(:deadline => time, :content => "auto-generated")}
+      times.each {|time| g.timers.create(:deadline => time, :content => self.name)}
     end
     parse
   end

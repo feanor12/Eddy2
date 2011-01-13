@@ -10,9 +10,14 @@
       %tr
         %th Text
         %th Date
+        %th Actions
       -@group.timers.each do |time|
         %tr
           %td
             =time.content
           %td
             =time.deadline
+          %td
+            =time.link    
+          %td
+            =edit_link(time,edit_lecture_group_timer_path(@lecture,@group,time))

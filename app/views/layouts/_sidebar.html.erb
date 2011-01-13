@@ -12,7 +12,7 @@
         <li>
         <%=distance_of_time_in_words(Time.now,timer.deadline)%>
         to:
-        <%=timer.content%>
+        <%=timer.link ? link_to(timer.content,timer.link) : timer.content%>
         </li>
       <%end%>
     <%end%>
