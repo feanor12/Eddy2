@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110111225300) do
+ActiveRecord::Schema.define(:version => 20110117142811) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20110111225300) do
     t.text     "description"
     t.string   "document"
     t.integer  "user_id",     :default => 1
+    t.boolean  "public",      :default => false, :null => false
   end
 
   create_table "group_applications", :force => true do |t|

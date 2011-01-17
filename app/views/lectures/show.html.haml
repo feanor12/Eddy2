@@ -39,7 +39,4 @@
 -if permitted_to?(:read,:downloads)
   =boxed "Downloads", :new_path=>new_lecture_download_path(@lecture),:new=>"downloads" do
     =render :partial=>'downloads/download',:collection=>@downloads
--elsif not @downloads.empty?
-  =boxed "Downloads (need login)" do
-    =render :partial=>'downloads/download',:collection=>@downloads,:locals=>{:save=>true}
 

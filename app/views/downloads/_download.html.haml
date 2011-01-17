@@ -1,10 +1,9 @@
 =content_tag :li do
-  -save=false unless defined? save
-  -if save
-    =link_to download.name ,'#'
-  -else
+  -if permitted_to?(:read,download)
     =link_to download.name, lecture_download_path(download.lecture,download)
     =link_to("Download", download_download_path(download.lecture,download),:class=>"action_tag")if permitted_to?(:download,download)
     =destroy_link(download,lecture_download_path(download.lecture,download))
+  -else
+    =link_to download.name ,'#'
 
 
