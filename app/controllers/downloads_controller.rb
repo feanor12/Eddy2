@@ -1,6 +1,7 @@
 class DownloadsController < ApplicationController
   filter_resource_access
   filter_access_to :download
+  before_filter :store_location,:only=>[:show]
 
   def download
     @download = Download.find(params[:download_id])
