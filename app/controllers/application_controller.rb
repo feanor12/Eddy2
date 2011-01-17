@@ -28,11 +28,10 @@ class ApplicationController < ActionController::Base
   def load_sidebar
     if current_user
       @mylinks = current_user.mylinks
-      @s_downloads = Download.find(:all,:order=>'updated_at DESC',:limit=>5)
-      @s_announcements = Announcement.find(:all,:order=>'updated_at DESC',:limit=>5,:include=>:lecture)
       groups=current_user.groups
       @s_timers = Timer.joins(:group).where(:group_id=>groups).where('deadline > ?',Time.now).order('deadline ASC').limit(5)
     end
+      @s_downloads = Download.find(:all,:order=>'updated_at DESC',:limit=>5)
       @s_announcements = Announcement.find(:all,:order=>'updated_at DESC',:limit=>5,:include=>:lecture)
   end
 

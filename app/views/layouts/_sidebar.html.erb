@@ -16,6 +16,7 @@
         </li>
       <%end%>
     <%end%>
+  <%end%>
 
     <%=boxed "Latest files" do%>
         <%@s_downloads.each do |dl|%>
@@ -26,7 +27,6 @@
         <%end%>
     <%end unless @s_downloads.empty?%>
 
-  <%end%>
 
   <%=boxed "Latest threads" do%>
         <%@s_announcements.each do |a|%>
