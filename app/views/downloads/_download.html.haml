@@ -1,4 +1,4 @@
-=content_tag :li do
+%li{:class=> permitted_to?(:download,download) ? "public" : "private"}
   -if permitted_to?(:read,download)
     =link_to download.name, lecture_download_path(download.lecture,download)
     =link_to("Download", download_download_path(download.lecture,download),:class=>"action_tag")if permitted_to?(:download,download)

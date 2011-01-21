@@ -31,11 +31,27 @@
   margin: 0;
 }
 /* line 25, ../../../app/stylesheets/box.sass */
-.box li {
+.box ul li {
   padding: 0.2em;
 }
 /* line 27, ../../../app/stylesheets/box.sass */
 .box ul li:nth-child(odd) {
   background-color: #444444;
   -moz-box-shadow: 0 0 0.4em #101010;
+}
+/* line 30, ../../../app/stylesheets/box.sass */
+.box ul li:nth-child(even).private {
+  background-color: #553333;
+}
+/* line 32, ../../../app/stylesheets/box.sass */
+.box ul li:nth-child(odd).private {
+  background-color: #664444;
+}
+/* line 34, ../../../app/stylesheets/box.sass */
+.box ul li:nth-child(even).public {
+  background-color: #335533;
+}
+/* line 36, ../../../app/stylesheets/box.sass */
+.box ul li:nth-child(odd).public {
+  background-color: #446644;
 }
