@@ -40,18 +40,12 @@
   -moz-box-shadow: 0 0 0.4em #101010;
 }
 /* line 30, ../../../app/stylesheets/box.sass */
-.box ul li:nth-child(even).private {
-  background-color: #553333;
+.box ul li.private {
+  list-style-position: inside;
+  list-style-image: url(/images/small/bullet_red.png);
 }
-/* line 32, ../../../app/stylesheets/box.sass */
-.box ul li:nth-child(odd).private {
-  background-color: #664444;
-}
-/* line 34, ../../../app/stylesheets/box.sass */
-.box ul li:nth-child(even).public {
-  background-color: #335533;
-}
-/* line 36, ../../../app/stylesheets/box.sass */
-.box ul li:nth-child(odd).public {
-  background-color: #446644;
+/* line 33, ../../../app/stylesheets/box.sass */
+.box ul li.public {
+  list-style-position: inside;
+  list-style-image: url(/images/small/bullet_green.png);
 }

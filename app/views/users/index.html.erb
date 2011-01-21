@@ -1,20 +1,22 @@
 <%=boxed "List Users" do%>
 <table border="1px">
   <tr>
-    <th>Status</th>
+    <th></th>
+    <th>Count</th>
     <th>Email</th>
     <th>Login</th>
     <th>Active</th>
     <th>Role</th>
-    <th>toogle mod</th>
+    <th>Mod</th>
     <th></th>
   </tr>
   <%@users.each do |u|%>
   <tr>
-    <td><%=u.logged_in?%>(<%=u.login_count%>)</td>
+    <td><%=u.logged_in? ? image_tag('small/bullet_green.png') : image_tag('small/bullet_red.png')%></td>
+  <td><%=u.login_count%></td>
   <td><%=u.email%></td>
   <td><%=u.login%></td>
-  <td><%=u.active?%></td>
+  <td><%=u.active? ? image_tag('small/bullet_green.png') : image_tag('small/bullet_red.png')%></td>
   <td><%=u.role.name%></td>
   <td><%=link_to "toogle", promote_path(u) unless u.role.name=='admin'%></td>
   <td>

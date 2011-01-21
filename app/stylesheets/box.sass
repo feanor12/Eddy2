@@ -27,11 +27,9 @@
     li:nth-child(odd)
       background-color: #444444
       -moz-box-shadow: 0 0 0.4em #101010
-    li:nth-child(even).private
-      background-color: #553333
-    li:nth-child(odd).private
-      background-color: #664444
-    li:nth-child(even).public
-      background-color: #335533
-    li:nth-child(odd).public
-      background-color: #446644
+    li.private
+      list-style-position: inside
+      list-style-image: url(/images/small/bullet_red.png)
+    li.public
+      list-style-position: inside
+      list-style-image: url(/images/small/bullet_green.png)
