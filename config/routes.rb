@@ -7,10 +7,10 @@ Eddy2::Application.routes.draw do
   get 'static_site/:id/down' ,:to=>'statics#down'
   
   post 'apply/:group_id',:to=>'group_applications#create',:as=>'apply'
+  get 'activate/:activation_code' , :to=> 'activations#create', :as=>'activate'
 
   match '/rss/news_rss.html' ,:to=>redirect("/posts.rss")
 
-  match '/activate/:activation_code' , :to=> 'activations#create', :as=>'activate'
   match '/promote/:id' ,:to=>'users#promote',:as=>'promote'
   match 'mods', :to=>'users#index_mods',:as=>'mods'
 

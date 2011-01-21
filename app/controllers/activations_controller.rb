@@ -1,5 +1,5 @@
 class ActivationsController < ApplicationController
-  filter_resource_access
+  filter_access_to :create
   before_filter :load_user_using_perishable_token
 
   def create
