@@ -7,6 +7,8 @@ Eddy2::Application.routes.draw do
   get 'static_site/:id/down' ,:to=>'statics#down'
   
   post 'apply/:group_id',:to=>'group_applications#create',:as=>'apply'
+  get 'cancel/:group_id',:to=>'group_applications#destroy',:as=>'cancel_group'
+
   get 'activate/:activation_code' , :to=> 'activations#create', :as=>'activate'
 
   match '/rss/news_rss.html' ,:to=>redirect("/posts.rss")

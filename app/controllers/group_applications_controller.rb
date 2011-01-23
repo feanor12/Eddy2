@@ -1,5 +1,5 @@
 class GroupApplicationsController < ApplicationController
-  filter_resource_access
+  filter_access_to :create,:destroy
   def create
     @group=Group.find(params[:group_id])
     @lecture=@group.lecture
@@ -12,5 +12,11 @@ class GroupApplicationsController < ApplicationController
     redirect_to @lecture
   end
 
+  def destroy
+    @application = current_user.group_applications.where(:group_id=>params[:group_id])
+    @application.first.destroy
+    @group = Group.find(params[:group_id])
+    redirect_to @group.lecture
+  end
 
 end

@@ -18,11 +18,13 @@
     -unless current_user.groups.where(['groups.lecture_id=?',@lecture.id]).empty?
       %li
         ="Your Group:"+current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.name
+        =link_to("Cancel",cancel_group_path(current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.id))
 
-    %li
-      Change Group:
-      -@groups.each do |g|
-        =link_to(g.name,apply_path(g),:method=>:post)
+    -unless @groups.empty?
+      %li
+        Change Group:
+        -@groups.each do |g|
+          =link_to(g.name,apply_path(g),:method=>:post)
 
 -if  permitted_to?(:read,:links)
   =boxed "Links",:new_path=>new_lecture_link_path(@lecture),:new=>"links" do

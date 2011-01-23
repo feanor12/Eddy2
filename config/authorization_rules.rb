@@ -91,6 +91,8 @@ authorization do
     has_permission_on :static_links, :to=>[:show]
     has_permission_on :statics, :to=>[:show]
     has_permission_on :user_sessions,:to=>[:destroy]
+
+    has_permission_on :group_applications,:to=>[:create]
   end
 
 #################################################################
