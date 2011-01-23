@@ -30,25 +30,29 @@ authorization do
     end
 
     has_permission_on :comments, :to=>[:manage]
+
     has_permission_on :lectures, :to=>[:manage]
+    has_permission_on :groups,:to=>[:manage]
+    has_permission_on :group_applications,:to=>[:create,:destroy]
+    has_permission_on :timers,:to=>[:manage]
     has_permission_on :downloads, :to=>[:manage,:download]
+    has_permission_on :announcements, :to=>[:manage]
+    has_permission_on :links, :to=>[:manage]
 
     has_permission_on :mylinks, :to=>[:create]
     has_permission_on :mylinks, :to=>[:update,:read,:destroy] do
       if_attribute :user => is {user}
     end
 
-    has_permission_on :announcements, :to=>[:manage]
-    has_permission_on :links, :to=>[:manage]
     has_permission_on :users, :to=>[:index_mods]
     has_permission_on :users, :to=>[:update] do
       if_attribute :id => is {user.id}
     end
+
     has_permission_on :static_links, :to=>[:show]
     has_permission_on :statics, :to=>[:show]
     has_permission_on :user_sessions,:to=>[:destroy]
 
-    has_permission_on :group_applications,:to=>[:create,:destroy]
   end
 
 #################################################################
