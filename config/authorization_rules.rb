@@ -48,7 +48,7 @@ authorization do
     has_permission_on :statics, :to=>[:show]
     has_permission_on :user_sessions,:to=>[:destroy]
 
-    has_permission_on :group_applications,:to=>[:create]
+    has_permission_on :group_applications,:to=>[:create,:destroy]
   end
 
 #################################################################
@@ -92,7 +92,7 @@ authorization do
     has_permission_on :statics, :to=>[:show]
     has_permission_on :user_sessions,:to=>[:destroy]
 
-    has_permission_on :group_applications,:to=>[:create]
+    has_permission_on :group_applications,:to=>[:create,:destroy]
   end
 
 #################################################################
