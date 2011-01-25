@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110117142811) do
+ActiveRecord::Schema.define(:version => 20110125162409) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20110117142811) do
     t.datetime "updated_at"
     t.string   "name"
     t.integer  "lecture_id"
+    t.boolean  "public",     :default => false, :null => false
   end
 
   create_table "mylinks", :force => true do |t|

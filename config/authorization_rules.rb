@@ -12,7 +12,7 @@ authorization do
     has_permission_on :mylinks, :to=>[:manage]
     has_permission_on :announcements, :to=>[:manage]
     has_permission_on :statics, :to=>[:manage,:up,:down]
-    has_permission_on :links, :to=>[:manage]
+    has_permission_on :links, :to=>[:manage] 
     has_permission_on :static_links, :to=>[:manage,:up,:down]
     has_permission_on :group_applications,:to=>[:manage]
     has_permission_on :groups,:to=>[:manage]
@@ -110,7 +110,10 @@ authorization do
       if_attribute :public => is {true}
     end
     has_permission_on :lectures, :to=>[:read]
-    has_permission_on :links,:to=>[:read]
+    has_permission_on :links,:to=>[:read] do
+      if_attribute :public => is {true}
+    end
+
     #has_permission_on :mylinks, :to=>[:read]
     has_permission_on :posts, :to=>[:read]
     has_permission_on :statics, :to=>[:show]
