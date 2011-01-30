@@ -7,7 +7,7 @@ authorization do
     has_permission_on :posts, :to=>[:manage]
     has_permission_on :comments, :to=>[:manage]
     has_permission_on :users, :to=>[:manage,:promote,:index_mods]
-    has_permission_on :lectures, :to=>[:manage,:parse]
+    has_permission_on :lectures, :to=>[:manage,:parse,:create_scanned_timers]
     has_permission_on :downloads, :to=>[:manage,:download]
     has_permission_on :mylinks, :to=>[:manage]
     has_permission_on :announcements, :to=>[:manage]
@@ -31,7 +31,7 @@ authorization do
 
     has_permission_on :comments, :to=>[:manage]
 
-    has_permission_on :lectures, :to=>[:manage]
+    has_permission_on :lectures, :to=>[:manage,:parse]
     has_permission_on :groups,:to=>[:manage]
     has_permission_on :group_applications,:to=>[:create,:destroy]
     has_permission_on :timers,:to=>[:manage]

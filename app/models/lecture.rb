@@ -103,12 +103,14 @@ class Lecture < ActiveRecord::Base
         end
       end
     end
-    parse.each do |group, times|
-      puts "#{group} [#{times.size}]"
+    parse
+  end
+
+  def create_timers data
+    data.each do |group, times|
       g = self.groups.create(:name => group)
       times.each {|time| g.timers.create(:deadline => time, :content => self.name)}
     end
-    parse
   end
 
   def parse!

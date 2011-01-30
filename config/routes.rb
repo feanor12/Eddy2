@@ -19,6 +19,7 @@ Eddy2::Application.routes.draw do
 
   resources :lectures do
     match 'parse' => "lectures#parse", :as =>'parse'
+    match 'parse_create' => 'lectures#create_scanned_timers', :as=>"create_scanned_timers"
     resources :groups do
       resources :timers
     end
@@ -36,7 +37,7 @@ Eddy2::Application.routes.draw do
 
   resource :user_session
   resources :users, :mylinks
-  resource :password_resets
+  resources :password_resets
   root :to=>"posts#index"
   #static routes
   resources :statics

@@ -1,6 +1,6 @@
 class LecturesController < ApplicationController
   filter_resource_access
-  filter_access_to :parse
+  filter_access_to :parse,:create_scanned_timers
   before_filter :store_location,:only=>[:show,:index]
 
   def new
@@ -9,7 +9,13 @@ class LecturesController < ApplicationController
 
   def parse
     @lecture = Lecture.find(params[:lecture_id])
-    @lecture.parse!
+    @data=@lecture.parse(@lecture.tuglink).to_yaml if @lecture.tuglink
+  end
+
+  def create_scanned_timers
+    @lecture = Lecture.find(params[:lecture_id])
+    @data = YAML::load(params[:yaml])
+    @lecture.create_timers(@data)
     redirect_to edit_lecture_path(@lecture)
   end
 
