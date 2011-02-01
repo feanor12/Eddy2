@@ -103,13 +103,19 @@ class Lecture < ActiveRecord::Base
         end
       end
     end
-    parse
+    data = Hash.new
+    parse.each do |group,times|
+      times.each_with_index do |time,index|
+        data[group.to_s]={("title"+index.to_s)=>{:time=>time,:link=>""}}
+      end
+    end
+    data
   end
 
   def create_timers data
-    data.each do |group, times|
+    data.each do |group, timers|
       g = self.groups.create(:name => group)
-      times.each {|time| g.timers.create(:deadline => time, :content => self.name)}
+      timers.each {|name,timer| g.timers.create(:deadline => timer[:time],:content => name,:link=>timer[:link])}
     end
   end
 
