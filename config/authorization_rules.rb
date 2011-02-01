@@ -31,7 +31,7 @@ authorization do
 
     has_permission_on :comments, :to=>[:manage]
 
-    has_permission_on :lectures, :to=>[:manage,:parse]
+    has_permission_on :lectures, :to=>[:manage,:parse,:create_scanned_timers]
     has_permission_on :groups,:to=>[:manage]
     has_permission_on :group_applications,:to=>[:create,:destroy]
     has_permission_on :timers,:to=>[:manage]
