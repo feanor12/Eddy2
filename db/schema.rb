@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110201190252) do
+ActiveRecord::Schema.define(:version => 20110205175412) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20110201190252) do
     t.datetime "last_request_at"
     t.string   "last_login_ip"
     t.integer  "login_count"
+    t.string   "current_login_ip"
   end
 
 end

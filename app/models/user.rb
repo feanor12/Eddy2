@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_authentic do |config|
     config.login_field = 'email'
+    config.logged_in_timeout = 10.minutes
   end
   validates_format_of :email, :with=> /.+@(student\.tugraz|edu\.uni-graz)\.at/
   validates_presence_of :login, :email, :role
