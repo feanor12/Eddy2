@@ -4,6 +4,7 @@
     <title>
       <%="Eddy2 - " + yield_for(:title,'Untitled')%>
     </title>
+    <%= favicon_link_tag("favicon.png")%>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
     <%= stylesheet_link_tag 'compiled/position',    'compiled/nav',    'compiled/footer', 'compiled/fonts' ,   'compiled/box',    'compiled/fonts',    :cache=>true%>
     <%= javascript_include_tag :all,:cache=>true%>
