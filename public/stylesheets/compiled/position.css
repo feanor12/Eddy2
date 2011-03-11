@@ -140,21 +140,23 @@ body {
 .sidebar {
   overflow: hidden;
   float: right;
+  width: 300px;
+  margin-left: 1em;
 }
-/* line 98, ../../../app/stylesheets/position.sass */
+/* line 100, ../../../app/stylesheets/position.sass */
 .sidebar input {
   width: 13.4em;
   border: 0.1em solid #222222;
   font-size: 1em;
 }
 
-/* line 103, ../../../app/stylesheets/position.sass */
+/* line 105, ../../../app/stylesheets/position.sass */
 .with_sidebar {
   overflow: hidden;
 }
 
 /*BEGIN: Add Edit Destroy Tags */
-/* line 108, ../../../app/stylesheets/position.sass */
+/* line 110, ../../../app/stylesheets/position.sass */
 .action_tag {
   float: right;
   font-size: 0.8em;
@@ -163,16 +165,16 @@ body {
   margin-left: 0.2em;
 }
 
-/* line 115, ../../../app/stylesheets/position.sass */
+/* line 117, ../../../app/stylesheets/position.sass */
 .add_tag {
   color: #ccff33;
 }
-/* line 117, ../../../app/stylesheets/position.sass */
+/* line 119, ../../../app/stylesheets/position.sass */
 .add_tag :visited {
   color: #ccff33;
 }
 
-/* line 122, ../../../app/stylesheets/position.sass */
+/* line 124, ../../../app/stylesheets/position.sass */
 th, td {
   border-width: 1px;
   border-spacing: 0px;
@@ -180,7 +182,7 @@ th, td {
   border-color: white;
 }
 
-/* line 128, ../../../app/stylesheets/position.sass */
+/* line 130, ../../../app/stylesheets/position.sass */
 table {
   border-collapse: collapse;
   border-style: hidden;

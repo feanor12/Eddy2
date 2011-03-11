@@ -4,7 +4,7 @@
   -webkit-border-radius: 1em;
   border-radius: 1em;
   background-color: #333333;
-  margin: 1em;
+  margin: 1em 0;
   -moz-box-shadow: 0.1em 0.1em 0.4em #101010;
   -webkit-box-shadow: 0.1em 0.1em 0.4em #101010;
 }
