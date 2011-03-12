@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
   filter_resource_access
+
+  caches_page :index , :if => Proc.new { |c| c.request.format.rss? }
+  cache_sweeper :post_sweeper
+
   before_filter :store_location,:only=>[:show,:index]
   respond_to :html, :xml
 
