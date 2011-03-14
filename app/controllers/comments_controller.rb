@@ -27,6 +27,7 @@ class CommentsController < ApplicationController
     case
       when params[:post_id] then Post.find_by_id(params[:post_id])
       when params[:announcement_id] then Announcement.find_by_id(params[:announcement_id])
+      when params[:download_id] then Download.find_by_id(params[:download_id])
     end
   end
 
@@ -34,6 +35,7 @@ class CommentsController < ApplicationController
     case
       when params[:post_id] then post_url(parent)
       when params[:announcement_id] then lecture_announcement_url(parent.lecture,parent)
+      when params[:download_id] then lecture_download_url(parent.lecture,parent)
     end
   end
 

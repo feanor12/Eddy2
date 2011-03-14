@@ -32,6 +32,7 @@ class DownloadsController < ApplicationController
   def show
     @lecture = Lecture.find(params[:lecture_id])
     @download = @lecture.downloads.find(params[:id])
+    @comment = Comment.new
     respond_to do |format|
       format.html
       format.meta4

@@ -25,6 +25,7 @@ Eddy2::Application.routes.draw do
     end
     resources :links
     resources :downloads do
+      resources :comments
       match 'download' => "downloads#download"
     end
     resources :announcements do

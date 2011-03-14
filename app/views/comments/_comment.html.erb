@@ -4,7 +4,7 @@
   <%
     comment_destroy_url=case params[:controller]
       when 'posts' then [comment.commentable,comment]
-      when 'announcements' then [comment.commentable.lecture,comment.commentable,comment]
+      when 'announcements', 'downloads' then [comment.commentable.lecture,comment.commentable,comment]
     end
   %>
   <div class="item-menu">
