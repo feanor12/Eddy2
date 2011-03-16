@@ -1,0 +1,12 @@
+.box
+  -unless title.blank?
+    -new_path="" unless defined? new_path
+    %h2
+      =title
+      =new_link(new,new_path) if defined? new 
+
+  -if defined? body.blank?
+    =body
+
+  .footer
+    =will_paginate paginate if defined? paginate

@@ -1,16 +1,14 @@
-#footer
-  .center
+%footer#footer.center
+  #sites
+    =link_to("manage",statics_path,:class=>"action_tag") if permitted_to?(:manage,:statics)
+    %h1 Sites
+    -Static.order('priority DESC').each do |site|
+      =link_to(site.title,static_path(site)) if permitted_to?(:show,site)
+    =link_to("List of Moderators",mods_path)if permitted_to?(:index_mods,:users)
 
-    #sites
-      =link_to("manage",statics_path,:class=>"action_tag") if permitted_to?(:manage,:statics)
-      %h1 Sites
-      -Static.order('priority DESC').each do |site|
-        =link_to(site.title,static_path(site)) if permitted_to?(:show,site)
-      =link_to("List of Moderators",mods_path)if permitted_to?(:index_mods,:users)
-
-    #links
-      =link_to("manage",static_links_path,:class=>"action_tag") if permitted_to?(:manage,:static_links)
-      %h1 Links
-      -StaticLink.order('priority DESC').each do |link|
-        =link_to(link.name,link.url) if permitted_to?(:show,link)
+  #links
+    =link_to("manage",static_links_path,:class=>"action_tag") if permitted_to?(:manage,:static_links)
+    %h1 Links
+    -StaticLink.order('priority DESC').each do |link|
+      =link_to(link.name,link.url) if permitted_to?(:show,link)
 

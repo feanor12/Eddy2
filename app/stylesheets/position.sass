@@ -1,12 +1,25 @@
-.post
-  .content
-    padding: 0 0.5em 0.5em 0.5em
-    p
-      margin-top: 0
-
-.center
+header,nav,.center
   margin: auto
   width: 880px
+
+header
+  background: -moz-radial-gradient(top center,ellipse farthest-side,#aaa,#222)
+  height: 3em
+  h1
+    text-align: center
+    margin: 0
+
+#main
+  background-color: #aaa
+  ul
+    float: left
+    padding: 0.5em
+    margin: 0
+    li
+      float: right
+      margin-right: 1em
+      display: block
+
 
 #top
   height: 4em
@@ -67,10 +80,6 @@ div
     font-size: 12px
     list-style: square
 
-#main
-  padding: 0
-  margin: 0
-
 img
   border: 0
 
@@ -92,7 +101,7 @@ body
   margin: 0
   font-size: 0.7em
 
-.sidebar
+aside
   overflow: hidden
   float: right
   width: 300px

@@ -1,0 +1,22 @@
+%header.center
+  %h1 Eddy2
+
+%nav#main
+  %ul
+    -if permitted_to?(:read,:lectures)
+      %li=link_to("Lectures",lectures_path) if permitted_to?(:read,:lectures)
+    -if permitted_to?(:read,:posts)
+      %li=link_to("News",posts_path)
+    -if permitted_to?(:manage,:users)
+      %li=link_to("Users",users_path) if permitted_to?(:manage,:users)
+  .clear
+
+%nav#user
+  %ul
+    -if current_user
+      %li=link_to("Edit",edit_user_path(current_user))
+      %li=link_to("Logout",user_session_path,:method=>:delete)
+    -else
+      %li=link_to("Register",new_user_path)
+
+

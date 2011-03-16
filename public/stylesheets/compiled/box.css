@@ -9,43 +9,41 @@
   -webkit-box-shadow: 0.1em 0.1em 0.4em #101010;
 }
 /* line 9, ../../../app/stylesheets/box.sass */
-.box h1 {
-  font-family: "PusabRegular";
-  -moz-border-radius: 0.666em 0.666em 0 0;
-  -webkit-border-radius: 0.666em 0.666em 0 0;
-  border-radius: 0.666em 0.666em 0 0;
-  font-size: 1.5em;
-  font-weight: normal;
-  padding: 0.5em;
-  margin: 0;
+.box h2 {
+  text-align: center;
 }
-/* line 18, ../../../app/stylesheets/box.sass */
+/* line 11, ../../../app/stylesheets/box.sass */
 .box .footer {
   text-align: center;
   min-height: 1em;
 }
-/* line 21, ../../../app/stylesheets/box.sass */
+/* line 14, ../../../app/stylesheets/box.sass */
 .box ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 25, ../../../app/stylesheets/box.sass */
+/* line 18, ../../../app/stylesheets/box.sass */
 .box ul li {
   padding: 0.2em;
 }
-/* line 27, ../../../app/stylesheets/box.sass */
+/* line 20, ../../../app/stylesheets/box.sass */
 .box ul li:nth-child(odd) {
   background-color: #444444;
   -moz-box-shadow: 0 0 0.4em #101010;
 }
-/* line 30, ../../../app/stylesheets/box.sass */
+/* line 23, ../../../app/stylesheets/box.sass */
 .box ul li.private {
   list-style-position: inside;
   list-style-image: url(/images/small/bullet_red.png);
 }
-/* line 33, ../../../app/stylesheets/box.sass */
+/* line 26, ../../../app/stylesheets/box.sass */
 .box ul li.public {
   list-style-position: inside;
   list-style-image: url(/images/small/bullet_green.png);
+}
+/* line 29, ../../../app/stylesheets/box.sass */
+.box article {
+  padding-top: 1em;
+  margin: 0 1em 1em 1em;
 }

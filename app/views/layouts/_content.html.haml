@@ -1,0 +1,11 @@
+.center
+  =render(:partial=>"layouts/sidebar")
+  .with_sidebar
+    -unless flash[:notice].nil?
+      #status
+        =boxed "Status" do
+          %li=notice
+          :javascript
+            setTimeout("new Effect.Fade('status');", 7000);
+    =yield
+  .clear

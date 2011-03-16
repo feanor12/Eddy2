@@ -1,4 +1,4 @@
-.sidebar
+%aside.sidebar
   -unless current_user
     =boxed "Login" do
       =render :partial=>"user_sessions/form"
@@ -15,14 +15,14 @@
             =timer.link ? link_to(timer.content,timer.link) : timer.content
 
   -unless @s_downloads.empty?
-    =boxed "Latest files" do
+    =boxed "Hot Files" do
       -@s_downloads.each do |dl|
         %li{:class=> permitted_to?(:download,dl) ? "public" : "private"}
           =link_to dl.name,lecture_download_path(dl.lecture,dl)
           =distance_of_time_in_words(Time.now,dl.updated_at)
 
   -unless @s_announcements.empty?
-    =boxed "Latest threads" do
+    =boxed "Hot Threads" do
       -@s_announcements.each do |a|
         %li
           =link_to a.title,lecture_announcement_path(a.lecture,a)

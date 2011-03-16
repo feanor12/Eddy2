@@ -1,0 +1,14 @@
+%article{:id=>"post_"+post.id.to_s,:class=>"post"}
+  -if defined? show_title
+    %a{:href=>post_path(post)}
+      %h3=post.title
+
+  =simple_format(auto_link(post.body))
+
+  .item-menu
+    %b.comment-count
+      by 
+      =post.user.name
+    %b#comment-count.comment-count=pluralize(post.comments.length, "Comment")
+
+    =clear()
