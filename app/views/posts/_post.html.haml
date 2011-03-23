@@ -9,7 +9,7 @@
       by 
       =post.user.name
 
-    %b#comment-count.comment-count
+    %b.comment-count{:id=>"comment-count"+ (post.id if defined?(show_title)).to_s }
       =pluralize post.comments.length, "Comment"
 
     .item-actions
