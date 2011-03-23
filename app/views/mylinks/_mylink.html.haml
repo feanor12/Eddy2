@@ -1,0 +1,4 @@
+%li{:id=>"mylink"+mylink.id.to_s}
+  =link_to mylink.name, mylink.url
+  =edit_link(mylink,edit_mylink_path(mylink))
+  =destroy_link(mylink,mylink_path(mylink),:remote=>true)
