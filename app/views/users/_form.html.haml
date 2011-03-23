@@ -1,0 +1,19 @@
+%li
+=form_for @user do |f| 
+  = f.label :login 
+  %br
+  = f.text_field :login 
+  %br
+  = f.label :email,"Email (only TUG or KFU addesses)" 
+  %br
+  = f.text_field :email 
+  %br
+  = f.label :password 
+  %br
+  = f.password_field :password 
+  %br
+  = f.label :password_confirmation 
+  %br
+  = f.password_field :password_confirmation 
+  %br
+  = f.submit 

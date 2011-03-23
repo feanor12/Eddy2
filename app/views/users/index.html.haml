@@ -1,0 +1,25 @@
+-title("List Users")
+=boxed "List Users" do
+  %table{:border=>"1px"}
+    %tr
+      %th
+      %th Count
+      %th Email
+      %th Login
+      %th Active
+      %th Role
+      %th Mod
+      %th 
+  
+    -@users.each do |u|
+      %tr
+        %td=u.logged_in? ? image_tag('small/bullet_green.png') : image_tag('small/bullet_red.png')
+        %td=u.login_count
+        %td=u.email
+        %td=u.login
+        %td=u.active? ? image_tag('small/bullet_green.png') : image_tag('small/bullet_red.png')
+        %td=u.role.name
+        %td=link_to "toogle", promote_path(u) unless u.role.name=='admin'
+        %td
+          =edit_link(u,edit_user_path(u))
+          =destroy_link(u,user_path(u))
