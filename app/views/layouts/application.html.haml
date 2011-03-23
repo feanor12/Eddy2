@@ -1,0 +1,16 @@
+!!! html5
+%html
+  %head
+    %title="Eddy2 - " + yield_for(:title,'Untitled')
+
+    = favicon_link_tag("favicon.png")
+    %script{:type=>"text/javascript",:src=>"http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"}
+    =stylesheet_link_tag 'compiled/position', 'compiled/nav', 'compiled/footer', 'compiled/fonts', 'compiled/box', :cache=>true
+    =javascript_include_tag :all,:cache=>true
+    =auto_discovery_link_tag(:rss,{:controller=>:posts,:action=>:index,:format=>:rss})
+    =csrf_meta_tag 
+
+  %body
+    =render :partial=>'layouts/navbar'
+    =render :partial=>'layouts/content'
+    =render :partial=>'layouts/footer'
