@@ -1,0 +1,13 @@
+-title(@post.title)
+
+=boxed @post.title do
+  =render :partial=>@post
+
+
+-if (not @post.comments.empty?) && permitted_to?(:read,@post.comments)
+  =boxed "Comments" do
+    =render :partial=>"comments/comment.html", :collection=>@post.comments
+
+-if permitted_to?(:create,:comments)
+  =boxed "Add your comment" do
+    =render :partial=>"comments/form"
