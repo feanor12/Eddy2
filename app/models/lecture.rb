@@ -26,7 +26,6 @@ class Lecture < ActiveRecord::Base
     corg = url.match(CORG)
     self.tug_clvnr = clvnr.nil? ? nil : clvnr[1]
     self.tug_corg = corg.nil? ? nil : corg[1]
-    save
   end
 
   def unilink
@@ -39,7 +38,6 @@ class Lecture < ActiveRecord::Base
     self.uni_clvnr = clvnr.nil? ? nil : clvnr[1]
     self.uni_corg = corg.nil? ? nil : corg[1]
     puts uni_corg
-    save
   end
 
   HEADER = /\<TH.+class\s*=\s*\"tblHdr.*\".*\>(.+)\<\/TH\>/i
