@@ -1,0 +1,24 @@
+= boxed "List static_links" do
+  %li
+    %table
+      %tr
+        %th #
+        %th Name
+        %th URL
+        %th
+        %th
+        %th
+        %th
+
+      -@static_links.each do |static_link|
+        %tr
+          %td=static_link.priority
+          %td=static_link.name
+          %td=static_link.url
+          %td=link_to 'Edit', edit_static_link_path(static_link)
+          %td=link_to 'Destroy', static_link, :confirm => 'Are you sure?', :method => :delete
+          %td=link_to 'up', :controller=>:static_links,:action=>:up,:id=>static_link.id
+          %td=link_to 'down', :controller=>:static_links,:action=>:down,:id=>static_link.id
+
+%li=link_to 'New Static link', new_static_link_path
+
