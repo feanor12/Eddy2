@@ -1,0 +1,17 @@
+%li{:id=>"comment"+comment.id.to_s}
+  %div
+    =simple_format(auto_link(comment.body))
+  :ruby
+    comment_destroy_url=case params[:controller]
+      when 'posts' then [comment.commentable,comment]
+      when 'announcements', 'downloads' then [comment.commentable.lecture,comment.commentable,comment]
+    end
+  .item-menu
+    %b.comment-count
+      by
+      =comment.user.login
+    %div.item-menu
+      =destroy_link(comment,comment_destroy_url,:remote=>true)
+    =clear
+  =clear
+
