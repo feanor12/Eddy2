@@ -1,0 +1,5 @@
+-title("Lectures")
+=boxed "Lectures", :new=>"lectures" do
+  -@lectures.sort.each do |s,lvs|
+    %h4=s.to_s+". Semester"
+    =render :partial=>lvs
