@@ -11,7 +11,7 @@
         %th Text
         %th Date
         %th Actions
-      -@group.timers.each do |time|
+      -@group.timers.order(:deadline).each do |time|
         %tr
           %td
             =time.content
