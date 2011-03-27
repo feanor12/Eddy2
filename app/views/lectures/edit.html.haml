@@ -19,6 +19,5 @@
           %td
             =g.timers.size
           %td
-            =link_to "Add Timer",new_lecture_group_timer_path(@lecture,g)
             =edit_link(g,edit_lecture_group_path(@lecture,g))
             =destroy_link(g,lecture_group_path(@lecture,g))

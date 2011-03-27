@@ -1,10 +1,10 @@
 -title("Edir Group")
 
 =boxed "Group" do
-  %li
-    =render :partial=>'form'
+  %li=link_to @lecture.name, edit_lecture_path(@lecture)
+  %li=render :partial=>'form'
 
-=boxed "Timer" do
+=boxed "Timer" ,:new=>"timers",:new_path=>new_lecture_group_timer_path(@lecture,@group) do
   %li
     %table
       %tr
@@ -21,3 +21,4 @@
             =time.link    
           %td
             =edit_link(time,edit_lecture_group_timer_path(@lecture,@group,time))
+            =destroy_link(time,lecture_group_timer_path(@lecture,@group,time))

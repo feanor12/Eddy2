@@ -13,7 +13,7 @@ class TimersController < ApplicationController
     @timer=@group.timers.build(params[:timer])
     if @timer.save
       flash[:notice]="Tick Tack Tick Ta..."
-      redirect_to @lecture
+      redirect_to edit_lecture_group_path(@lecture,@group)
     end
   end
 
@@ -28,6 +28,14 @@ class TimersController < ApplicationController
     @group = Group.find(params[:group_id])
     @timer=@group.timers.find(params[:id])
     @timer.update_attributes(params[:timer])
+    redirect_to edit_lecture_group_path(@lecture,@group)
+  end
+
+  def destroy
+    @lecture = Lecture.find(params[:lecture_id])
+    @group = Group.find(params[:group_id])
+    @timer=@group.timers.find(params[:id])
+    @timer.destroy
     redirect_to edit_lecture_group_path(@lecture,@group)
   end
 end
