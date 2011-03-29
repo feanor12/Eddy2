@@ -2,7 +2,7 @@
   -if defined? show_title
     %h1=post.title
 
-  .content=simple_format(auto_link(post.body))
+  .content=format_post(post.body)
 
   .item-menu
     %b.comment-count
