@@ -5,6 +5,7 @@ module PostsHelper
     after='" frameborder="0" allowfullscreen></iframe>'
     text.gsub!('[YouTube]',before)
     text.gsub!('[/YouTube]',after)
+    text
   end
 end
 
