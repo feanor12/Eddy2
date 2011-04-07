@@ -2,11 +2,12 @@
   -unless title.blank?
     -new_path="" unless defined? new_path
     %h1
-      =title
-      =new_link(new,new_path) if defined? new 
+      =title 
+      .new-resource
+        =new_link(new,new_path) if defined? new 
 
-  -if defined? body.blank?
-    %ul.box_body
+  -if defined? body
+    .body
       =body
 
   .footer

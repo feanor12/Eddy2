@@ -1,51 +1,56 @@
 /* line 1, ../../../app/stylesheets/box.sass */
 .box {
-  -moz-border-radius: 1em;
-  -webkit-border-radius: 1em;
-  border-radius: 1em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  border-radius: 0.5em;
+  border: 1px solid #444444;
   background-color: #333333;
   margin: 1em 0;
   -moz-box-shadow: 0.1em 0.1em 0.4em #101010;
   -webkit-box-shadow: 0.1em 0.1em 0.4em #101010;
 }
-/* line 9, ../../../app/stylesheets/box.sass */
+/* line 10, ../../../app/stylesheets/box.sass */
 .box h1 {
-  font-family: "PusabRegular";
+  font-size: 1.2em;
   -moz-border-radius: 0.666em 0.666em 0 0;
   -webkit-border-radius: 0.666em 0.666em 0 0;
   border-radius: 0.666em 0.666em 0 0;
-  font-size: 1.5em;
-  font-weight: normal;
-  padding: 0.5em;
+  padding: 0.4em 0.8em;
   margin: 0;
 }
-/* line 18, ../../../app/stylesheets/box.sass */
+/* line 12, ../../../app/stylesheets/box.sass */
+.box h1 a, .box h1 .new-resource a {
+  font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
+  color: white;
+  font-weight: bold;
+}
+/* line 16, ../../../app/stylesheets/box.sass */
+.box h1 a:hover, .box h1 .new-resource a:hover {
+  text-decoration: none;
+}
+/* line 23, ../../../app/stylesheets/box.sass */
+.box h1 .new-resource {
+  float: right;
+}
+/* line 26, ../../../app/stylesheets/box.sass */
+.box .body {
+  background-color: #cccccc;
+  color: black;
+  padding: 1em;
+}
+/* line 32, ../../../app/stylesheets/box.sass */
+.box .body .article {
+  border-bottom: 1px dashed #444444;
+}
+/* line 34, ../../../app/stylesheets/box.sass */
+.box .body .article h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 2em;
+}
+/* line 41, ../../../app/stylesheets/box.sass */
 .box .footer {
   text-align: center;
   min-height: 1em;
-}
-/* line 21, ../../../app/stylesheets/box.sass */
-.box ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-/* line 25, ../../../app/stylesheets/box.sass */
-.box ul li {
-  padding: 0.2em;
-}
-/* line 27, ../../../app/stylesheets/box.sass */
-.box ul li:nth-child(odd) {
-  background-color: #444444;
-  -moz-box-shadow: 0 0 0.4em #101010;
-}
-/* line 30, ../../../app/stylesheets/box.sass */
-.box ul li.private {
-  list-style-position: inside;
-  list-style-image: url(/images/small/bullet_red.png);
-}
-/* line 33, ../../../app/stylesheets/box.sass */
-.box ul li.public {
-  list-style-position: inside;
-  list-style-image: url(/images/small/bullet_green.png);
 }

@@ -1,14 +1,13 @@
 -title("List of Moderators")
 =boxed "Your Moderators" do
-  %li
-    %table
+  %table
+    %tr
+      %th Name
+      %th Status
+    -for u in @users do
       %tr
-        %th Name
-        %th Status
-      -for u in @users do
-        %tr
-          %td
-            =u.login
-          %td
-            =u.logged_in? ? 'Online' : 'Offline'
+        %td
+          =u.login
+        %td
+          =u.logged_in? ? 'Online' : 'Offline'
 

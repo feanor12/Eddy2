@@ -1,67 +1,36 @@
 #nav
-  height: 6em
-  font-family: 'PusabRegular'
-  padding: 0
+  height: 4em
+  font-family: Arial,Verdana,Geneva,Helvetica,sans-serif
   overflow: hidden
-  background-color: #333
-  background: -moz-linear-gradient(top, #333333, #171717)
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333333), to(#171717))
+  background: #171717
 
-.rainbow
-  background-color: #444
-  background: -moz-linear-gradient(right, darkred, red, orange 16%, yellow 32%, green 48%, blue 60%, indigo 76%, darkviolet)
-  background: -webkit-gradient(linear, 100% 0%, 0% 0%, from(darkred), color-stop(0.1, red), color-stop(0.16, orange), color-stop(0.32, yellow), color-stop(0.48, green), color-stop(0.6, blue), color-stop(0.76, indigo), to(darkviolet))
-  height: 2px
-
-#nav
   h5
     float: left
-    font-size: 4em
-    font-weight: normal
-    margin: 0 0 0 0
-    padding-top: 0.2em
-  ul
-    display: block
-    margin-top: 2em
-    float: right
-    padding: 0.5em 0
-    margin-left: 0.5em
-    overflow: hidden
-  li
-    list-style: none
-    float: right
-    padding: 0 0.5em
+    font-size: 3em
+    font-weight: bolder
     margin: 0
-    border-left: 0.2em solid #555
-    margin-left: -0.2em
-  a
-    &:hover
-      color: #fff
-    font-family: 'PusabRegular'
-    font-size: 2em
+    padding: 0.08em 0
+    color: #222
+    letter-spacing: 1em
+    text-shadow: 1px 1px #222,-1px -1px #000
+  ul
+    margin: 0.4em
     display: block
     float: right
-    color: #aaa
-    text-decoration: none
+    overflow: hidden
+    font-size: 2em
+    li
+      list-style: none
+      float: right
+      padding: 0 1em
+      margin: 0
+      display: block
+      float: right
+      color: #aaa
+      font-weight: bold
+      a
+        &:hover
+          color: #fff
+        text-decoration: none
+        
 
-#user_menu
-  background-color: #eee
-  -moz-border-radius: 1em
-  -webkit-border-radius: 1em
-  border-radius: 1em
-  -moz-box-shadow: -0.1em 0 0.4em #252525
-  float: right
-  a
-    margin-right: 0
-    margin-left: 0em
-    &:hover
-      background-color: #eee
-      color: #000
-
-#admin_menu
-  overflow: hidden
-  background-color: #ae3535
-  -moz-border-radius: 1em
-  -webkit-border-radius: 1em
-  border-radius: 1em
-  -moz-box-shadow: -0.1em 0 0.4em #252525

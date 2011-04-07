@@ -1,17 +1,18 @@
 -title(@download.name)
 =boxed @download.name do
-  %li
-    %b Lecture:
-    =link_to @lecture.name,lecture_path(@lecture)
-  %li.download
-    -if permitted_to?(:download,@download)
-      =button_to "Download",download_download_path(@lecture,@download)
-    -else
-      You need to log in before you can download this file.
-  %li
-    =simple_format(auto_link(@download.description))
-  %li
-    ="by " + @download.user.name
+  .list
+    .item
+      %b Lecture:
+      =link_to @lecture.name,lecture_path(@lecture)
+    .item.download
+      -if permitted_to?(:download,@download)
+        =button_to "Download",lecture_download_download_path(@lecture,@download)
+      -else
+        You need to log in before you can download this file.
+    .item
+      =simple_format(auto_link(@download.description))
+    .item
+      ="by " + @download.user.name
 
 -unless @download.comments.empty?
   =boxed "Comments" do
@@ -19,10 +20,9 @@
 
 -if permitted_to?(:create,:comments)
   =boxed "Add your Comment" do
-    %li
-      =form_for [@download.lecture,@download,@comment] do |f|
-        =f.label :body,"Text"
-        %br
-        =f.text_area :body, :rows=>3
-        %br
-        =f.submit
+    =form_for [@download.lecture,@download,@comment] do |f|
+      =f.label :body,"Text"
+      %br
+      =f.text_area :body, :rows=>3
+      %br
+      =f.submit

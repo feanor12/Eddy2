@@ -1,4 +1,4 @@
-%li
+#login
   =form_for @user_session, :as=>:user_session , :url => user_session_path do |f|
     =f.label :email
     %br
@@ -11,5 +11,5 @@
     %br
     =f.password_field :password
     %br
-    %br
     =f.submit "Login"
+

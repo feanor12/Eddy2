@@ -1,30 +1,37 @@
 -title(@lecture.name)
+-content_for :user_menu do
+  -if permitted_to?(:create,:links)
+    .item=link_to "Add Link",new_lecture_link_path(@lecture)
+  -if permitted_to?(:create,:announcements)
+    .item=link_to "Add Announcement",new_lecture_announcement_path(@lecture)
+  -if permitted_to?(:create,:downloads)
+    .item=link_to "Add Download",new_lecture_download_path(@lecture)
 
 =boxed @lecture.name do
-  %li
-    =@lecture.semester.to_s + ". Semester"
+  .list
+    .item=@lecture.semester.to_s + ". Semester"
 
-  -unless (@lecture.tuglink.blank? && @lecture.unilink.blank? )
-    %li
-      =link_to("TUGRAZonline",@lecture.tuglink) unless @lecture.tuglink.blank?
-      ="/" unless (@lecture.tuglink.blank? || @lecture.unilink.blank?)
-      =link_to("UNIGRAZonline",@lecture.unilink) unless @lecture.unilink.blank?
+    -unless (@lecture.tuglink.blank? && @lecture.unilink.blank? )
+      .item
+        =link_to("TUGRAZonline",@lecture.tuglink) unless @lecture.tuglink.blank?
+        ="/" unless (@lecture.tuglink.blank? || @lecture.unilink.blank?)
+        =link_to("UNIGRAZonline",@lecture.unilink) unless @lecture.unilink.blank?
 
-  -unless @lecture.description.blank?
-    %li
-      =simple_format(auto_link(@lecture.description))
+    -unless @lecture.description.blank?
+      .item
+        =simple_format(auto_link(@lecture.description))
 
-  -if current_user
-    -unless current_user.groups.where(['groups.lecture_id=?',@lecture.id]).empty?
-      %li
-        ="Your Group:"+current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.name
+    -if current_user
+      -unless current_user.groups.where(['groups.lecture_id=?',@lecture.id]).empty?
+        .item
+          ="Your Group:"+current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.name
         =link_to("Cancel",cancel_group_path(current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.id))
 
-    -unless @groups.empty?
-      %li
-        Change Group:
-        -@groups.each do |g|
-          =link_to(g.name,apply_path(g),:method=>:post)
+      -unless @groups || @groups.empty?
+        .item
+          Change Group:
+          -@groups.each do |g|
+            =link_to(g.name,apply_path(g),:method=>:post)
 
 -if  permitted_to?(:read,:links)
   =boxed "Links",:new_path=>new_lecture_link_path(@lecture),:new=>"links" do
