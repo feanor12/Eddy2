@@ -8,3 +8,4 @@ tmp/**/*
 config/initializers/mailer.rb
 Gemfile.lock
 public/uploads
+rack-mount
