@@ -35,15 +35,16 @@
 
 -if  permitted_to?(:read,:links)
   =boxed "Links",:new_path=>new_lecture_link_path(@lecture),:new=>"links" do
-    -@links.each do |l|
-      -if permitted_to?(:read,l)
-        %li
-          =link_to l.name, l.url
-          =edit_link(l,edit_lecture_link_path(@lecture,l))
-          =destroy_link(l,lecture_link_path(@lecture,l))
+    .list
+      -@links.each do |l|
+        -if permitted_to?(:read,l)
+          .item
+            =link_to l.name, l.url
+            =edit_link(l,edit_lecture_link_path(@lecture,l))
+            =destroy_link(l,lecture_link_path(@lecture,l))
 
 -if permitted_to?(:read,:announcements)
-  =boxed "Blackboard",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture),:paginate=>@announcements do
+  =boxed "Blackboard",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture),:pages=>@announcements do
     =render :partial=>@announcements unless @announcements.empty?
 
 -if permitted_to?(:read,:downloads)

@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   respond_to :html, :xml
 
   def index
-    @posts = Post.paginate(:page => params[:page], :order => 'created_at DESC',:include=>:comments)
+    @posts = Post.order('created_at DESC').page params[:page]
     respond_to do |format|
       format.html
       format.rss
