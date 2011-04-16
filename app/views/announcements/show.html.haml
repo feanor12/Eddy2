@@ -1,8 +1,7 @@
 -title(@announcement.title)
 =boxed @announcement.title  do
-  %li
-    Lecture:
-    =link_to @announcement.lecture.name,@announcement.lecture
+  Lecture:
+  =link_to @announcement.lecture.name,@announcement.lecture
   =render :partial=>@announcement,:locals=>{:no_title=>true}
 
 -unless @announcement.comments.empty?

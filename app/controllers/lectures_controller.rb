@@ -38,8 +38,7 @@ class LecturesController < ApplicationController
   def show
     @lecture=Lecture.find(params[:id])
     @downloads=@lecture.downloads
-    @announcements = @lecture.announcements.paginate(:page=>params[:page],:per_page=>3,:order=>"updated_at DESC")
-    #@links = @lecture.links.with_permissions_to(:read)
+    @announcements = @lecture.announcements.order("updated_at DESC").page params[:page]
     @links = @lecture.links.all
     if current_user
       @groups = @lecture.groups.all-current_user.groups.all
