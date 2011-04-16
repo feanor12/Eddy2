@@ -1,4 +1,4 @@
-.item{:class=> permitted_to?(:download,download) ? "public" : "private"}
+.article{:class=> permitted_to?(:download,download) ? "public" : "private"}
   -if permitted_to?(:read,download)
     =link_to download.name, lecture_download_path(download.lecture,download)
   -else

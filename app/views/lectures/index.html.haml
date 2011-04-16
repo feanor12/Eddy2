@@ -5,7 +5,7 @@
       %b Lecture:
       =link_to "Add",new_lecture_path
 
-=boxed "Lectures", :new=>"lectures" do
+=boxed "Lectures" do
   -@lectures.sort.each do |s,lvs|
     .list
       %h2=s.to_s+". Semester"

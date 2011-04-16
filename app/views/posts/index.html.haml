@@ -3,5 +3,5 @@
   -if permitted_to?(:create,:posts)
     .item=link_to "Add News", new_post_path
 
-=boxed "News",:new=>"posts",:pages=>@posts do
+=boxed "News",:pages=>@posts do
   =render :partial=>@posts,:locals=>{:show_title=>true}
