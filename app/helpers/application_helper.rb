@@ -28,11 +28,11 @@ module ApplicationHelper
   end
 
   def destroy_link(item,path,options={})
-    link_to("Delete",path,options.merge(:method=>:delete,:confirm=>"Sicher?",:class=>"action_tag del_tag")) if permitted_to?(:destroy,item)
+    link_to("Delete",path,options.merge(:method=>:delete,:confirm=>"Sicher?")) if permitted_to?(:destroy,item)
   end
 
   def edit_link(item,path,options={})
-    link_to("Edit",path,options.merge(:class=>"action_tag edit_tag")) if permitted_to?(:update,item)
+    link_to("Edit",path) if permitted_to?(:update,item)
   end
 
   def clear()

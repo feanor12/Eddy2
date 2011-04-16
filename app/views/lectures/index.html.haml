@@ -1,7 +1,9 @@
 -title("Lectures")
 -content_for :user_menu do
   -if permitted_to?(:create,:lectures)
-    .item=link_to "Add Lecture",new_lecture_path
+    .item
+      %b Lecture:
+      =link_to "Add",new_lecture_path
 
 =boxed "Lectures", :new=>"lectures" do
   -@lectures.sort.each do |s,lvs|

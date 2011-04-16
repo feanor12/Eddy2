@@ -11,7 +11,5 @@
     %b.comment-count#comment-count
       =pluralize announcement.comments.length, "Comment"
     .item-actions
-      =edit_link(announcement,edit_lecture_announcement_path(announcement.lecture,announcement))
-      =destroy_link(announcement,lecture_announcement_path(announcement.lecture,announcement))
     =clear
 

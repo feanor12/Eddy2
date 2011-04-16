@@ -14,11 +14,12 @@
 
     -unless @s_timers.empty?
       =boxed "Timer" do
-        -@s_timers.each do |timer|
-          %li
-            =distance_of_time_in_words(Time.now,timer.deadline)
-            to:
-            =(timer.link.nil? | timer.link.blank?) ? timer.content : link_to(timer.content,timer.link)
+        .list
+          -@s_timers.each do |timer|
+            .item
+              =distance_of_time_in_words(Time.now,timer.deadline)
+              to:
+              =(timer.link.nil? | timer.link.blank?) ? timer.content : link_to(timer.content,timer.link)
 
   -unless @s_downloads.empty?
     =boxed "Hot Files" do

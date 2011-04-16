@@ -1,11 +1,24 @@
 -title(@lecture.name)
 -content_for :user_menu do
+  -if permitted_to?(:edit,@lecture) || permitted_to?(:destroy,@lecture)
+    .item
+      %b Lecture:
+      -if permitted_to?(:edit,@lecture)
+        =edit_link(@lecture,edit_lecture_path(@lecture))
+      -if permitted_to?(:destroy,@lecture)
+        =destroy_link(@lecture,lecture_path(@lecture))
   -if permitted_to?(:create,:links)
-    .item=link_to "Add Link",new_lecture_link_path(@lecture)
+    .item
+      %b Links:
+      =link_to "Add",new_lecture_link_path(@lecture)
   -if permitted_to?(:create,:announcements)
-    .item=link_to "Add Announcement",new_lecture_announcement_path(@lecture)
+    .item
+      %b Blackboard:
+      =link_to "Add",new_lecture_announcement_path(@lecture)
   -if permitted_to?(:create,:downloads)
-    .item=link_to "Add Download",new_lecture_download_path(@lecture)
+    .item
+      %b Download:
+      =link_to "Add",new_lecture_download_path(@lecture)
 
 =boxed @lecture.name do
   .list

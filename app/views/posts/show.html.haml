@@ -1,4 +1,12 @@
 -title(@post.title)
+-content_for :user_menu do
+  -if permitted_to?(:destroy,@post) ||  permitted_to?(:update,@post)  
+    .item
+      %b Post:
+      -if permitted_to?(:destroy,@post)
+        =destroy_link(@post,post_path(@post))
+      -if permitted_to?(:update,@post)  
+        =edit_link(@post,edit_post_path(@post))
 
 =boxed @post.title do
   =render :partial=>@post
@@ -10,4 +18,4 @@
 
 -if permitted_to?(:create,:comments)
   =boxed "Add your comment" do
-    =render :partial=>"comments/form"
+    =render :partial=>"comments/form",:locals=>{:path=>[@post,@comment]}
