@@ -9,7 +9,7 @@
       %b Lecture:
       =link_to @lecture.name,lecture_path(@lecture)
       -if permitted_to?(:download,@download)
-        =button_to "Download",lecture_download_download_path(@lecture,@download)
+        =button_to "Download",lecture_download_download_path(@lecture,@download),:class=>'piwik_download'
       -else
         You need to log in before you can download this file.
       =simple_format(auto_link(@download.description))
