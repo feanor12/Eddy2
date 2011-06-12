@@ -1,1 +1,1 @@
-bitpit({clientId: "3425", forceUIThread: true});
+//bitpit({clientId: "3425", forceUIThread: true});
