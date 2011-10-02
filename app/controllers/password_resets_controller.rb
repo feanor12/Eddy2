@@ -17,7 +17,8 @@ class PasswordResetsController < ApplicationController
         flash[:notice]="# Instructions to reset your password have been emailed to you. " +
           "Please check your email."
       else 
-        flash[:notice]="Please activate your account first. Please check your email."
+        flash[:notice]="Please activate your account first. "+
+          "Please check your email or "+link_to('resend Instructions',reactivate_path) +"."
       end
       redirect_to root_url
     else
