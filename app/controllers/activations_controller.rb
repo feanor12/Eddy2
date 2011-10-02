@@ -1,6 +1,6 @@
 class ActivationsController < ApplicationController
   filter_access_to :create,:resend_activation,:new
-  before_filter :load_user_using_perishable_token
+  before_filter :load_user_using_perishable_token,:only=>['create']
 
   def new
 
