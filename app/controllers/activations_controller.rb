@@ -1,6 +1,19 @@
 class ActivationsController < ApplicationController
-  filter_access_to :create
+  filter_access_to :create,:resend_activation,:new
   before_filter :load_user_using_perishable_token
+
+  def new
+
+  end
+
+  def resend_activation
+    @user=User.where(:mail=>params[:email],:active=>false)
+    if @user
+      flash[:notice]="Email with activation code was send to you"
+      @user.deliver_activation_instructions!
+      redirect_to root_path
+    end
+  end
 
   def create
     if @user.activate!

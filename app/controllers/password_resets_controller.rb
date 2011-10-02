@@ -11,9 +11,14 @@ class PasswordResetsController < ApplicationController
   def create
     @user = User.find_by_email(params[:email])
     if @user
-      @user.deliver_password_reset_instructions!
-      flash[:notice]="# Instructions to reset your password have been emailed to you. " +
-        "Please check your email."
+
+      if @user.active
+        @user.deliver_password_reset_instructions!
+        flash[:notice]="# Instructions to reset your password have been emailed to you. " +
+          "Please check your email."
+      else 
+        flash[:notice]="Please activate your account first. Please check your email."
+      end
       redirect_to root_url
     else
       flash[:notice]="No user was found with that email address"

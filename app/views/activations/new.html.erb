@@ -1,0 +1,11 @@
+-title("Resend Activation Instructions")
+=boxed "Resend Activation Instructions" do
+  %li
+    %p Fill out the form below and instructions to activate your account will be sent to you:
+    =form_tag reactivate_path do |f|
+      =label_tag :email
+      %br
+      =text_field_tag :email
+      %br
+      =submit_tag "Send instructions!"
+

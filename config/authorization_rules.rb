@@ -119,7 +119,7 @@ authorization do
     has_permission_on :statics, :to=>[:show]
     has_permission_on :users, :to=>[:new,:create]
     has_permission_on :static_links, :to=>[:show]
-    has_permission_on :activations,:to=>[:create]
+    has_permission_on :activations,:to=>[:create,:new,:resend]
     has_permission_on :password_resets,:to=>[:create,:new,:update]
     has_permission_on :user_sessions,:to=>[:create,:new]
   end
