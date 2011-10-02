@@ -18,7 +18,7 @@ class PasswordResetsController < ApplicationController
           "Please check your email."
       else 
         flash[:notice]="Please activate your account first. "+
-          "Please check your email or "+reactivate_url +" ."
+          "Please check your email or " + reactivate_url + " ."
       end
       redirect_to root_url
     else
