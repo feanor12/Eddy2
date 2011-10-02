@@ -7,7 +7,7 @@ class ActivationsController < ApplicationController
   end
 
   def resend_activation
-    @user=User.where(:mail=>params[:email],:active=>false).first
+    @user=User.where(:email=>params[:email],:active=>false).first
     if @user
       flash[:notice]="Email with activation code was send to you"
       @user.deliver_activation_instructions!
