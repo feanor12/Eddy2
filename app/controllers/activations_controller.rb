@@ -7,12 +7,14 @@ class ActivationsController < ApplicationController
   end
 
   def resend_activation
-    @user=User.where(:mail=>params[:email],:active=>false)
+    @user=User.where(:mail=>params[:email],:active=>false).first
     if @user
       flash[:notice]="Email with activation code was send to you"
       @user.deliver_activation_instructions!
-      redirect_to root_path
+    else
+      flash[:notice]="No User found"
     end
+      redirect_to root_path
   end
 
   def create
