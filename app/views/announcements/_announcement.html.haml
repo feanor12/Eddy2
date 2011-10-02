@@ -1,7 +1,7 @@
-%li
+.article
   -unless defined? no_title
     %h3
-      =announcement.title
+      =link_to_unless_current(announcement.title,[announcement.lecture,announcement])
   =simple_format(auto_link(announcement.body))
 
   .item-menu
@@ -11,8 +11,5 @@
     %b.comment-count#comment-count
       =pluralize announcement.comments.length, "Comment"
     .item-actions
-      =link_to("Show",[announcement.lecture,announcement],:class=>'action_tag')if permitted_to?(:read,:announcements)
-      =edit_link(announcement,edit_lecture_announcement_path(announcement.lecture,announcement))
-      =destroy_link(announcement,lecture_announcement_path(announcement.lecture,announcement))
     =clear
 

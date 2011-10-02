@@ -5,12 +5,16 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    @user_session = UserSession.new(params[:user_session])
-    if @user_session.save
-      flash[:notice] = "Login successful!"
-      redirect_back_or_default(posts_path)
+    if User.find_by_email(params[:user_session][:email])
+      @user_session = UserSession.new(params[:user_session])
+      if @user_session.save
+        flash[:notice] = "Login successful!"
+        redirect_back_or_default(posts_path)
+      else
+        redirect_to posts_path
+      end
     else
-      redirect_to posts_path
+      redirect_to new_user_path
     end
   end
 

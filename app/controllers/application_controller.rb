@@ -31,8 +31,8 @@ class ApplicationController < ActionController::Base
       groups=current_user.groups
       @s_timers = Timer.joins(:group).where(:group_id=>groups).where('deadline > ?',Time.now).order('deadline ASC').limit(5)
     end
-      @s_downloads = Download.find(:all,:order=>'updated_at DESC',:limit=>5)
-      @s_announcements = Announcement.find(:all,:order=>'updated_at DESC',:limit=>5)
+      @s_downloads = Download.order('updated_at DESC').where('updated_at > ?',Time.now - 2.weeks)
+      @s_announcements = Announcement.order('updated_at DESC').where('updated_at > ?',Time.now - 2.weeks)
   end
 
   def permission_denied

@@ -3,4 +3,5 @@ class Announcement < ActiveRecord::Base
   belongs_to :lecture
   has_many :comments,:as=>:commentable,:dependent=>:destroy
   attr_accessible :title, :body
+  paginates_per 3
 end

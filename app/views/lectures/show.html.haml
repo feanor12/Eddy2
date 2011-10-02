@@ -1,42 +1,63 @@
 -title(@lecture.name)
+-content_for :user_menu do
+  -if permitted_to?(:edit,@lecture) || permitted_to?(:destroy,@lecture)
+    .item
+      %b Lecture:
+      -if permitted_to?(:edit,@lecture)
+        =edit_link(@lecture,edit_lecture_path(@lecture))
+      -if permitted_to?(:destroy,@lecture)
+        =destroy_link(@lecture,lecture_path(@lecture))
+  -if permitted_to?(:create,:links)
+    .item
+      %b Links:
+      =link_to "Add",new_lecture_link_path(@lecture)
+  -if permitted_to?(:create,:announcements)
+    .item
+      %b Blackboard:
+      =link_to "Add",new_lecture_announcement_path(@lecture)
+  -if permitted_to?(:create,:downloads)
+    .item
+      %b Download:
+      =link_to "Add",new_lecture_download_path(@lecture)
 
 =boxed @lecture.name do
-  %li
-    =@lecture.semester.to_s + ". Semester"
+  .list
+    .item=@lecture.semester.to_s + ". Semester"
 
-  -unless (@lecture.tuglink.blank? && @lecture.unilink.blank? )
-    %li
-      =link_to("TUGRAZonline",@lecture.tuglink) unless @lecture.tuglink.blank?
-      ="/" unless (@lecture.tuglink.blank? || @lecture.unilink.blank?)
-      =link_to("UNIGRAZonline",@lecture.unilink) unless @lecture.unilink.blank?
+    -unless (@lecture.tuglink.blank? && @lecture.unilink.blank? )
+      .item
+        =link_to("TUGRAZonline",@lecture.tuglink) unless @lecture.tuglink.blank?
+        ="/" unless (@lecture.tuglink.blank? || @lecture.unilink.blank?)
+        =link_to("UNIGRAZonline",@lecture.unilink) unless @lecture.unilink.blank?
 
-  -unless @lecture.description.blank?
-    %li
-      =simple_format(auto_link(@lecture.description))
+    -unless @lecture.description.blank?
+      .item
+        =simple_format(auto_link(@lecture.description))
 
-  -if current_user
-    -unless current_user.groups.where(['groups.lecture_id=?',@lecture.id]).empty?
-      %li
-        ="Your Group:"+current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.name
+    -if current_user
+      -unless current_user.groups.where(['groups.lecture_id=?',@lecture.id]).empty?
+        .item
+          ="Your Group:"+current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.name
         =link_to("Cancel",cancel_group_path(current_user.groups.where(['groups.lecture_id=?',@lecture.id]).first.id))
 
-    -unless @groups.empty?
-      %li
-        Change Group:
-        -@groups.each do |g|
-          =link_to(g.name,apply_path(g),:method=>:post)
+      -unless @groups || @groups.empty?
+        .item
+          Change Group:
+          -@groups.each do |g|
+            =link_to(g.name,apply_path(g),:method=>:post)
 
 -if  permitted_to?(:read,:links)
   =boxed "Links",:new_path=>new_lecture_link_path(@lecture),:new=>"links" do
-    -@links.each do |l|
-      -if permitted_to?(:read,l)
-        %li
-          =link_to l.name, l.url
-          =edit_link(l,edit_lecture_link_path(@lecture,l))
-          =destroy_link(l,lecture_link_path(@lecture,l))
+    .list
+      -@links.each do |l|
+        -if permitted_to?(:read,l)
+          .item
+            =link_to l.name, l.url
+            =edit_link(l,edit_lecture_link_path(@lecture,l))
+            =destroy_link(l,lecture_link_path(@lecture,l))
 
 -if permitted_to?(:read,:announcements)
-  =boxed "Blackboard",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture),:paginate=>@announcements do
+  =boxed "Blackboard",:new=>"announcements",:new_path=>new_lecture_announcement_path(@lecture),:pages=>@announcements do
     =render :partial=>@announcements unless @announcements.empty?
 
 -if permitted_to?(:read,:downloads)

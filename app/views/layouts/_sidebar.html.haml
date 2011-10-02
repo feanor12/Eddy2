@@ -1,29 +1,34 @@
 .sidebar
   -unless current_user
-    =boxed "Login" do
+    =boxed "Login / Registration" do
       =render :partial=>"user_sessions/form"
 
   -if current_user
-    =render :partial=>"mylinks/index"
+    =boxed current_user.name do
+      .list
+        =yield(:user_menu)
+        .item
+          =link_to "Logout",user_session_path,:method=>:delete 
+          =link_to "Edit",edit_user_path(current_user)
+        .item="Email:"+current_user.email
 
     -unless @s_timers.empty?
       =boxed "Timer" do
-        -@s_timers.each do |timer|
-          %li
-            =distance_of_time_in_words(Time.now,timer.deadline)
-            to:
-            =(timer.link.nil? | timer.link.blank?) ? timer.content : link_to(timer.content,timer.link)
+        .list
+          -@s_timers.each do |timer|
+            .item{:data=>{:date=>timer.updated_at.inspect}}
+              =(timer.link.nil? | timer.link.blank?) ? timer.content : link_to(timer.content,timer.link)
 
   -unless @s_downloads.empty?
-    =boxed "Latest files" do
-      -@s_downloads.each do |dl|
-        %li{:class=> permitted_to?(:download,dl) ? "public" : "private"}
-          =link_to dl.name,lecture_download_path(dl.lecture,dl)
-          =distance_of_time_in_words(Time.now,dl.updated_at)
+    =boxed "Hot Files" do
+      .list
+        -@s_downloads.each do |dl|
+          .item{:data=>{:date=>dl.updated_at.inspect}}
+            =link_to dl.name,lecture_download_path(dl.lecture,dl)
 
   -unless @s_announcements.empty?
-    =boxed "Latest threads" do
-      -@s_announcements.each do |a|
-        %li
-          =link_to a.title,lecture_announcement_path(a.lecture,a)
-          =distance_of_time_in_words(Time.now,a.updated_at)+" ago"
+    =boxed "Hot Threads" do
+      .list
+        -@s_announcements.each do |a|
+          .item{:data=>{:date=>a.updated_at.inspect}}
+            =link_to a.title,lecture_announcement_path(a.lecture,a)

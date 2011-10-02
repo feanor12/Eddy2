@@ -1,28 +1,33 @@
 -title(@download.name)
+-content_for :user_menu do
+  -if permitted_to?(:destroy,@download)  
+    .item=destroy_link(@download,lecture_download_path(@download.lecture,@download))
+
 =boxed @download.name do
-  %li
-    %b Lecture:
-    =link_to @lecture.name,lecture_path(@lecture)
-  %li.download
-    -if permitted_to?(:download,@download)
-      =button_to "Download",download_download_path(@lecture,@download)
-    -else
-      You need to log in before you can download this file.
-  %li
-    =simple_format(auto_link(@download.description))
-  %li
-    ="by " + @download.user.name
+  .article
+    .contect
+      %b Lecture:
+      =link_to @lecture.name,lecture_path(@lecture)
+      -if permitted_to?(:download,@download)
+        =button_to "Download",lecture_download_download_path(@lecture,@download),:class=>'piwik_download'
+      -else
+        You need to log in before you can download this file.
+      =simple_format(auto_link(@download.description))
+
+    .item-menu
+      %b.comment-count
+        by 
+        =@download.user.name
+
+      %b.comment-count{:id=>"comment-count"+ (@download.id if defined?(show_title)).to_s }
+        =pluralize @download.comments.length, "Comment"
+
+      .clear
 
 -unless @download.comments.empty?
   =boxed "Comments" do
     =render :partial=>'comments/comment',:collection=>@download.comments.order("created_at ASC")
 
 -if permitted_to?(:create,:comments)
-  =boxed "Add your Comment" do
-    %li
-      =form_for [@download.lecture,@download,@comment] do |f|
-        =f.label :body,"Text"
-        %br
-        =f.text_area :body, :rows=>3
-        %br
-        =f.submit
+  =boxed "Add your comment" do
+    =render :partial=>"comments/form" ,:locals=>{:path=>[@download.lecture,@download,@comment]}

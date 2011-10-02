@@ -1,8 +1,16 @@
 -title(@announcement.title)
+-content_for :user_menu do
+  -if permitted_to?(:edit,@announcement) || permitted_to?(:destroy,@announcement)
+    .item
+      %b Blackboard:
+      -if permitted_to?(:edit,@announcement)
+        =edit_link(@announcement,edit_lecture_announcement_path(@announcement.lecture,@announcement))
+      -if permitted_to?(:destroy,@announcement)
+        =destroy_link(@announcement,lecture_announcement_path(@announcement.lecture,@announcement))
+
 =boxed @announcement.title  do
-  %li
-    Lecture:
-    =link_to @announcement.lecture.name,@announcement.lecture
+  Lecture:
+  =link_to @announcement.lecture.name,@announcement.lecture
   =render :partial=>@announcement,:locals=>{:no_title=>true}
 
 -unless @announcement.comments.empty?
@@ -10,11 +18,5 @@
     =render :partial=>'comments/comment',:collection=>@announcement.comments.order("created_at ASC")
 
 -if permitted_to?(:create,:comments)
-  =boxed "Add your Comment" do
-    %li
-      =form_for [@announcement.lecture,@announcement,@comment] do |f|
-        =f.label :body,"Text"
-        %br
-        =f.text_area :body, :rows=>3
-        %br
-        =f.submit
+  =boxed "Add your comment" do
+    =render :partial=>"comments/form" ,:locals=>{:path=>[@announcement.lecture,@announcement,@comment] }

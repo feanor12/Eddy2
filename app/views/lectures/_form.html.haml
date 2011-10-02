@@ -1,23 +1,22 @@
-%li
-  =form_for @lecture do |f|
-    =f.label :name,"Lecturename:"
-    %br
-    =f.text_field :name
-    %br
-    =f.label :name,"Semester:"
-    %br
-    =f.number_field :semester
-    %br
-    =f.label :description,"Beschreibung"
-    %br
-    =f.text_area :description
-    %br
-    =f.label :tuglink,"TUGRAZonline Link"
-    %br
-    =f.text_field :tuglink
-    %br
-    =f.label :unilink,"UNIGRAZonline Link"
-    %br
-    =f.text_field :unilink
-    %br
-    =f.submit
+=form_for @lecture do |f|
+  =f.label :name,"Lecturename:"
+  %br
+  =f.text_field :name
+  %br
+  =f.label :name,"Semester:"
+  %br
+  =f.number_field :semester
+  %br
+  =f.label :description,"Beschreibung"
+  %br
+  =f.text_area :description
+  %br
+  =f.label :tuglink,"TUGRAZonline Link"
+  %br
+  =f.text_field :tuglink
+  %br
+  =f.label :unilink,"UNIGRAZonline Link"
+  %br
+  =f.text_field :unilink
+  %br
+  =f.submit

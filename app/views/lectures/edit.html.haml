@@ -4,20 +4,18 @@
   =render :partial=>'form'
 
 =boxed "Edit Groups",:new=>"groups",:new_path=>new_lecture_group_path(@lecture) do
-  %li
-    =button_to("Let me try", lecture_parse_path(@lecture))
-  %li
-    %table
+  =button_to("Let me try", lecture_parse_path(@lecture))
+  %table
+    %tr
+      %th Name
+      %th Timer
+      %th
+    -@lecture.groups.each do |g|
       %tr
-        %th Name
-        %th Timer
-        %th
-      -@lecture.groups.each do |g|
-        %tr
-          %td
-            =g.name
-          %td
-            =g.timers.size
-          %td
-            =edit_link(g,edit_lecture_group_path(@lecture,g))
-            =destroy_link(g,lecture_group_path(@lecture,g))
+        %td
+          =g.name
+        %td
+          =g.timers.size
+        %td
+          =edit_link(g,edit_lecture_group_path(@lecture,g))
+          =destroy_link(g,lecture_group_path(@lecture,g))

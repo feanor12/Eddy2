@@ -6,8 +6,10 @@ class DownloadsController < ApplicationController
   def download
     @download = Download.find(params[:download_id])
     if permitted_to?(:download,@download)
-    root_path = File::join ::Rails.root.to_s, "public"
-    send_file root_path + @download.document_url.to_s, :x_sendfile=>true, :type=>"application/octet-stream"
+      @download.updated_at=Time.now
+      @download.save
+      root_path = File::join ::Rails.root.to_s, "public"
+      send_file root_path + @download.document_url.to_s, :x_sendfile=>true, :type=>"application/octet-stream"
     else
       permission_denied
     end
