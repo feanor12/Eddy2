@@ -11,6 +11,7 @@ Eddy2::Application.routes.draw do
 
   get 'activate/:activation_code' , :to=> 'activations#create', :as=>'activate'
   get 'reactivate' , :to=> 'activations#new', :as=>'reactivate'
+  post 'activate' , :to=> 'activations#resend_activation'
 
   match '/rss/news_rss.html' ,:to=>redirect("/posts.rss")
 

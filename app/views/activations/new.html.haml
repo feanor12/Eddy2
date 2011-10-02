@@ -2,7 +2,7 @@
 =boxed "Resend Activation Instructions" do
   %li
     %p Fill out the form below and instructions to activate your account will be sent to you:
-    =form_tag reactivate_path do |f|
+    =form_tag "/activate",:method=>:post do |f|
       =label_tag :email
       %br
       =text_field_tag :email
