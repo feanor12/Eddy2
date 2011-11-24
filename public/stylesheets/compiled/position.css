@@ -13,55 +13,69 @@ code {
   display: block;
 }
 
-/* line 14, ../../../app/stylesheets/position.sass */
+/* line 12, ../../../app/stylesheets/position.sass */
+.piwik_download {
+  background: #eeeeee;
+  border: solid 1px white;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  color: #222222;
+  text-decoration: none;
+}
+/* line 19, ../../../app/stylesheets/position.sass */
+.piwik_download:hover {
+  background-color: white;
+}
+
+/* line 22, ../../../app/stylesheets/position.sass */
 pre {
   background-color: #eeeeee;
   padding: 10px;
   font-size: 11px;
 }
 
-/* line 19, ../../../app/stylesheets/position.sass */
+/* line 27, ../../../app/stylesheets/position.sass */
 a {
   color: #0088aa;
   font-weight: bold;
   text-decoration: none;
 }
-/* line 23, ../../../app/stylesheets/position.sass */
+/* line 31, ../../../app/stylesheets/position.sass */
 a:hover {
   color: #006666;
   text-decoration: underline;
 }
 
-/* line 27, ../../../app/stylesheets/position.sass */
+/* line 35, ../../../app/stylesheets/position.sass */
 .item-menu {
   color: #aaaaaa;
   margin-top: 0.2em;
 }
 
-/* line 31, ../../../app/stylesheets/position.sass */
+/* line 39, ../../../app/stylesheets/position.sass */
 .item-actions {
   float: right;
 }
 
-/* line 34, ../../../app/stylesheets/position.sass */
+/* line 42, ../../../app/stylesheets/position.sass */
 .comment-count {
   float: left;
   margin-right: 1em;
 }
 
-/* line 38, ../../../app/stylesheets/position.sass */
+/* line 46, ../../../app/stylesheets/position.sass */
 #notice {
   color: green;
 }
 
-/* line 41, ../../../app/stylesheets/position.sass */
+/* line 49, ../../../app/stylesheets/position.sass */
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
 
-/* line 46, ../../../app/stylesheets/position.sass */
+/* line 54, ../../../app/stylesheets/position.sass */
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -70,7 +84,7 @@ a:hover {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 53, ../../../app/stylesheets/position.sass */
+/* line 61, ../../../app/stylesheets/position.sass */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -81,44 +95,44 @@ a:hover {
   background-color: #cc0000;
   color: white;
 }
-/* line 62, ../../../app/stylesheets/position.sass */
+/* line 70, ../../../app/stylesheets/position.sass */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
 
-/* line 66, ../../../app/stylesheets/position.sass */
+/* line 74, ../../../app/stylesheets/position.sass */
 #main {
   padding: 0;
   margin: 0;
 }
 
-/* line 70, ../../../app/stylesheets/position.sass */
+/* line 78, ../../../app/stylesheets/position.sass */
 img {
   border: 0;
 }
 
-/* line 73, ../../../app/stylesheets/position.sass */
+/* line 81, ../../../app/stylesheets/position.sass */
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
 }
 
-/* line 76, ../../../app/stylesheets/position.sass */
+/* line 84, ../../../app/stylesheets/position.sass */
 #content {
   padding: 1em;
 }
-/* line 78, ../../../app/stylesheets/position.sass */
+/* line 86, ../../../app/stylesheets/position.sass */
 #content h2 {
   margin: 0;
   margin-bottom: 0.2em;
 }
 
-/* line 82, ../../../app/stylesheets/position.sass */
+/* line 90, ../../../app/stylesheets/position.sass */
 .clear {
   clear: both;
 }
 
-/* line 85, ../../../app/stylesheets/position.sass */
+/* line 93, ../../../app/stylesheets/position.sass */
 body {
   background-color: #222222;
   color: #eeeeee;
@@ -126,7 +140,7 @@ body {
   font-size: 0.7em;
 }
 
-/* line 91, ../../../app/stylesheets/position.sass */
+/* line 99, ../../../app/stylesheets/position.sass */
 .sidebar {
   overflow: hidden;
   float: right;
@@ -134,13 +148,13 @@ body {
   margin-left: 1em;
 }
 
-/* line 97, ../../../app/stylesheets/position.sass */
+/* line 105, ../../../app/stylesheets/position.sass */
 .with_sidebar {
   overflow: hidden;
 }
 
 /*BEGIN: Add Edit Destroy Tags */
-/* line 102, ../../../app/stylesheets/position.sass */
+/* line 110, ../../../app/stylesheets/position.sass */
 .action_tag {
   float: right;
   font-size: 0.8em;
@@ -149,16 +163,16 @@ body {
   margin-left: 0.2em;
 }
 
-/* line 109, ../../../app/stylesheets/position.sass */
+/* line 117, ../../../app/stylesheets/position.sass */
 .add_tag {
   color: #ccff33;
 }
-/* line 111, ../../../app/stylesheets/position.sass */
+/* line 119, ../../../app/stylesheets/position.sass */
 .add_tag :visited {
   color: #ccff33;
 }
 
-/* line 116, ../../../app/stylesheets/position.sass */
+/* line 124, ../../../app/stylesheets/position.sass */
 th, td {
   border-width: 1px;
   border-spacing: 0px;
@@ -166,7 +180,7 @@ th, td {
   border-color: white;
 }
 
-/* line 122, ../../../app/stylesheets/position.sass */
+/* line 130, ../../../app/stylesheets/position.sass */
 table {
   border-collapse: collapse;
   border-style: hidden;
