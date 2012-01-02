@@ -7,6 +7,11 @@ module PostsHelper
     after='" frameborder="0" allowfullscreen></iframe>'
     text.gsub!('[YouTube]',before)
     text.gsub!('[/YouTube]',after)
+    
+    before='<script src="http://pastebin.com/embed_js.php?i='
+    after='"></script>'
+    text.gsub!('[PBin]',before)
+    text.gsub!('[/PBin]',after)
 
     text
   end
