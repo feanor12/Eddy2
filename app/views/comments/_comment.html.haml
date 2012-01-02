@@ -1,6 +1,6 @@
 .article{:id=>"comment"+comment.id.to_s}
   %div
-    =simple_format(auto_link(comment.body))
+    =format_post(comment.body)
   :ruby
     comment_destroy_url=case params[:controller]
       when 'posts' then [comment.commentable,comment]

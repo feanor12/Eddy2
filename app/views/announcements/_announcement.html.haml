@@ -2,7 +2,7 @@
   -unless defined? no_title
     %h3
       =link_to_unless_current(announcement.title,[announcement.lecture,announcement])
-  =simple_format(auto_link(announcement.body))
+  =format_post(announcement.body)
 
   .item-menu
     %b.comment-count
