@@ -61,6 +61,7 @@ authorization do
 ## USER
 #################################################################
   role :user do
+    has_permission_on :teamspeak,:to=>[:read]
     has_permission_on :users, :to=>[:index_mods]
     has_permission_on :users, :to=>[:update] do
       if_attribute :id => is {user.id}
