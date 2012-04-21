@@ -32,3 +32,13 @@
         -@s_announcements.each do |a|
           .item{:data=>{:date=>a.updated_at.inspect}}
             =link_to a.title,lecture_announcement_path(a.lecture,a)
+
+  
+  -if permitted_to?(:read,:teamspeak)
+    =boxed "Teamspeak" do
+      %b Server:
+      physicks.co.cc
+      %br
+      %b Password:
+      skcisyhP
+

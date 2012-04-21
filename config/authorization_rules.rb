@@ -18,6 +18,7 @@ authorization do
     has_permission_on :groups,:to=>[:manage]
     has_permission_on :user_sessions,:to=>[:destroy]
     has_permission_on :timers,:to=>[:manage]
+    has_permission_on :teamspeak,:to=>[:read]
   end
 
 #################################################################
