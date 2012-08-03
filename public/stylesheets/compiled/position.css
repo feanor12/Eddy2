@@ -191,3 +191,8 @@ table {
   border-collapse: collapse;
   border-style: hidden;
 }
+
+/* line 139, ../../../app/stylesheets/position.sass */
+#login input [type="text"], #login input [type="password"] {
+  width: 100%;
+}
