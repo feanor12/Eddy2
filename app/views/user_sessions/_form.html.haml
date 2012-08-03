@@ -1,15 +1,12 @@
 #login
   =form_for @user_session, :as=>:user_session , :url => user_session_path do |f|
-    =f.label :email
+    =f.text_field :email, :placeholder=>"E-Mail"
     %br
-    =f.text_field :email
     %br
-    =f.label :password
+    =f.password_field :password, :placeholder=>"Password"
+    %br
+    =f.submit "Login"
     (
     =link_to( "forgotten", new_password_reset_path)
     )
-    %br
-    =f.password_field :password
-    %br
-    =f.submit "Login"
 
