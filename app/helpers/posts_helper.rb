@@ -7,6 +7,12 @@ module PostsHelper
     after='" frameborder="0" allowfullscreen></iframe>'
     text.gsub!('[YouTube]',before)
     text.gsub!('[/YouTube]',after)
+
+    #MITvideo
+    before='<iframe width="640" height="360" src="http://video.mit.edu/embed/'
+    after='/" frameborder="0"></iframe>'
+    text.gsub!('[MIT]',before)
+    text.gsub!('[/MIT]',after)
     
     before='<script src="http://pastebin.com/embed_js.php?i='
     after='"></script>'
