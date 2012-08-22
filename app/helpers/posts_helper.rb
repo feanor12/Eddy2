@@ -9,7 +9,7 @@ module PostsHelper
     text.gsub!('[/YouTube]',after)
 
     #MITvideo
-    before='<iframe width="640" height="360" src="http://video.mit.edu/embed/'
+    before='<iframe width="544" height="335" src="http://video.mit.edu/embed/'
     after='/" frameborder="0"></iframe>'
     text.gsub!('[MIT]',before)
     text.gsub!('[/MIT]',after)
