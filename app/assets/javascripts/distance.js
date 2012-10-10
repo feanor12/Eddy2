@@ -1,4 +1,5 @@
-document.observe("dom:loaded", function() {
+
+$(document).ready(function(){
   start();
 });
 
@@ -8,21 +9,21 @@ var start=function(){
 };
 
 var appendTime = function() {
-  $$('.item[data-date]').each(function(item){
-      var d = Date.parse(item.getAttribute('data-date'));
+  $('.item[data-date]').each(function(i){
+      var d = Date.parse(this.getAttribute('data-date'));
       var other = new Date();
       other.setTime(d);
       var dis = - other + Date.now();
       var str = msecToString(dis);
 
-      var test = item.getElementsByClassName('time_tag')
+      var test = this.getElementsByClassName('time_tag')
 
       if (test.length == 0){
         var element = document.createElement("span");
         element.className = 'time_tag';
         var text=document.createTextNode(str);
         element.appendChild(text);
-        item.appendChild(element);
+        this.appendChild(element);
       }else if(test.length == 1){
         var span = test.item(0).childNodes.item(0);
         span.data=str;
