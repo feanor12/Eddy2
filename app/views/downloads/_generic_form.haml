@@ -1,7 +1,7 @@
 =form_for(@download,:url=>{:action=>'create'} , :html => {:multipart=>true,:method=>:post}) do |f|
  =f.label :lecture
  %br
- =f.select :lecture_id, Lecture.all.map { |lecture| [lecture.name, lecture.id] }
+ =f.select :lecture_id, (Lecture.all.map { |lecture| [lecture.name, lecture.id] }).sort!
  %br
  =f.label :name
  %br
