@@ -1,6 +1,6 @@
 class DownloadsController < ApplicationController
   filter_resource_access
-  filter_access_to :download
+  filter_access_to :download, :generic
   before_filter :store_location,:only=>[:show]
 
   def download
@@ -20,8 +20,16 @@ class DownloadsController < ApplicationController
     @download=@lecture.downloads.build
   end
 
+  def generic
+    @download= Download.new
+  end
+
   def create
-    @lecture = Lecture.find(params[:lecture_id])
+    if(params[:lecture_id])
+      @lecture = Lecture.find(params[:lecture_id])
+    else
+      @lecture = Lecture.find(params[:download][:lecture_id])
+    end
     @download=@lecture.downloads.build(params[:download])
     @download.user=current_user
     if @download.save
@@ -37,7 +45,6 @@ class DownloadsController < ApplicationController
     @comment = Comment.new
     respond_to do |format|
       format.html
-      format.meta4
     end
 
   end

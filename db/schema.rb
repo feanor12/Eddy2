@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -17,24 +18,24 @@ ActiveRecord::Schema.define(:version => 20110205175412) do
     t.text     "body"
     t.integer  "user_id"
     t.integer  "lecture_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "comments", :force => true do |t|
     t.text     "body"
     t.integer  "user_id"
     t.integer  "commentable_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "commentable_type", :default => "Post"
   end
 
   create_table "downloads", :force => true do |t|
     t.string   "name"
     t.integer  "lecture_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.text     "description"
     t.string   "document"
     t.integer  "user_id",     :default => 1
@@ -44,21 +45,21 @@ ActiveRecord::Schema.define(:version => 20110205175412) do
   create_table "group_applications", :force => true do |t|
     t.integer  "group_id"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.integer  "lecture_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "lectures", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "user_id"
     t.text     "description"
     t.integer  "semester",    :default => 0
@@ -71,8 +72,8 @@ ActiveRecord::Schema.define(:version => 20110205175412) do
   create_table "links", :force => true do |t|
     t.string   "url"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "name"
     t.integer  "lecture_id"
     t.boolean  "public",     :default => false, :null => false
@@ -82,37 +83,37 @@ ActiveRecord::Schema.define(:version => 20110205175412) do
     t.string   "name"
     t.string   "url"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "user_id"
   end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "static_links", :force => true do |t|
     t.string   "name"
     t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "priority",   :default => 0, :null => false
   end
 
   create_table "statics", :force => true do |t|
     t.string   "title",                     :null => false
     t.text     "body",                      :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "priority",   :default => 0, :null => false
   end
 
@@ -120,8 +121,8 @@ ActiveRecord::Schema.define(:version => 20110205175412) do
     t.integer  "group_id"
     t.datetime "deadline"
     t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.string   "link",       :default => ""
   end
 
@@ -132,8 +133,8 @@ ActiveRecord::Schema.define(:version => 20110205175412) do
     t.string   "persistence_token"
     t.string   "perishable_token"
     t.integer  "role_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.boolean  "active",            :default => false, :null => false
     t.string   "login"
     t.datetime "last_request_at"

@@ -18,6 +18,8 @@ Eddy2::Application.routes.draw do
   match '/promote/:id' ,:to=>'users#promote',:as=>'promote'
   match 'mods', :to=>'users#index_mods',:as=>'mods'
 
+  match '/upload'=>'downloads#generic'
+  post '/downloads/create'=>'downloads#create'
 
   resources :lectures do
     match 'parse' => "lectures#parse", :as =>'parse'

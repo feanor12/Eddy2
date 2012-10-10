@@ -45,7 +45,6 @@ class LecturesController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.meta4
     end
   end
 

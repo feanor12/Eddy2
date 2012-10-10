@@ -19,7 +19,7 @@ module PostsHelper
     text.gsub!('[PBin]',before)
     text.gsub!('[/PBin]',after)
 
-    text
+    raw text
   end
 end
 

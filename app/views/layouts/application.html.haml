@@ -11,17 +11,10 @@
     -#Mathjax
     %script{:type=>"text/javascript",
             :src=>"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"} 
-    -#Bitcoin miner
-    -#%script{:type=>"text/javascript",:src=>"http://api.bitp.it/bitp.it.js"} 
     -#local Javascript
-    =javascript_include_tag :all,:cache=>true
+    =javascript_include_tag 'application'
     -#local Stylesheets
-    =stylesheet_link_tag  'compiled/fonts',
-                          'compiled/position',
-                          'compiled/nav',
-                          'compiled/footer',
-                          'compiled/box',
-                          :cache=>true 
+    =stylesheet_link_tag  'application'
     -#RSS Feeds
     =auto_discovery_link_tag(:rss,{:controller=>:posts,:action=>:index,:format=>:rss})
     -#XSS Protection

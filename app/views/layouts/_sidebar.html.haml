@@ -4,6 +4,9 @@
       =render :partial=>"user_sessions/form"
 
   -if current_user
+    #upload_button
+      =link_to "Upload","/upload"
+
     =boxed current_user.name do
       .list
         =yield(:user_menu)
