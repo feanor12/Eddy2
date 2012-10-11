@@ -6,6 +6,6 @@
         =boxed "Status" do
           =auto_link notice
           :javascript
-            setTimeout("new Effect.DropOut('status');", 7000);
+            setTimeout("$('#status').fadeOut('slow');", 7000);
     =yield 
   =clear
