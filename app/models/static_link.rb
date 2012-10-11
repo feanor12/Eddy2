@@ -1,4 +1,5 @@
 class StaticLink < ActiveRecord::Base
+  attr_accessible :name, :url
   validates_format_of :url, :with=> /http:\/\/.+/
   validates_presence_of :url,:name
 
